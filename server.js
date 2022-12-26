@@ -20,3 +20,8 @@ app.listen(app.get('port'), function() {
   const url = 'http://localhost:' + app.set('port');
   console.log('Application running on port: ', app.get('port'));
 });
+
+// Server frontpage
+app.get('/', function (req, res) {
+    res.send('Final Editing');
+}); 
