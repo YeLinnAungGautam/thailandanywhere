@@ -10,7 +10,7 @@ const sendMessage = require('../templates/sendMessage');
         request({
             url: "https://graph.facebook.com/v2.6/" + senderID,
             qs: {
-                access_token: EAAVUZB5ZBKn6wBAChTAiKh2IchNXZCAx3BrlaQq3vZAnbx1kpOwiosD1wAkFvZAGkLXe1ubAXXea5ue2XBDraY9ilXMDyf5Sgx3QwEhpvvsJMm0zrv8w7xQopFZBZCncdbwb6p37c3p8ObSTXrZBWCQbHNdHxfjBEUnwfSyhQix4dZCUs2j1x7dDxkqwZBCvbPxhHFuZCykASlSKgZDZD                ,
+                access_token: process.env.PAGE_ACCESS_TOKEN,
                 fields: "first_name"
             },
             method: "GET"
