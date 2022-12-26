@@ -6,8 +6,8 @@ module.exports = function(app, chalk){
        console.log('webhook verified');
        res.status(200).send(req.query['hub.challenge']);
     } else {
-        console.error('verification failed. Token mismatch.');
-        res.sendStatus(403);
+        console.log('verification failed. Token mismatch.');
+        // res.sendStatus(403);
      }
   });
   
