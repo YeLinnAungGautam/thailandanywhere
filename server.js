@@ -109,10 +109,8 @@ function handleMessage(senderPsid, receivedMessage) {
   if (receivedMessage.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
-    // response = {
-    //   'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
-    // };
-    message = {
+    response = {
+      // 'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
       text: "Choose Language",
       quick_replies: [
         { 
@@ -126,7 +124,8 @@ function handleMessage(senderPsid, receivedMessage) {
           "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
         },
       ]
-    }
+    };
+    
   } else if (receivedMessage.attachments) {
 
     // Get the URL of the message attachment
