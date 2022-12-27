@@ -96,30 +96,20 @@ function handleMessage(senderPsid, receivedMessage) {
       
     // };
     response = {
-      'attachment': {
-        'type': 'template',
-        'payload': {
-          'template_type': 'generic',
-          'elements': [{
-            'title': 'Please Choose Your Languate',
-            'subtitle': 'Thank You',
-            'buttons': [
-              {
-                'type': 'postback',
-                'title': 'English',
-                'payload': 'eng',
-              },
-              {
-                'type': 'postback',
-                'title': 'မြန်မာ',
-                'payload': 'mm',
-              }
-            ],
-          }]
-        }
-      }
+      text: "Choose Language",
+      quick_replies: [
+        { 
+          "content_type":"text",
+          "title":"မြန်မာ",
+          "payload":"mm"
+        },
+        {
+          "content_type":"text",
+          "title":"English",
+          "payload":"eng"
+        },
+      ]
     };
-    
    } 
   // Send the response message
   callSendAPI(senderPsid, response);
@@ -170,29 +160,6 @@ function callSendAPI(senderPsid, response) {
     }
   });
 }
-function sendQuickReply(recipientId, text) { 
-  text = text || "";
-  var values = text.split(); 
-  if (values[0] === 'hi' || values[0] === 'Hi') {
-          message = {
-              text: "Choose Language",
-              quick_replies: [
-                { 
-                  "content_type":"text",
-                  "title":"Myanmar",
-                  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
-                },
-                {
-                  "content_type":"text",
-                  "title":"English",
-                  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
-                },
-              ]
-            }
-          sendMessage(recipientId, message);    
-                        return true; 
-  }
-}; 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
