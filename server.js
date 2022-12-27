@@ -99,15 +99,6 @@ app.post('/webhook', (req, res) => {
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
-  var events = req.body.entry[0].messaging; 
-  for (i = 0; i < events.length; i++) {
-      var event = events[i];
-      if(event.message){
-        if(!sendQuickReply(event.sender.id, event.message.text)){
-           sendMessage(event.sender.id); 
-        }
-   }
-  }
 });
 
 // Handles messages events
@@ -118,9 +109,24 @@ function handleMessage(senderPsid, receivedMessage) {
   if (receivedMessage.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
-    response = {
-      'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
-    };
+    // response = {
+    //   'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
+    // };
+    message = {
+      text: "Choose Language",
+      quick_replies: [
+        { 
+          "content_type":"text",
+          "title":"Myanmar",
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
+        },
+        {
+          "content_type":"text",
+          "title":"English",
+          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
+        },
+      ]
+    }
   } else if (receivedMessage.attachments) {
 
     // Get the URL of the message attachment
