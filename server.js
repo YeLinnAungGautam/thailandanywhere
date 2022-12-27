@@ -96,25 +96,28 @@ function handleMessage(senderPsid, receivedMessage) {
       
     // };
     response = {
-      text: "Choose Language",
-      'payload': {
-        'template_type': 'button',
-        'elements': [{
-          'title': 'Please Choose Your Language',
-          'subtitle': 'Thank You',
-          'buttons': [
-            {
-              'type': 'postback',
-              'title': 'English',
-              'payload': 'eng',
-            },
-            {
-              'type': 'postback',
-              'title': 'မြန်မာ',
-              'payload': 'mm',
-            }
-          ],
-        }]
+        'attachment': {
+          "type":"template",
+          'payload': {
+            'template_type': 'button',
+            "text":"Try the postback button!",
+            'buttons': [{
+              'title': 'Please Choose Your Language',
+              'subtitle': 'Thank You',
+              'buttons': [
+                {
+                  'type': 'postback',
+                  'title': 'English',
+                  'payload': 'eng',
+                },
+                {
+                  'type': 'postback',
+                  'title': 'မြန်မာ',
+                  'payload': 'mm',
+                }
+              ],
+            }]
+          }
       }
     };
    } 
