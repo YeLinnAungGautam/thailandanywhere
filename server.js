@@ -111,19 +111,19 @@ function handleMessage(senderPsid, receivedMessage) {
     // will be added to the body of your request to the Send API
     response = {
       // 'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
-      'text' : `Choose Language`,
+      'text': "Choose Language",
       quick_replies: [
-        { 
-          "content_type":"text",
-          "title":"Myanmar",
-          "payload":"mm"
-        },
-        {
-          "content_type":"text",
-          "title":"English",
-          "payload":"eng"
-        },
-      ]
+                  { 
+                    "content_type":"text",
+                    "title":"Myanmar",
+                    "payload":"mm"
+                  },
+                  {
+                    "content_type":"text",
+                    "title":"English",
+                    "payload":"eng"
+                  },
+                ]
     };
     
   } else if (receivedMessage.attachments) {
@@ -169,10 +169,10 @@ function handlePostback(senderPsid, receivedPostback) {
   let payload = receivedPostback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { 'text': 'Thanks!' };
-  } else if (payload === 'no') {
-    response = { 'text': 'Oops, try sending another image.' };
+  if (payload === 'mm') {
+    response = { 'text': 'Hello I am Burmese haha' };
+  } else if (payload === 'eng') {
+    response = { 'text': 'Hi I am english' };
   }
   // Send the message to acknowledge the postback
   callSendAPI(senderPsid, response);
