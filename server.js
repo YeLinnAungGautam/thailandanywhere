@@ -74,7 +74,6 @@ app.post('/webhook', (req, res) => {
 
   // Checks if this is an event from a page subscription
   if (body.object === 'page') {
-
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
@@ -94,13 +93,20 @@ app.post('/webhook', (req, res) => {
         handlePostback(senderPsid, webhookEvent.postback);
       }
     });
-
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
-
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
+  }
+  var events = req.body.entry[0].messaging; 
+  for (i = 0; i < events.length; i++) {
+      var event = events[i];
+      if(event.message){
+        if(!sendQuickReply(event.sender.id, event.message.text)){
+           sendMessage(event.sender.id); 
+        }
+   }
   }
 });
 
@@ -195,7 +201,29 @@ function callSendAPI(senderPsid, response) {
     }
   });
 }
-
+function sendQuickReply(recipientId, text) { 
+  text = text || "";
+  var values = text.split(); 
+  if (values[0] === 'hi' || values[0] === 'Hi') {
+          message = {
+              text: "Choose Language",
+              quick_replies: [
+                { 
+                  "content_type":"text",
+                  "title":"Myanmar",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
+                },
+                {
+                  "content_type":"text",
+                  "title":"English",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
+                },
+              ]
+            }
+          sendMessage(recipientId, message);    
+                        return true; 
+  }
+}; 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
