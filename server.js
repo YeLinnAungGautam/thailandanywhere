@@ -96,6 +96,7 @@ function handleMessage(senderPsid, receivedMessage) {
       
     // };
     response = {
+      "messaging_type": "RESPONSE",
       "message":{
         "text": "Choose Language",
         "quick_replies":[
