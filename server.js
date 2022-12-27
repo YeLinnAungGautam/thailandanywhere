@@ -90,28 +90,9 @@ function handleMessage(senderPsid, receivedMessage) {
   if (receivedMessage.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
-    // response = {
-    //   // 'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
-    //   // 'text': "Choose Language",
-      
-    // };
-    response = {
-      "messaging_type": "RESPONSE",
-      "message":{
-        "text": "Choose Language",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"English",
-            "payload":"eng",
-          },{
-            "content_type":"text",
-            "title":"Green",
-            "payload":"mm",
-          }
-        ]
-      }
-    };
+     response = {
+      'text': `Hello Welcome From Thailandanywhere`
+     };
    } 
   // Send the response message
   callSendAPI(senderPsid, response);
