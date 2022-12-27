@@ -111,17 +111,17 @@ function handleMessage(senderPsid, receivedMessage) {
     // will be added to the body of your request to the Send API
     response = {
       // 'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
-      text: "Choose Language",
+      'text' : `Choose Language`,
       quick_replies: [
         { 
           "content_type":"text",
           "title":"Myanmar",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
+          "payload":"mm"
         },
         {
           "content_type":"text",
           "title":"English",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
+          "payload":"eng"
         },
       ]
     };
