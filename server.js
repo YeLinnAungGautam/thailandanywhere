@@ -97,18 +97,25 @@ function handleMessage(senderPsid, receivedMessage) {
     // };
     response = {
       text: "Choose Language",
-      quick_replies: [
-        { 
-          "content_type":"text",
-          "title":"မြန်မာ",
-          "payload":"mm"
-        },
-        {
-          "content_type":"text",
-          "title":"English",
-          "payload":"eng"
-        },
-      ]
+      'payload': {
+        'template_type': 'button',
+        'elements': [{
+          'title': 'Please Choose Your Language',
+          'subtitle': 'Thank You',
+          'buttons': [
+            {
+              'type': 'postback',
+              'title': 'English',
+              'payload': 'eng',
+            },
+            {
+              'type': 'postback',
+              'title': 'မြန်မာ',
+              'payload': 'mm',
+            }
+          ],
+        }]
+      }
     };
    } 
   // Send the response message
