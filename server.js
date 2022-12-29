@@ -69,9 +69,14 @@ app.post('/webhook', (req, res) => {
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhookEvent.message) {
-        handleMessage(senderPsid, webhookEvent.message);
-      } else if (webhookEvent.postback) {
-        handlePostback(senderPsid, webhookEvent.postback);
+        if(!sendQuickReply(senderPsid, webhookEvent.message)){
+          callSendAPI(senderPsid);
+        }
+      }
+      if (webhookEvent.message) {
+        if(!sendReply(senderPsid, webhookEvent.message)){
+          callSendAPI(senderPsid);
+        }
       }
     });
     // Returns a '200 OK' response to all requests
@@ -83,19 +88,53 @@ app.post('/webhook', (req, res) => {
 });
 
 // Handles messages events
-function handleMessage(senderPsid, receivedMessage) {
+function sendQuickReply(senderPsid, receivedMessage) {
   let response;
-
-  // Checks if the message contains text
-  if (receivedMessage.text) {
-    // Create the payload for a basic text message, which
-    // will be added to the body of your request to the Send API
-     response = {
-      'text': `Hello Welcome From Thailandanywhere`
-     };
-   } 
-  // Send the response message
+  receivedMessage = receivedMessage || "";
+  var values = receivedMessage.split();
+  if (values[0] === 'hi' || values[0] === 'Hi') {
+    response = {
+      text: "Choose Language",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"Myanmar",
+          "payload":"mm"
+        },
+        {
+          "content_type":"text",
+          "title":"English",
+          "payload":"eng"
+        },
+      ]
+    }
+    // Send the response message
   callSendAPI(senderPsid, response);
+  }
+}
+function sendReply(senderPsid, receivedMessage){
+  let response,
+  receivedMessage = receivedMessage || "";
+  var values = receivedMessage.split();
+  if (values[0] === 'Myanmar' || values[0] === 'နောက်သို့') {
+    response = {
+      text: "Choose Your City",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title":"စွန့်စားမှုခရီး",
+          "payload":"advmm"
+        },
+        {
+          "content_type":"text",
+          "title":"ခရီးတို",
+          "payload":"shteng"
+        },
+      ]
+    }
+    // Send the response message
+  callSendAPI(senderPsid, response);
+  }
 }
 
 // Handles messaging_postbacks events
