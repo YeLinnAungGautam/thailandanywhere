@@ -52,48 +52,30 @@ app.get('/webhook', (req, res) => {
 // Creates the endpoint for your webhook
 app.post('/webhook', (req, res) => {
   let body = req.body;
-
-  // Checks if this is an event from a page subscription
-  if (body.object === 'page') {
-    // Iterates over each entry - there may be multiple if batched
-    body.entry.forEach(function(entry) {
-
-      // Gets the body of the webhook event
-      let webhookEvent = entry.messaging[0];
-      console.log(webhookEvent);
-
-      // Get the sender PSID
-      let senderPsid = webhookEvent.sender.id;
-      console.log('Sender PSID: ' + senderPsid);
-
-      // Check if the event is a message or postback and
-      // pass the event to the appropriate handler function
-      if (webhookEvent.message) {
-        if(!sendQuickReply(senderPsid, webhookEvent.message.receivedMessage)){
-          callSendAPI(senderPsid);
-        }
+  var event = req.body.entry[0].messaging;
+  for (i = 0; i < event.length; i++) {
+    var webhookEvent = event[i];
+    if (webhookEvent.message) {
+      if(!sendQuickReply(webhookEvent.sender.id, webhookEvent.message.receivedMessage)){
+        sendMessage(webhookEvent.sender.id);
       }
-      if (webhookEvent.message) {
-        if(!sendReply(senderPsid, webhookEvent.message.receivedMessage)){
-          callSendAPI(senderPsid);
-        }
+    }
+    if (webhookEvent.message) {
+      if(!sendReply(webhookEvent.sender.id, webhookEvent.message.receivedMessage)){
+        sendMessage(webhookEvent.sender.id);
       }
-    });
+    }
+  }
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
-  } else {
-    // Returns a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404);
-  }
 });
 
 // Handles messages events
-function sendQuickReply(senderPsid, receivedMessage) {
-  let response;
+function sendQuickReply(recipientId, receivedMessage) {
   receivedMessage = receivedMessage || "";
   var values = receivedMessage.split();
   if (values[0] === 'hi' || values[0] === 'Hi') {
-    response = {
+    message = {
       text: "Choose Language",
       quick_replies: [
         {
@@ -109,15 +91,15 @@ function sendQuickReply(senderPsid, receivedMessage) {
       ]
     }
     // Send the response message
-  callSendAPI(senderPsid, response);
+    sendMessage(recipientId, message);
   }
 }
-function sendReply(senderPsid, receivedMessage){
-  let response,
+function sendReply(recipientId, receivedMessage){
+  
   receivedMessage = receivedMessage || "";
   var values = receivedMessage.split();
   if (values[0] === 'Myanmar' || values[0] === 'နောက်သို့') {
-    response = {
+    message= {
       text: "Choose Your City",
       quick_replies: [
         {
@@ -133,55 +115,72 @@ function sendReply(senderPsid, receivedMessage){
       ]
     }
     // Send the response message
-  callSendAPI(senderPsid, response);
+    sendMessage(recipientId, message);
   }
 }
+function sendMessage(recipientId, message) { 
+  request({
+      url: 'https://graph.facebook.com/v2.6/me/messages',
+      qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+      method: 'POST',
+      json: {
+          recipient: {id: recipientId},
+          message: message,
+      }
+  }, 
+  function(error, response, body) {
+      if (error) {
+          console.log('Error sending message: ', error);
+      } else if (response.body.error) {
+          console.log('Error: ', response.body.error);
+      }
+  });
+}; 
+// // Handles messaging_postbacks events
+// function handlePostback(senderPsid, receivedPostback) {
+//   let response;
 
-// Handles messaging_postbacks events
-function handlePostback(senderPsid, receivedPostback) {
-  let response;
+//   // Get the payload for the postback
+//   let payload = receivedPostback.payload;
 
-  // Get the payload for the postback
-  let payload = receivedPostback.payload;
-
-  // Set the response based on the postback payload
-  if (payload === 'mm') {
-    response = { 'text': 'Hello I am Burmese haha' };
-  } else if (payload === 'eng') {
-    response = { 'text': 'Hi I am english' };
-  }
-  // Send the message to acknowledge the postback
-  callSendAPI(senderPsid, response);
-}
+//   // Set the response based on the postback payload
+//   if (payload === 'mm') {
+//     response = { 'text': 'Hello I am Burmese haha' };
+//   } else if (payload === 'eng') {
+//     response = { 'text': 'Hi I am english' };
+//   }
+//   // Send the message to acknowledge the postback
+//   callSendAPI(senderPsid, response);
+// }
 
 // Sends response messages via the Send API
-function callSendAPI(senderPsid, response) {
+// function callSendAPI(senderPsid, response) {
 
-  // The page access token we have generated in your app settings
-  const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+//   // The page access token we have generated in your app settings
+//   const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-  // Construct the message body
-  let requestBody = {
-    'recipient': {
-      'id': senderPsid
-    },
-    'message': response
-  };
+//   // Construct the message body
+//   let requestBody = {
+//     'recipient': {
+//       'id': senderPsid
+//     },
+//     'message': response
+//   };
 
-  // Send the HTTP request to the Messenger Platform
-  request({
-    'uri': 'https://graph.facebook.com/v2.6/me/messages',
-    'qs': { 'access_token': PAGE_ACCESS_TOKEN },
-    'method': 'POST',
-    'json': requestBody
-  }, (err, _res, _body) => {
-    if (!err) {
-      console.log('Message sent!');
-    } else {
-      console.error('Unable to send message:' + err);
-    }
-  });
-}
+//   // Send the HTTP request to the Messenger Platform
+//   request({
+//     'uri': 'https://graph.facebook.com/v2.6/me/messages',
+//     'qs': { 'access_token': PAGE_ACCESS_TOKEN },
+//     'method': 'POST',
+//     'json': requestBody
+//   }, (err, _res, _body) => {
+//     if (!err) {
+//       console.log('Message sent!');
+//     } else {
+//       console.error('Unable to send message:' + err);
+//     }
+//   });
+// }
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
