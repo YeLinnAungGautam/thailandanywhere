@@ -7,14 +7,11 @@ require('dotenv').config();
 const
   request = require('request'),
   express = require('express'),
-  { urlencoded, json } = require('body-parser'),
+  bodyParser = require('body-parser'),
+  { text } = require('body-parser'),
   app = express();
-
-// Parse application/x-www-form-urlencoded
-app.use(urlencoded({ extended: true }));
-
-// Parse application/json
-app.use(json());
+  app.use(bodyParser.urlencoded({extended: false}));
+  app.use(bodyParser.json());
 
 // Respond with 'Hello World' when a GET request is made to the homepage
 app.get('/', function (_req, res) {
@@ -50,8 +47,8 @@ app.get('/webhook', (req, res) => {
 });
 
 // Creates the endpoint for your webhook
-app.post('/webhook', (req, res) => {
-  let body = req.body;
+app.post('/webhook', function(req, res) {
+  // let body = req.body;
   var event = req.body.entry[0].messaging;
   for (i = 0; i < event.length; i++) {
     var webhookEvent = event[i];
@@ -92,6 +89,7 @@ function sendQuickReply(recipientId, receivedMessage) {
     }
     // Send the response message
     sendMessage(recipientId, message);
+    return true;
   }
 }
 function sendReply(recipientId, receivedMessage){
@@ -116,6 +114,7 @@ function sendReply(recipientId, receivedMessage){
     }
     // Send the response message
     sendMessage(recipientId, message);
+    return true;
   }
 }
 function sendMessage(recipientId, message) { 
