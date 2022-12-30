@@ -126,22 +126,22 @@ function handleMessage(senderPsid, receivedMessage) {
         ]
     };
    } 
-   if(receivedMessage.text === "Myanmar")
-   {
-    response = {
-      'text': `မင်္ဂလာပါ ဘယ်လိုမျိူးခရီးပုံစံသွားချင်ပါသလည်း ?`,
-        quick_replies: [
-          { 
-            "content_type":"text",
-            "title":"စွန့်စားမှုခရီး",
-          },
-          {
-            "content_type":"text",
-            "title":"ခရီးတို",
-          },
-        ]
-    };
-   }
+  //  if(receivedMessage.text === "Myanmar")
+  //  {
+  //   response = {
+  //     'text': `မင်္ဂလာပါ ဘယ်လိုမျိူးခရီးပုံစံသွားချင်ပါသလည်း ?`,
+  //       quick_replies: [
+  //         { 
+  //           "content_type":"text",
+  //           "title":"စွန့်စားမှုခရီး",
+  //         },
+  //         {
+  //           "content_type":"text",
+  //           "title":"ခရီးတို",
+  //         },
+  //       ]
+  //   };
+  //  }
 
   // Send the response message
   callSendAPI(senderPsid, response);
