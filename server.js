@@ -73,6 +73,7 @@ app.post('/webhook', (req, res) => {
       } 
       if(webhookEvent.message) {
         sendQuickReply(senderPsid, webhookEvent.message);
+        handlePostback(senderPsid, webhookEvent.postback);
       }
       else if (webhookEvent.postback) {
         handlePostback(senderPsid, webhookEvent.postback);
