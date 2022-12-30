@@ -131,20 +131,22 @@ function handleMessage(senderPsid, receivedMessage) {
       let value = receivedMessage.language[0].payload;
       if (value[0] === 'Myanmar') {
         response = {
+            payload:{
             text: "Choose Your City",
             quick_replies: [
               { 
                 "content_type":"text",
                 "title":"စွန့်စားမှုခရီး",
-                // "payload":"mm"
+                "payload":"mm"
               },
               {
                 "content_type":"text",
                 "title":"ခရီးတို",
-                // "payload":"eng"
+                "payload":"eng"
               },
             ]
-        };
+        }
+      };
       }
    }
 
