@@ -69,14 +69,18 @@ app.post('/webhook', (req, res) => {
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
       if (webhookEvent.message) {
-        handleMessage(senderPsid, webhookEvent.message);
+        if(!handleMessage(senderPsid, webhookEvent.message)){
+          callSendAPI(senderPsid, response);
+        };
       } 
       if(webhookEvent.message) {
-        sendQuickReply(senderPsid, webhookEvent.message);
-        handlePostback(senderPsid, webhookEvent.postback);
+        if(!sendQuickReply(senderPsid, webhookEvent.message)){
+          callSendAPI(senderPsid, response);
+        };
       }
       else if (webhookEvent.postback) {
         handlePostback(senderPsid, webhookEvent.postback);
+        callSendAPI(senderPsid, response);
       }
     });
     // Returns a '200 OK' response to all requests
