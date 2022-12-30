@@ -1,22 +1,3 @@
-/**
- * Copyright 2021-present, Facebook, Inc. All rights reserved.
- *
- * This source code is licensed under the license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * Messenger Platform Quick Start Tutorial
- *
- * This is the completed code for the Messenger Platform quick start tutorial
- *
- * https://developers.facebook.com/docs/messenger-platform/getting-started/quick-start/
- *
- * To run this code, you must do the following:
- *
- * 1. Deploy this code to a server running Node.js
- * 2. Run `yarn install`
- * 3. Add your VERIFY_TOKEN and PAGE_ACCESS_TOKEN to your environment vars
- */
-
 'use strict';
 
 // Use dotenv to read .env vars into Node
@@ -74,7 +55,6 @@ app.post('/webhook', (req, res) => {
 
   // Checks if this is an event from a page subscription
   if (body.object === 'page') {
-
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
@@ -94,11 +74,9 @@ app.post('/webhook', (req, res) => {
         handlePostback(senderPsid, webhookEvent.postback);
       }
     });
-
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
-
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
@@ -112,37 +90,20 @@ function handleMessage(senderPsid, receivedMessage) {
   if (receivedMessage.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
-    response = {
-      'text': `Hi Welcome From Thailandanywhere. Please choose language to get started`,
-        quick_replies: [
-          { 
-            "content_type":"text",
-            "title":"Myanmar",
-          },
-          {
-            "content_type":"text",
-            "title":"English",
-          },
-        ]
-    };
+     response = {
+      'text': `Hello Welcome From Thailandanywhere`,
+      quick_replies: [
+        { 
+          "content_type":"text",
+          "title":"Myanmar",
+        },
+        {
+          "content_type":"text",
+          "title":"English",
+        },
+      ]
+     };
    } 
-  //  if(receivedMessage.text === "Myanmar")
-  //  {
-  //   response = {
-  //     'text': `မင်္ဂလာပါ ဘယ်လိုမျိူးခရီးပုံစံသွားချင်ပါသလည်း ?`,
-  //       quick_replies: [
-  //         { 
-  //           "content_type":"text",
-  //           "title":"စွန့်စားမှုခရီး",
-  //         },
-  //         {
-  //           "content_type":"text",
-  //           "title":"ခရီးတို",
-  //         },
-  //       ]
-  //   };
-  //  }
-
   // Send the response message
   callSendAPI(senderPsid, response);
 }
@@ -156,9 +117,9 @@ function handlePostback(senderPsid, receivedPostback) {
 
   // Set the response based on the postback payload
   if (payload === 'mm') {
-    response = { 'text': 'ကျွန်တော်သည် မြန်မာဖြစ်ပါသည်' };
+    response = { 'text': 'Hello I am Burmese haha' };
   } else if (payload === 'eng') {
-    response = { 'text': 'I am english' };
+    response = { 'text': 'Hi I am english' };
   }
   // Send the message to acknowledge the postback
   callSendAPI(senderPsid, response);
@@ -192,8 +153,8 @@ function callSendAPI(senderPsid, response) {
     }
   });
 }
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
+
