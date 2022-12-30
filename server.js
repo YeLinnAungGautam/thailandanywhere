@@ -127,10 +127,26 @@ function handleMessage(senderPsid, receivedMessage) {
           },
         ]
     };
-   } //else if(receivedMessage.language){
-  //     let value = receivedMessage.language[0].payload;
-
-  // }
+   } else if(receivedMessage.language){
+      let value = receivedMessage.language[0].payload;
+      if (value[0] === 'Myanmar') {
+        response = {
+            text: "Choose Your City",
+            quick_replies: [
+              { 
+                "content_type":"text",
+                "title":"စွန့်စားမှုခရီး",
+                // "payload":"mm"
+              },
+              {
+                "content_type":"text",
+                "title":"ခရီးတို",
+                // "payload":"eng"
+              },
+            ]
+        };
+      }
+   }
 
   // Send the response message
   callSendAPI(senderPsid, response);
