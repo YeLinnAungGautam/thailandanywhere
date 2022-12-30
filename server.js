@@ -118,36 +118,29 @@ function handleMessage(senderPsid, receivedMessage) {
           { 
             "content_type":"text",
             "title":"Myanmar",
-            "payload":"mm"
           },
           {
             "content_type":"text",
             "title":"English",
-            "payload":"eng"
           },
         ]
     };
-   } else if(receivedMessage.language){
-      let value = receivedMessage.language[0].payload;
-      if (value[0] === 'Myanmar') {
-        response = {
-            payload:{
-            text: "Choose Your City",
-            quick_replies: [
-              { 
-                "content_type":"text",
-                "title":"စွန့်စားမှုခရီး",
-                "payload":"mm"
-              },
-              {
-                "content_type":"text",
-                "title":"ခရီးတို",
-                "payload":"eng"
-              },
-            ]
-        }
-      };
-      }
+   } 
+   if(receivedMessage.text === "Myanmar")
+   {
+    response = {
+      'text': `မင်္ဂလာပါ ဘယ်လိုမျိူးခရီးပုံစံသွားချင်ပါသလည်း ?`,
+        quick_replies: [
+          { 
+            "content_type":"text",
+            "title":"စွန့်စားမှုခရီး",
+          },
+          {
+            "content_type":"text",
+            "title":"ခရီးတို",
+          },
+        ]
+    };
    }
 
   // Send the response message
