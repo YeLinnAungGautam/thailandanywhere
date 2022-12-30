@@ -85,6 +85,21 @@ app.post('/webhook', (req, res) => {
     res.sendStatus(404);
   }
 });
+// Handles messages events
+function handleMessage(senderPsid, receivedMessage) {
+  let response;
+
+  // Checks if the message contains text
+  if (receivedMessage.text) {
+    // Create the payload for a basic text message, which
+    // will be added to the body of your request to the Send API
+     response = {
+      'text': `Hello Welcome From Thailandanywhere. Plese choose your language to get started`
+     };
+   } 
+  // Send the response message
+  callSendAPI(senderPsid, response);
+}
 
 // Handles messages events
 function sendQuickReply(senderPsid, receivedMessage) {
@@ -105,21 +120,6 @@ function sendQuickReply(senderPsid, receivedMessage) {
           "payload":"eng"
         },
       ]
-     };
-   } 
-  // Send the response message
-  callSendAPI(senderPsid, response);
-}
-// Handles messages events
-function handleMessage(senderPsid, receivedMessage) {
-  let response;
-
-  // Checks if the message contains text
-  if (receivedMessage.text) {
-    // Create the payload for a basic text message, which
-    // will be added to the body of your request to the Send API
-     response = {
-      'text': `Hello Welcome From Thailandanywhere. Plese choose your language to get started`
      };
    } 
   // Send the response message
