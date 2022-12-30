@@ -127,7 +127,10 @@ function handleMessage(senderPsid, receivedMessage) {
           },
         ]
     };
-  } 
+   } //else if(receivedMessage.language){
+  //     let value = receivedMessage.language[0].payload;
+
+  // }
 
   // Send the response message
   callSendAPI(senderPsid, response);
@@ -141,10 +144,10 @@ function handlePostback(senderPsid, receivedPostback) {
   let payload = receivedPostback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { 'text': 'Thanks!' };
-  } else if (payload === 'no') {
-    response = { 'text': 'Oops, try sending another image.' };
+  if (payload === 'mm') {
+    response = { 'text': 'ကျွန်တော်သည် မြန်မာဖြစ်ပါသည်' };
+  } else if (payload === 'eng') {
+    response = { 'text': 'I am english' };
   }
   // Send the message to acknowledge the postback
   callSendAPI(senderPsid, response);
