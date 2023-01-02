@@ -121,7 +121,7 @@ function handleMessage(senderPsid, receivedMessage) {
   //     ]
   //    };
   //  } 
-  // Send the response message
+  // Send the response message  
   callSendAPI(senderPsid, response);
 }
 
