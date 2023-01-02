@@ -91,37 +91,10 @@ function handleMessage(senderPsid, receivedMessage) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
      response = {
-      'text': `Hello Welcome From Thailandanywhere`,
-      quick_replies: [
-        { 
-          "content_type":"text",
-          "title":"Myanmar",
-        },
-        {
-          "content_type":"text",
-          "title":"English",
-        },
-      ]
+      'text': `Hello Welcome From Thailandanywhere`
      };
    } 
-  //  if (receivedMessage.text === "Myanmar") {
-  //   // Create the payload for a basic text message, which
-  //   // will be added to the body of your request to the Send API
-  //    response = {
-  //     'text': `ဘယ်လိုခရီးမျိုးသွားချင်ပါသလည်း?`,
-  //     quick_replies: [
-  //       { 
-  //         "content_type":"text",
-  //         "title":"စွန့်စားမှု့",
-  //       },
-  //       {
-  //         "content_type":"text",
-  //         "title":"ခရီးတို",
-  //       },
-  //     ]
-  //    };
-  //  } 
-  // Send the response message  
+  // Send the response message
   callSendAPI(senderPsid, response);
 }
 
