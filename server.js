@@ -39,10 +39,14 @@ app.post("/webhook", (req, res) => {
         body.entry.forEach(function (entry) {
             let webhookEvent = entry.messaging[0];
             console.log(webhookEvent);
-          let senderPsid = webhookEvent.sender.id;
-          
-          if (webhookEvent.message) {
-            console.log(webhookEvent.message);
+            let senderPsid = webhookEvent.sender.id;
+
+            if (webhookEvent.message) {
+                if (webhookEvent.message.quick_reply) {
+                  const payload = webhookEvent.message.quick_reply.payload;
+                  console.log('payload', payload);
+                  handlePostback(senderPsid, webhookEvent.message.quick_reply);
+                }
                 handleMessage(senderPsid, webhookEvent.message);
             } else if (webhookEvent.postback) {
                 handlePostback(senderPsid, webhookEvent.postback);
@@ -141,7 +145,6 @@ function callSendAPI(senderPsid, response) {
         }
     );
 }
-
 
 const listener = app.listen(process.env.PORT, function () {
     console.log("Your app is listening on port " + listener.address().port);
