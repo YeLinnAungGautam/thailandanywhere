@@ -97,10 +97,12 @@ function handleMessage(senderPsid, receivedMessage) {
       "quick_replies":[
         {
           "content_type":"text",
-          "title":"Myanmar",
+          "title":"Red",
+          "payload":"mm",
         },{
           "content_type":"text",
-          "title":"English",
+          "title":"Green",
+          "payload":"eng",
         }
       ]
      };
