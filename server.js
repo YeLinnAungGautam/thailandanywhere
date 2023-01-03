@@ -41,7 +41,7 @@ app.post("/webhook", (req, res) => {
             console.log(webhookEvent);
             let senderPsid = webhookEvent.sender.id;
 
-            if (webhookEvent.message?.quick_reply?.payload) {
+            if (webhookEvent.message.quick_reply.payload) {
                 handlePostback(senderPsid, webhookEvent.postback);
                 callSendAPI(senderPsid, response);
             } else {
