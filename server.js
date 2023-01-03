@@ -95,14 +95,16 @@ function sendQuickReply(senderPsid,receivedMessage) {
       text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
       quick_replies: [
         {
-          "content_type":"text",
-          "title":"စွန့်စားမှုခရီး",
+            content_type: "text",
+            title: "စွန့်စားမှု",
+            payload: "MM_LAN",
         },
         {
-          "content_type":"text",
-          "title":"ခရီးတို",
-        }
-      ]
+            content_type: "text",
+            title: "ခရီးတို",
+            payload: "ENG_LAN",
+        },
+    ],
     }
   }
   callSendAPI(senderPsid, response);
