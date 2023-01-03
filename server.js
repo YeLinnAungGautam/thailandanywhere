@@ -71,11 +71,6 @@ app.post('/webhook', (req, res) => {
       if (webhookEvent.message) {
         handleMessage(senderPsid, webhookEvent.message);
       }
-      if(webhookEvent.message){
-        if(!sendQuickReply(senderPsid,webhookEvent.message.text)){
-          callSendAPI(senderPsid, response);
-        }
-      } 
       else if (webhookEvent.postback) {
         handlePostback(senderPsid, webhookEvent.postback);
         callSendAPI(senderPsid, response);
@@ -99,43 +94,32 @@ function handleMessage(senderPsid, receivedMessage) {
     // will be added to the body of your request to the Send API
      response = {
       'text': `Hello Welcome From Thailandanywhere`,
-      quick_replies: [
-        { 
-          "content_type":"text",
-          "title":"Myanmar",
-        },
-        {
-          "content_type":"text",
-          "title":"English",
-        },
-      ]
-
      };
    } 
   // Send the response message
   callSendAPI(senderPsid, response);
 }
-function sendQuickReply(senderPsid,text) {
-  text = text || "";
-  var values = text.split();
-  if(values[0] === 'Myanmar'){
-    response = {
-      text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
-      quick_replies: [
-        {
-          "content_type":"text",
-          "title":"စွန့်စားမှုခရီး",
-        },
-        {
-          "content_type":"text",
-          "title":"ခရီးတို",
-        }
-      ]
-    }
-  }
-  callSendAPI(senderPsid, response);
-  return true;
-}
+// function sendQuickReply(senderPsid,text) {
+//   text = text || "";
+//   var values = text.split();
+//   if(values[0] === 'Myanmar'){
+//     response = {
+//       text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
+//       quick_replies: [
+//         {
+//           "content_type":"text",
+//           "title":"စွန့်စားမှုခရီး",
+//         },
+//         {
+//           "content_type":"text",
+//           "title":"ခရီးတို",
+//         }
+//       ]
+//     }
+//   }
+//   callSendAPI(senderPsid, response);
+//   return true;
+// }
 
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
