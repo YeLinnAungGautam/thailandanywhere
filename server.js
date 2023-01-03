@@ -48,14 +48,12 @@ app.post("/webhook", (req, res) => {
                         webhookEvent.message.quick_reply
                     );
                 }
-                if(webhookEvent.message.text)
-                {
-                    sendQuickReply(senderPsid, webhookEvent.text);
-                }
                 else {
                     handleMessage(senderPsid, webhookEvent.message);
                 }
             }
+           
+
         });
         res.status(200).send("EVENT_RECEIVED");
     } else {
@@ -114,7 +112,19 @@ function handlePostback(senderPsid, receivedPostback) {
     let payload = receivedPostback.payload;
 
     if (payload === "MM_LANGUAGE") {
-        response = { text: "Hello I am Burmese haha" };
+        response = {
+            text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
+            quick_replies: [
+              {
+                "content_type":"text",
+                "title":"စွန့်စားမှုခရီး",
+              },
+              {
+                "content_type":"text",
+                "title":"ခရီးတို",
+              }
+            ]
+          }
     } else if (payload === "ENG_LANGUAGE") {
         response = { text: "Hi I am english" };
     }
