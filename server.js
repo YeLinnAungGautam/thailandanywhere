@@ -93,7 +93,16 @@ function handleMessage(senderPsid, receivedMessage) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
      response = {
-      'text': `Hello Welcome From Thailandanywhere`,
+      'text': `Hello Welcome From Thailandanywhere.Please Choose Your Language`,
+      "quick_replies":[
+        {
+          "content_type":"text",
+          "title":"Myanmar",
+        },{
+          "content_type":"text",
+          "title":"English",
+        }
+      ]
      };
    } 
   // Send the response message
