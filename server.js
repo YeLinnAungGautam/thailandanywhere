@@ -46,12 +46,10 @@ app.post("/webhook", (req, res) => {
                   const payload = webhookEvent.message.quick_reply.payload;
                   console.log('payload', payload);
                   handlePostback(senderPsid, webhookEvent.message.quick_reply);
+                } else {
+                  handleMessage(senderPsid, webhookEvent.message);
                 }
-                handleMessage(senderPsid, webhookEvent.message);
-            } else if (webhookEvent.postback) {
-                handlePostback(senderPsid, webhookEvent.postback);
-                callSendAPI(senderPsid, response);
-            }
+            } 
         });
         res.status(200).send("EVENT_RECEIVED");
     } else {
