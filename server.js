@@ -48,8 +48,12 @@ app.post("/webhook", (req, res) => {
                         webhookEvent.message.quick_reply
                     );
                 }
+                // if(webhookEvent.message){
+                //     sendQuickReply(senderPsid,webhookEvent.message)
+                // }
                 else {
-                    handleMessage(senderPsid, webhookEvent.message);
+                    // handleMessage(senderPsid, webhookEvent.message);
+                    sendQuickReply(senderPsid,webhookEvent.message)
                 }
             }
            
@@ -83,10 +87,10 @@ function handleMessage(senderPsid, receivedMessage) {
     }
     callSendAPI(senderPsid, response);
 }
-function sendQuickReply(senderPsid,text) {
-  text = text || "";
-  var values = text.split();
-  if(values[0] === 'Myanmar'){
+function sendQuickReply(senderPsid,receivedMessage) {
+  let response;
+
+  if(receivedMessage.text === 'Myanmar'){
     response = {
       text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
       quick_replies: [
@@ -102,7 +106,7 @@ function sendQuickReply(senderPsid,text) {
     }
   }
   callSendAPI(senderPsid, response);
-  return true;
+//   return true;
 }
 
 // Handles messaging_postbacks events
@@ -112,19 +116,7 @@ function handlePostback(senderPsid, receivedPostback) {
     let payload = receivedPostback.payload;
 
     if (payload === "MM_LANGUAGE") {
-        response = {
-            text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
-            quick_replies: [
-              {
-                "content_type":"text",
-                "title":"စွန့်စားမှုခရီး",
-              },
-              {
-                "content_type":"text",
-                "title":"ခရီးတို",
-              }
-            ]
-          }
+        response = { text: "Hi I am burmese" };
     } else if (payload === "ENG_LANGUAGE") {
         response = { text: "Hi I am english" };
     }
