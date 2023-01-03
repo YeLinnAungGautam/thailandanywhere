@@ -97,12 +97,12 @@ function handleMessage(senderPsid, receivedMessage) {
       "quick_replies":[
         {
           "content_type":"text",
-          "title":"Red",
-          "payload":"mm",
+          "title":"Myanmar",
+          "payload":"MM_LANGUAGE",
         },{
           "content_type":"text",
-          "title":"Green",
-          "payload":"eng",
+          "title":"English",
+          "payload":"ENG_LANGUAGE",
         }
       ]
      };
@@ -140,9 +140,9 @@ function handlePostback(senderPsid, receivedPostback) {
   let payload = receivedPostback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'mm') {
+  if (payload === 'MM_LANGUAGE') {
     response = { 'text': 'Hello I am Burmese haha' };
-  } else if (payload === 'eng') {
+  } else if (payload === 'ENG_LANGUAGE') {
     response = { 'text': 'Hi I am english' };
   }
   // Send the message to acknowledge the postback
