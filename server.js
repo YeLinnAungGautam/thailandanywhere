@@ -135,7 +135,7 @@ function handleMessage(senderPsid, receivedMessage) {
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
   let response;
-
+  console.log("Hello I am here")
   // Get the payload for the postback
   let payload = receivedPostback.payload;
 
