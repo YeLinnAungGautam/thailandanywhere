@@ -41,13 +41,19 @@ app.post("/webhook", (req, res) => {
             console.log(webhookEvent);
             let senderPsid = webhookEvent.sender.id;
 
-            if (webhookEvent.message.quick_reply.payload) {
-                handlePostback(senderPsid, webhookEvent.postback);
-                callSendAPI(senderPsid, response);
-            } else {
-                handleMessage(senderPsid, webhookEvent.message);
-            }
             
+            if (webhookEvent.message) {
+                if (webhookEvent.message.quick_reply) {
+                    handlePostback(
+                        senderPsid,
+                        webhookEvent.message.quick_reply.payload
+                    );
+                    callSendAPI(senderPsid, response);
+                } else {
+                    handleMessage(senderPsid, webhookEvent.message);
+                }
+            } else if (webhookEvent.postback) {
+            }
         });
         res.status(200).send("EVENT_RECEIVED");
     } else {
