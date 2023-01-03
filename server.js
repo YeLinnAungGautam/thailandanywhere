@@ -39,20 +39,14 @@ app.post("/webhook", (req, res) => {
         body.entry.forEach(function (entry) {
             let webhookEvent = entry.messaging[0];
             console.log(webhookEvent);
-            let senderPsid = webhookEvent.sender.id;
-
-            
-            if (webhookEvent.message) {
-                if (webhookEvent.message.quick_reply) {
-                    handlePostback(
-                        senderPsid,
-                        webhookEvent.message.quick_reply.payload
-                    );
-                    callSendAPI(senderPsid, response);
-                } else {
-                    handleMessage(senderPsid, webhookEvent.message);
-                }
+          let senderPsid = webhookEvent.sender.id;
+          
+          if (webhookEvent.message) {
+            console.log(webhookEvent.message);
+                handleMessage(senderPsid, webhookEvent.message);
             } else if (webhookEvent.postback) {
+                handlePostback(senderPsid, webhookEvent.postback);
+                callSendAPI(senderPsid, response);
             }
         });
         res.status(200).send("EVENT_RECEIVED");
@@ -147,6 +141,7 @@ function callSendAPI(senderPsid, response) {
         }
     );
 }
+
 
 const listener = app.listen(process.env.PORT, function () {
     console.log("Your app is listening on port " + listener.address().port);
