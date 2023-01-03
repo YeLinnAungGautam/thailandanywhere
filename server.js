@@ -48,12 +48,12 @@ app.post("/webhook", (req, res) => {
                         webhookEvent.message.quick_reply
                     );
                 }
-                // if(webhookEvent.message){
-                //     sendQuickReply(senderPsid,webhookEvent.message)
-                // }
+                else if(!sendQuickReply(senderPsid,webhookEvent.message)){
+                    handleMessage(senderPsid, webhookEvent.message);
+                }
                 else {
-                    // handleMessage(senderPsid, webhookEvent.message);
-                    sendQuickReply(senderPsid,webhookEvent.message)
+                    handleMessage(senderPsid, webhookEvent.message);
+                    // sendQuickReply(senderPsid,webhookEvent.message)
                 }
             }
            
