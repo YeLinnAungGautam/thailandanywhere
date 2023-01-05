@@ -50,9 +50,9 @@ app.post("/webhook", (req, res) => {
                 // }
                 if(!sendQuickReply(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
-                }else{
-                    handleMessage(senderPsid, webhookEvent.message);
-                }  
+                } //else{
+                //     handleMessage(senderPsid, webhookEvent.message);
+                // }  
             } 
             else {
                     handleMessage(senderPsid, webhookEvent.message);
