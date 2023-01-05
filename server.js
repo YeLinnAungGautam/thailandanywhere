@@ -154,18 +154,13 @@ function GroupTourPackage(senderPsid,receivedMessage){
                     {
                       "type":"postback",
                       "title":"ခရီးစဥ် အသေးစိတ်",
-                      "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                      "payload":"KHAYEESINDETAILSFORKANCHANABURI"
                     },
                     {
                         "type":"postback",
                         "title":"Booking တင် မည်။",
                         "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                    },
-                    {
-                        "type":"postback",
-                        "title":"ငွေပေးချေမည်။",
-                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                    }                
+                    }               
                   ]      
                 }
               ]
@@ -174,6 +169,14 @@ function GroupTourPackage(senderPsid,receivedMessage){
        }
     }
     callSendAPI(senderPsid, response);
+}
+function TripDetailsForKanchanaburi(senderPsid)
+{
+    let response;
+    response = {
+      text: "ကျွန်တော် သည် Kanchanaburi ဖြစ်ပါသည်",
+  }
+  callSendAPI(senderPsid, response);
 }
 
 // Handles messaging_postbacks events
@@ -184,8 +187,8 @@ function handlePostback(senderPsid, receivedPostback) {
 
     if (payload === "GT") {
         ChoosePackages(senderPsid);
-    } else if (payload === "ENG_LANGUAGE") {
-        response = { text: "Hi I am english" };
+    } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
+        TripDetailsForKanchanaburi(senderPsid);
     }else{
         callSendAPI(senderPsid, response);
     }
