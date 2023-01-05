@@ -48,14 +48,12 @@ app.post("/webhook", (req, res) => {
                 //         webhookEvent.message.quick_reply
                 //     );
                 // }
-                if(!handleMessage(senderPsid,webhookEvent.message)){
+                if(!Intro(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 }
-                if(!sendQuickReply(senderPsid,webhookEvent.message)){
+                if(!ChoosePackages(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
-                } //else{
-                //     handleMessage(senderPsid, webhookEvent.message);
-                // }  
+                }
             } 
             else {
                     handleMessage(senderPsid, webhookEvent.message);
@@ -69,44 +67,56 @@ app.post("/webhook", (req, res) => {
     }
 });
 
-function handleMessage(senderPsid, receivedMessage) {
+function Intro(senderPsid, receivedMessage) {
     let response;
 
     if (receivedMessage.text === "hi" || receivedMessage.text =="HI" || receivedMessage.text === "Hello" || receivedMessage.text === "hello") {
         response = {
-            text: `Hello Welcome From Thailandanywhere.Please Choose Your Language`,
+            text: `မင်္ဂလာပါရှင့် 🙏 Thailand Anywhere မှ ကြိုဆိုပါတယ်။ထိုင်းနိုင်ငံအတွင်း ခရီးသွားဝန်ဆောင်မှုနဲ့ ပတ်သတ်ပြီး ကူညီဖို့အသင့်ပါရှင့်။ Thailand Anywhere ၏ ဝန်ဆောင်မှုများအားလုံးကို သိရှိနိုင်ရန် အောက်တွင်ရွေးချယ်ပေးပါနော်။🙇`,
             quick_replies: [
                 {
                     content_type: "text",
-                    title: "Myanmar",
-                    payload: "MM_LANGUAGE",
+                    title: "လေယာဥ်လက်မှတ်",
                 },
                 {
                     content_type: "text",
-                    title: "English",
-                    payload: "ENG_LANGUAGE",
+                    title: "ဟိုတယ်Booking",
+                },
+                {
+                    content_type: "text",
+                    title: "Group Tour",
+                },
+                {
+                    content_type: "text",
+                    title: "Private Van Tour",
+                },
+                {
+                    content_type: "text",
+                    title: "Entrance tickets",
+                },
+                {
+                    content_type: "text",
+                    title: "Airport transfer",
                 },
             ],
         };
     }
     callSendAPI(senderPsid, response);
 }
-function sendQuickReply(senderPsid,receivedMessage) {
+function ChoosePackages(senderPsid,receivedMessage) {
   let response;
 
-  if(receivedMessage.text === 'Myanmar'){
+  if(receivedMessage.text === 'Group Tour'){
     response = {
-      text: "ကျေးဇူးပြူပြီးသွားမယ့် ခရီးစဥ်ကို ရွေးချယ်ပါ",
+      text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။",
       quick_replies: [
         {
             content_type: "text",
-            title: "စွန့်စားမှု",
-            payload: "MM_LAN",
+            title: "Kanchanaburi",
         },
         {
             content_type: "text",
-            title: "ခရီးတို",
-            payload: "ENG_LAN",
+            title: "Khao Yai",
         },
     ],
     }
