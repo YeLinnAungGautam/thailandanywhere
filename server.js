@@ -172,11 +172,9 @@ function GroupTourPackage(senderPsid,receivedMessage){
 }
 function TripDetailsForKanchanaburi(senderPsid)
 {
-    let response;
-    response = {
-      text: "ကျွန်တော် သည် Kanchanaburi ဖြစ်ပါသည်",
-  }
-  callSendAPI(senderPsid, response);
+     let text;
+     text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ"
+   callSendAPI(senderPsid,text);
 }
 
 // Handles messaging_postbacks events
