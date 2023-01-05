@@ -40,10 +40,9 @@ app.post("/webhook", (req, res) => {
     if (body.object === "page") {
         body.entry.forEach(function (entry) {
             let webhookEvent = entry.messaging[0];
-            console.log('webhook event', webhookEvent);
+            console.log("webhook event", webhookEvent);
             let senderPsid = webhookEvent.sender.id;
             if (webhookEvent.message) {
-                
                 // if (webhookEvent.message.quick_reply) {
                 //     const payload = webhookEvent.message.quick_reply.payload;
                 //     console.log("payload", payload);
