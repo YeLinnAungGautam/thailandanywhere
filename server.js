@@ -170,7 +170,7 @@ function GroupTourPackage(senderPsid,receivedMessage){
           }
        }
     }
-
+    callSendAPI(senderPsid, response);
 }
 
 // Handles messaging_postbacks events
