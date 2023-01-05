@@ -54,6 +54,9 @@ app.post("/webhook", (req, res) => {
                 if(!ChoosePackages(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 }
+                if(!GroupTourPackage(senderPsid,webhookEvent.message)){
+                    callSendAPI(senderPsid);
+                }
             } 
             // else {
             //         handleMessage(senderPsid, webhookEvent.message);
