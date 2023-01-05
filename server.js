@@ -155,10 +155,6 @@ function GroupTourPackage(senderPsid,receivedMessage){
                   },
                   "buttons":[
                     {
-                      "type":"web_url",
-                      "url":"https://www.originalcoastclothing.com/",
-                      "title":"View Website"
-                    },{
                       "type":"postback",
                       "title":"ခရီးစဥ် အသေးစိတ်",
                       "payload":"DEVELOPER_DEFINED_PAYLOAD"
