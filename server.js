@@ -146,7 +146,7 @@ function GroupTourPackage(senderPsid,receivedMessage){
               "elements":[
                  {
                   "title":"Welcome!",
-                  "image_url":"https://raw.githubusercontent.com/fbsamples/original-coast-clothing/main/public/styles/male-work.jpg",
+                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
                   "subtitle":"We have the right hat for everyone.",
                   "default_action": {
                     "type": "web_url",
@@ -160,9 +160,19 @@ function GroupTourPackage(senderPsid,receivedMessage){
                       "title":"View Website"
                     },{
                       "type":"postback",
-                      "title":"Start Chatting",
+                      "title":"ခရီးစဥ် အသေးစိတ်",
                       "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                    }              
+                    },
+                    {
+                        "type":"postback",
+                        "title":"Booking တင် မည်။",
+                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                    },
+                    {
+                        "type":"postback",
+                        "title":"ငွေပေးချေမည်။",
+                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                    }                
                   ]      
                 }
               ]
