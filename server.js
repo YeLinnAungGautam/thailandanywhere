@@ -51,9 +51,9 @@ app.post("/webhook", (req, res) => {
                 if(!Intro(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 }
-                if(!ChoosePackages(senderPsid,webhookEvent.message)){
-                    callSendAPI(senderPsid);
-                }
+                // if(!ChoosePackages(senderPsid,webhookEvent.message)){
+                //     callSendAPI(senderPsid);
+                // }
                 if(!GroupTourPackage(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 }
@@ -186,8 +186,9 @@ function handlePostback(senderPsid, receivedPostback) {
         ChoosePackages(senderPsid);
     } else if (payload === "ENG_LANGUAGE") {
         response = { text: "Hi I am english" };
+    }else{
+        callSendAPI(senderPsid, response);
     }
-    callSendAPI(senderPsid, response);
 }
 
 function callSendAPI(senderPsid, response) {
