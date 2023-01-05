@@ -40,14 +40,14 @@ app.post("/webhook", (req, res) => {
             let webhookEvent = entry.messaging[0];
             let senderPsid = webhookEvent.sender.id;
             if (webhookEvent.message) {
-                // if (webhookEvent.message.quick_reply) {
-                //     const payload = webhookEvent.message.quick_reply.payload;
-                //     console.log("payload", payload);
-                //     handlePostback(
-                //         senderPsid,
-                //         webhookEvent.message.quick_reply
-                //     );
-                // }
+                if (webhookEvent.message.quick_reply) {
+                    const payload = webhookEvent.message.quick_reply.payload;
+                    console.log("payload", payload);
+                    handlePostback(
+                        senderPsid,
+                        webhookEvent.message.quick_reply
+                    );
+                }
                 if(!Intro(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 }
@@ -112,10 +112,8 @@ function Intro(senderPsid, receivedMessage) {
     }
     callSendAPI(senderPsid, response);
 }
-function ChoosePackages(senderPsid,receivedMessage) {
+function ChoosePackages(senderPsid) {
   let response;
-
-  if(receivedMessage.text === 'Group Tour'){
     response = {
       text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။",
       quick_replies: [
@@ -130,7 +128,6 @@ function ChoosePackages(senderPsid,receivedMessage) {
             payload : "KHAO"
         },
     ],
-    }
   }
   callSendAPI(senderPsid, response);
 //   return true;
@@ -185,8 +182,8 @@ function handlePostback(senderPsid, receivedPostback) {
     console.log("Hello I am here");
     let payload = receivedPostback.payload;
 
-    if (payload === "MM_LANGUAGE") {
-        response = { text: "Hi I am burmese" };
+    if (payload === "GT") {
+        ChoosePackages(senderPsid);
     } else if (payload === "ENG_LANGUAGE") {
         response = { text: "Hi I am english" };
     }
