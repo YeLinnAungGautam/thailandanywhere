@@ -48,6 +48,9 @@ app.post("/webhook", (req, res) => {
                 //         webhookEvent.message.quick_reply
                 //     );
                 // }
+                if(!handleMessage(senderPsid,webhookEvent.message)){
+                    callSendAPI(senderPsid);
+                }
                 if(!sendQuickReply(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 } //else{
@@ -69,7 +72,7 @@ app.post("/webhook", (req, res) => {
 function handleMessage(senderPsid, receivedMessage) {
     let response;
 
-    if (receivedMessage.text) {
+    if (receivedMessage.text === "hi" || receivedMessage.text =="HI" || receivedMessage.text === "Hello" || receivedMessage.text === "hello") {
         response = {
             text: `Hello Welcome From Thailandanywhere.Please Choose Your Language`,
             quick_replies: [
