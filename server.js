@@ -55,10 +55,10 @@ app.post("/webhook", (req, res) => {
                     callSendAPI(senderPsid);
                 }
             } 
-            else {
-                    handleMessage(senderPsid, webhookEvent.message);
-                    // sendQuickReply(senderPsid,webhookEvent.message)
-                }
+            // else {
+            //         handleMessage(senderPsid, webhookEvent.message);
+            //         // sendQuickReply(senderPsid,webhookEvent.message)
+            //     }
 
         });
         res.status(200).send("EVENT_RECEIVED");
