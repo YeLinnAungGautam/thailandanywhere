@@ -77,26 +77,32 @@ function Intro(senderPsid, receivedMessage) {
                 {
                     content_type: "text",
                     title: "လေယာဥ်လက်မှတ်",
+                    payload : "AIR_TIC"
                 },
                 {
                     content_type: "text",
                     title: "ဟိုတယ်Booking",
+                    payload : "HB"
                 },
                 {
                     content_type: "text",
                     title: "Group Tour",
+                    payload: "GT"
                 },
                 {
                     content_type: "text",
                     title: "Private Van Tour",
+                    payload: "PVT"
                 },
                 {
                     content_type: "text",
                     title: "Entrance tickets",
+                    payload: "ET"
                 },
                 {
                     content_type: "text",
                     title: "Airport transfer",
+                    payload: "AT"
                 },
             ],
         };
@@ -113,10 +119,12 @@ function ChoosePackages(senderPsid,receivedMessage) {
         {
             content_type: "text",
             title: "Kanchanaburi",
+            payload : 'KAN'
         },
         {
             content_type: "text",
             title: "Khao Yai",
+            payload : "KHAO"
         },
     ],
     }
