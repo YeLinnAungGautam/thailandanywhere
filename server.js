@@ -54,7 +54,7 @@ app.post("/webhook", (req, res) => {
                 // if(!ChoosePackages(senderPsid,webhookEvent.message)){
                 //     callSendAPI(senderPsid);
                 // }
-                if(!GroupTourPackage(senderPsid,webhookEvent.message)){
+                if(!KanchanaburiGroupTour(senderPsid,webhookEvent.message)){
                     callSendAPI(senderPsid);
                 }
             } 
@@ -132,9 +132,8 @@ function ChoosePackages(senderPsid) {
   callSendAPI(senderPsid, response);
 //   return true;
 }
-function GroupTourPackage(senderPsid,receivedMessage){
+function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
-    if(receivedMessage.text === 'Kanchanaburi'){
        response = {
         "attachment":{
             "type":"template",
@@ -159,7 +158,7 @@ function GroupTourPackage(senderPsid,receivedMessage){
                     {
                         "type":"postback",
                         "title":"Booking တင် မည်။",
-                        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                        "payload":"MKB_KAN"
                     }               
                   ]      
                 }
@@ -167,13 +166,12 @@ function GroupTourPackage(senderPsid,receivedMessage){
             }
           }
        }
-    }
+    
     callSendAPI(senderPsid, response);
 }
 function TripDetailsForKanchanaburi(senderPsid)
 {
-     let text;
-     text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ"
+     let text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ"
    callSendAPI(senderPsid,text);
 }
 
@@ -185,7 +183,11 @@ function handlePostback(senderPsid, receivedPostback) {
 
     if (payload === "GT") {
         ChoosePackages(senderPsid);
-    } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
+    }
+    else if(payload === "KAN"){
+        KanchanaburiGroupTour(senderPsid);
+    } 
+    else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
         TripDetailsForKanchanaburi(senderPsid);
     }else{
         callSendAPI(senderPsid, response);
@@ -220,7 +222,34 @@ function callSendAPI(senderPsid, response) {
         }
     );
 }
+function sendTypingOn(senderPsid, actions) {
+    const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
+    let requestBody = {
+        recipient: {
+            id: senderPsid,
+        },
+        sender_action: actions,
+    };
+
+    request(
+        {
+            uri:
+                "https://graph.facebook.com/v15.0/me/messages?access_token=" +
+                PAGE_ACCESS_TOKEN,
+            qs: { access_token: PAGE_ACCESS_TOKEN },
+            method: "POST",
+            json: requestBody,
+        },
+        (err, _res, _body) => {
+            if (!err) {
+                console.log("Message sent!");
+            } else {
+                console.error("Unable to send message:" + err);
+            }
+        }
+    );
+}
 const listener = app.listen(process.env.PORT, function () {
     console.log("Your app is listening on port " + listener.address().port);
 });
