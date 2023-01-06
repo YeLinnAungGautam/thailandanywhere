@@ -196,7 +196,7 @@ function TripDetailsForKanchanaburi(senderPsid) {
 function makingBooking(senderPsid, payload) {
     if (payload === "MKB_KAN") {
         let responseOne = {
-            text: "Booking တင်ရန်အတွက် အချိန် နှင့် နေရက်ကို ပို့ပေးထားပါ။  Customer Service ထံမှ မကြာခင်အချိန်အတွင်း စာပြန်ပြီး Booking Confirm ‌ေပေးပါမည်။",
+            text: "Booking တင်ရန်အတွက် အချိန် နှင့် နေရက်ကို ပို့ပေးထားပါ။ Customer Service ထံမှ မကြာခင်အချိန်အတွင်း စာပြန်ပြီး Booking Confirm ‌ေပေးပါမည်။",
         };
 
         let responseTwo = {
@@ -233,8 +233,8 @@ function makingBooking(senderPsid, payload) {
                 },
             },
         };
-        callSendAPI(senderPsid, responseOne);
         callSendAPI(senderPsid, responseTwo);
+        callSendAPI(senderPsid, responseOne);
     }
 }
 
