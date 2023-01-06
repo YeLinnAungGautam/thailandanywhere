@@ -49,6 +49,14 @@ app.post("/webhook", (req, res) => {
                         webhookEvent.message.quick_reply
                     );
                 }
+
+                // handle payload here
+                if (webhookEvent.postback.payload) {
+                    const payload = webhookEvent.postback.payload;
+                    console.log("payload", payload);
+                    handlePostback(senderPsid, payload);
+                }
+
                 if (!Intro(senderPsid, webhookEvent.message)) {
                     callSendAPI(senderPsid);
                 }
