@@ -51,7 +51,7 @@ app.post("/webhook", (req, res) => {
                 }
 
                 // handle payload here
-                if (webhookEvent.postback.payload) {
+                if (webhookEvent.postback) {
                     const payload = webhookEvent.postback.payload;
                     console.log("payload", payload);
                     handlePostback(senderPsid, payload);
