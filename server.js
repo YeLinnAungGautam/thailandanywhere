@@ -40,6 +40,7 @@ app.post("/webhook", (req, res) => {
             let webhookEvent = entry.messaging[0];
             let senderPsid = webhookEvent.sender.id;
             console.log("webhook event", webhookEvent);
+            sendTypingOn(senderPsid, "typing_on");
             if (webhookEvent.message) {
                 if (webhookEvent.message.quick_reply) {
                     const payload = webhookEvent.message.quick_reply.payload;
@@ -233,6 +234,7 @@ function makingBooking(senderPsid, payload) {
                 },
             },
         };
+        sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseTwo);
         sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseOne);
