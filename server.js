@@ -62,9 +62,9 @@ app.post("/webhook", (req, res) => {
                 // }
             } else {
                 if (webhookEvent.postback) {
-                    const payload = webhookEvent.postback.payload;
-                    console.log("payload", payload);
-                    handlePostback(senderPsid, payload);
+                    const postback = webhookEvent.postback;
+                    console.log("postback", postback);
+                    handlePostback(senderPsid, postback);
                 }
             }
             // else {
