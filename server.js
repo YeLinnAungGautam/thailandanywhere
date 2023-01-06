@@ -7,8 +7,6 @@ const request = require("request"),
     { urlencoded, json } = require("body-parser"),
     app = express();
 
-const send = require("./send");
-
 app.use(urlencoded({ extended: true }));
 
 app.use(json());
@@ -40,24 +38,22 @@ app.post("/webhook", (req, res) => {
     if (body.object === "page") {
         body.entry.forEach(function (entry) {
             let webhookEvent = entry.messaging[0];
-            console.log("webhook event", webhookEvent);
             let senderPsid = webhookEvent.sender.id;
             if (webhookEvent.message) {
-                // if (webhookEvent.message.quick_reply) {
-                //     const payload = webhookEvent.message.quick_reply.payload;
-                //     console.log("payload", payload);
-                //     handlePostback(
-                //         senderPsid,
-                //         webhookEvent.message.quick_reply
-                //     );
-                // }
-
+                if (webhookEvent.message.quick_reply) {
+                    const payload = webhookEvent.message.quick_reply.payload;
+                    console.log("payload", payload);
+                    handlePostback(
+                        senderPsid,
+                        webhookEvent.message.quick_reply
+                    );
+                }
                 if (!Intro(senderPsid, webhookEvent.message)) {
                     callSendAPI(senderPsid);
                 }
-                if (!ChoosePackages(senderPsid, webhookEvent.message)) {
-                    callSendAPI(senderPsid);
-                }
+                // if(!ChoosePackages(senderPsid,webhookEvent.message)){
+                //     callSendAPI(senderPsid);
+                // }
                 if (!GroupTourPackage(senderPsid, webhookEvent.message)) {
                     callSendAPI(senderPsid);
                 }
@@ -120,26 +116,23 @@ function Intro(senderPsid, receivedMessage) {
     }
     callSendAPI(senderPsid, response);
 }
-function ChoosePackages(senderPsid, receivedMessage) {
+function ChoosePackages(senderPsid) {
     let response;
-
-    if (receivedMessage.text === "Group Tour") {
-        response = {
-            text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။",
-            quick_replies: [
-                {
-                    content_type: "text",
-                    title: "Kanchanaburi",
-                    payload: "KAN",
-                },
-                {
-                    content_type: "text",
-                    title: "Khao Yai",
-                    payload: "KHAO",
-                },
-            ],
-        };
-    }
+    response = {
+        text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "Kanchanaburi",
+                payload: "KAN",
+            },
+            {
+                content_type: "text",
+                title: "Khao Yai",
+                payload: "KHAO",
+            },
+        ],
+    };
     callSendAPI(senderPsid, response);
     //   return true;
 }
@@ -166,16 +159,11 @@ function GroupTourPackage(senderPsid, receivedMessage) {
                                 {
                                     type: "postback",
                                     title: "ခရီးစဥ် အသေးစိတ်",
-                                    payload: "DEVELOPER_DEFINED_PAYLOAD",
+                                    payload: "KHAYEESINDETAILSFORKANCHANABURI",
                                 },
                                 {
                                     type: "postback",
                                     title: "Booking တင် မည်။",
-                                    payload: "DEVELOPER_DEFINED_PAYLOAD",
-                                },
-                                {
-                                    type: "postback",
-                                    title: "ငွေပေးချေမည်။",
                                     payload: "DEVELOPER_DEFINED_PAYLOAD",
                                 },
                             ],
@@ -187,6 +175,11 @@ function GroupTourPackage(senderPsid, receivedMessage) {
     }
     callSendAPI(senderPsid, response);
 }
+function TripDetailsForKanchanaburi(senderPsid) {
+    let text;
+    text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ";
+    callSendAPI(senderPsid, text);
+}
 
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
@@ -194,12 +187,13 @@ function handlePostback(senderPsid, receivedPostback) {
     console.log("Hello I am here");
     let payload = receivedPostback.payload;
 
-    if (payload === "MM_LANGUAGE") {
-        response = { text: "Hi I am burmese" };
-    } else if (payload === "ENG_LANGUAGE") {
-        response = { text: "Hi I am english" };
+    if (payload === "GT") {
+        ChoosePackages(senderPsid);
+    } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
+        TripDetailsForKanchanaburi(senderPsid);
+    } else {
+        callSendAPI(senderPsid, response);
     }
-    callSendAPI(senderPsid, response);
 }
 
 function callSendAPI(senderPsid, response) {
