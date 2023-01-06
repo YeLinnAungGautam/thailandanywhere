@@ -234,6 +234,7 @@ function makingBooking(senderPsid, payload) {
             },
         };
         callSendAPI(senderPsid, responseTwo);
+        sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseOne);
     }
 }
@@ -266,6 +267,35 @@ function callSendAPI(senderPsid, response) {
             id: senderPsid,
         },
         message: response,
+    };
+
+    request(
+        {
+            uri:
+                "https://graph.facebook.com/v15.0/me/messages?access_token=" +
+                PAGE_ACCESS_TOKEN,
+            qs: { access_token: PAGE_ACCESS_TOKEN },
+            method: "POST",
+            json: requestBody,
+        },
+        (err, _res, _body) => {
+            if (!err) {
+                console.log("Message sent!");
+            } else {
+                console.error("Unable to send message:" + err);
+            }
+        }
+    );
+}
+
+function sendTypingOn(senderPsid, actions) {
+    const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+
+    let requestBody = {
+        recipient: {
+            id: senderPsid,
+        },
+        sender_action: actions,
     };
 
     request(
