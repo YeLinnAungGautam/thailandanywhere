@@ -192,12 +192,13 @@ function TripDetailsForKanchanaburi(senderPsid) {
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
     let response;
-    console.log("Hello I am here");
+    console.log("Hello I am here", receivedPostback);
     let payload = receivedPostback.payload;
 
     if (payload === "GT") {
         ChoosePackages(senderPsid);
     } else if (payload === "KAN") {
+        console.log("call KAN");
         KanchanaburiGroupTour();
     } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
         TripDetailsForKanchanaburi(senderPsid);
