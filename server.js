@@ -194,20 +194,23 @@ function TripDetailsForKanchanaburi(senderPsid) {
 }
 
 function makingBooking(senderPsid, payload) {
-    let response;
     if (payload === "MKB_KAN") {
-        response = {
+        let responseOne = {
+            text: "Booking တင်ရန်အတွက် အချိန် နှင့် နေရက်ကို ပို့ပေးထားပါ။  Customer Service ထံမှ မကြာခင်အချိန်အတွင်း စာပြန်ပြီး Booking Confirm ‌ေပေးပါမည်။",
+        };
+
+        let responseTwo = {
             attachment: {
                 type: "template",
                 payload: {
                     template_type: "generic",
                     elements: [
                         {
-                            title: "Kanchanaburi",
+                            title: "Payment",
                             image_url:
                                 "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
                             subtitle:
-                                "Booking တင်ရန်အတွက် အချိန် နှင့် နေရက်ကို ပို့ပေးထားပါ။ ငွေလွဲရန်အတွက် အောက်ပါ အကောင့်များကို နှိပ်ပြီး ကြည့်ပေးပါ။ Customer Service ထံမှ မကြာခင်အချိန်အတွင်း စာပြန်ပြီး Booking Confirm ‌ပေးပါမည်။",
+                                "ငွေလွဲရန်အတွက် အောက်ပါ အကောင့်များကို နှိပ်ပြီး ကြည့်ပေးပါ။",
                             buttons: [
                                 {
                                     type: "postback",
@@ -230,9 +233,9 @@ function makingBooking(senderPsid, payload) {
                 },
             },
         };
+        callSendAPI(senderPsid, responseOne);
+        callSendAPI(senderPsid, responseTwo);
     }
-
-    callSendAPI(senderPsid, response);
 }
 
 // Handles messaging_postbacks events
