@@ -123,6 +123,7 @@ function Intro(senderPsid, receivedMessage) {
     }
     callSendAPI(senderPsid, response);
 }
+
 function ChoosePackages(senderPsid) {
     let response;
     response = {
@@ -143,45 +144,45 @@ function ChoosePackages(senderPsid) {
     callSendAPI(senderPsid, response);
     //   return true;
 }
-function GroupTourPackage(senderPsid, receivedMessage) {
+
+function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
-    if (receivedMessage.text === "Kanchanaburi") {
-        response = {
-            attachment: {
-                type: "template",
-                payload: {
-                    template_type: "generic",
-                    elements: [
-                        {
-                            title: "Welcome!",
-                            image_url:
-                                "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
-                            subtitle: "We have the right hat for everyone.",
-                            default_action: {
-                                type: "web_url",
-                                url: "https://www.originalcoastclothing.com/",
-                                webview_height_ratio: "tall",
-                            },
-                            buttons: [
-                                {
-                                    type: "postback",
-                                    title: "ခရီးစဥ် အသေးစိတ်",
-                                    payload: "KHAYEESINDETAILSFORKANCHANABURI",
-                                },
-                                {
-                                    type: "postback",
-                                    title: "Booking တင် မည်။",
-                                    payload: "DEVELOPER_DEFINED_PAYLOAD",
-                                },
-                            ],
+    response = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Welcome!",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                        subtitle: "We have the right hat for everyone.",
+                        default_action: {
+                            type: "web_url",
+                            url: "https://www.originalcoastclothing.com/",
+                            webview_height_ratio: "tall",
                         },
-                    ],
-                },
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "ခရီးစဥ် အသေးစိတ်",
+                                payload: "KHAYEESINDETAILSFORKANCHANABURI",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင် မည်။",
+                                payload: "DEVELOPER_DEFINED_PAYLOAD",
+                            },
+                        ],
+                    },
+                ],
             },
-        };
-    }
+        },
+    };
     callSendAPI(senderPsid, response);
 }
+
 function TripDetailsForKanchanaburi(senderPsid) {
     let text;
     text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ";
@@ -196,6 +197,8 @@ function handlePostback(senderPsid, receivedPostback) {
 
     if (payload === "GT") {
         ChoosePackages(senderPsid);
+    } else if (payload === "KAN") {
+        KanchanaburiGroupTour();
     } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
         TripDetailsForKanchanaburi(senderPsid);
     } else {
