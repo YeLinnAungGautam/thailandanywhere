@@ -53,9 +53,9 @@ app.post("/webhook", (req, res) => {
                     console.log("payload", payload);
                     handlePostback(senderPsid, payload);
                 } else {
-                    // (!Intro(senderPsid, webhookEvent.message))
+                    Intro(senderPsid, webhookEvent.message);
                     // simple plain text handle
-                    callSendAPI(senderPsid);
+                    // callSendAPI(senderPsid);
                 }
 
                 // if(!ChoosePackages(senderPsid,webhookEvent.message)){
