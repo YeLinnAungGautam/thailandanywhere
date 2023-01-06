@@ -184,8 +184,8 @@ function KanchanaburiGroupTour(senderPsid) {
 }
 
 function TripDetailsForKanchanaburi(senderPsid) {
-    let text;
-    text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ";
+    console.log("coming to trop detail kanchanaburi");
+    let text = "ကျွန်တော် သည် Kanchanaburi ဖြစ်ပါ";
     callSendAPI(senderPsid, text);
 }
 
