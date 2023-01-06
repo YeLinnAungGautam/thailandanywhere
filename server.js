@@ -145,7 +145,7 @@ function ChoosePackages(senderPsid) {
     //   return true;
 }
 
-function KanchanaburiGroupTour(senderPsid, receivedMessage) {
+function KanchanaburiGroupTour(senderPsid) {
     let response;
     response = {
         attachment: {
@@ -199,7 +199,7 @@ function handlePostback(senderPsid, receivedPostback) {
         ChoosePackages(senderPsid);
     } else if (payload === "KAN") {
         console.log("call KAN");
-        KanchanaburiGroupTour();
+        KanchanaburiGroupTour(senderPsid);
     } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
         TripDetailsForKanchanaburi(senderPsid);
     } else {
