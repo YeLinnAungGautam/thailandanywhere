@@ -48,20 +48,24 @@ app.post("/webhook", (req, res) => {
                         webhookEvent.message.quick_reply
                     );
                 }
-                if(!Intro(senderPsid,webhookEvent.message)){
-                    callSendAPI(senderPsid);
+                else{
+                    Intro(senderPsid,webhookEvent.message);
+                    // callSendAPI(senderPsid);
                 }
                 // if(!ChoosePackages(senderPsid,webhookEvent.message)){
                 //     callSendAPI(senderPsid);
                 // }
-                if(!KanchanaburiGroupTour(senderPsid,webhookEvent.message)){
-                    callSendAPI(senderPsid);
-                }
+                // if(!KanchanaburiGroupTour(senderPsid,webhookEvent.message)){
+                //     callSendAPI(senderPsid);
+                // }
             } 
-            // else {
-            //         handleMessage(senderPsid, webhookEvent.message);
-            //         // sendQuickReply(senderPsid,webhookEvent.message)
-            //     }
+            else {
+                if (webhookEvent.postback) {
+                    const postback = webhookEvent.postback;
+                    console.log("postback", postback);
+                    handlePostback(senderPsid, postback);
+                }
+                }
 
         });
         res.status(200).send("EVENT_RECEIVED");
@@ -185,7 +189,7 @@ function handlePostback(senderPsid, receivedPostback) {
         ChoosePackages(senderPsid);
     }
     else if(payload === "KAN"){
-        KanchanaburiGroupTour(senderPsid);
+         KanchanaburiGroupTour(senderPsid);
     } 
     else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
         TripDetailsForKanchanaburi(senderPsid);
