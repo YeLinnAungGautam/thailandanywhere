@@ -157,7 +157,7 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
                     {
                       "type":"postback",
                       "title":"ခရီးစဥ် အသေးစိတ်",
-                      "payload":"KHAYEESINDETAILSFORKANCHANABURI"
+                      "payload":"KAN_DET"
                     },
                     {
                         "type":"postback",
@@ -175,8 +175,10 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
 }
 function TripDetailsForKanchanaburi(senderPsid)
 {
-     let text = "ကျွန်တော် သဉ် Kanchanaburi ဖြစ်ပါ"
-   callSendAPI(senderPsid,text);
+    let message = {
+        text: "ဒီနေရာတွင် အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
+    };
+    callSendAPI(senderPsid, message);
 }
 
 // Handles messaging_postbacks events
@@ -191,7 +193,7 @@ function handlePostback(senderPsid, receivedPostback) {
     else if(payload === "KAN"){
          KanchanaburiGroupTour(senderPsid);
     } 
-    else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
+    else if (payload === "KAN_DET") {
         TripDetailsForKanchanaburi(senderPsid);
     }else{
         callSendAPI(senderPsid, response);
