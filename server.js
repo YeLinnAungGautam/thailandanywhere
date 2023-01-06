@@ -174,7 +174,7 @@ function KanchanaburiGroupTour(senderPsid) {
                             {
                                 type: "postback",
                                 title: "Booking တင် မည်။",
-                                payload: "DEVELOPER_DEFINED_PAYLOAD",
+                                payload: "MKB_KAN",
                             },
                         ],
                     },
@@ -193,6 +193,17 @@ function TripDetailsForKanchanaburi(senderPsid) {
     callSendAPI(senderPsid, message);
 }
 
+function makingBooking(senderPsid, payload) {
+    let response;
+    if (payload === "MKB_KAN") {
+        response = {
+            text: "Booking လုပ်ရန်အတွက် အချိန် နေ့ရက် ကို ပို့ပေးပါ။",
+        };
+    }
+
+    callSendAPI(senderPsid, response);
+}
+
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
     let response;
@@ -206,6 +217,8 @@ function handlePostback(senderPsid, receivedPostback) {
         KanchanaburiGroupTour(senderPsid);
     } else if (payload === "KHAYEESINDETAILSFORKANCHANABURI") {
         TripDetailsForKanchanaburi(senderPsid);
+    } else if (payload === "MKB_KAN") {
+        makingBooking(senderPsid, payload);
     } else {
         callSendAPI(senderPsid, response);
     }
