@@ -48,10 +48,6 @@ app.post("/webhook", (req, res) => {
                         senderPsid,
                         webhookEvent.message.quick_reply
                     );
-                } else if (webhookEvent.postback) {
-                    const payload = webhookEvent.postback.payload;
-                    console.log("payload", payload);
-                    handlePostback(senderPsid, payload);
                 } else {
                     Intro(senderPsid, webhookEvent.message);
                     // simple plain text handle
@@ -64,6 +60,12 @@ app.post("/webhook", (req, res) => {
                 // if (!GroupTourPackage(senderPsid, webhookEvent.message)) {
                 //     callSendAPI(senderPsid);
                 // }
+            } else {
+                if (webhookEvent.postback) {
+                    const payload = webhookEvent.postback.payload;
+                    console.log("payload", payload);
+                    handlePostback(senderPsid, payload);
+                }
             }
             // else {
             //         handleMessage(senderPsid, webhookEvent.message);
