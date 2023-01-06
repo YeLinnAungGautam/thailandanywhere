@@ -48,24 +48,22 @@ app.post("/webhook", (req, res) => {
                         senderPsid,
                         webhookEvent.message.quick_reply
                     );
-                }
-
-                // handle payload here
-                if (webhookEvent.postback) {
+                } else if (webhookEvent.postback) {
                     const payload = webhookEvent.postback.payload;
                     console.log("payload", payload);
                     handlePostback(senderPsid, payload);
-                }
+                } else (!Intro(senderPsid, webhookEvent.message)) {
 
-                if (!Intro(senderPsid, webhookEvent.message)) {
+                    // simple plain text handle
                     callSendAPI(senderPsid);
                 }
+
                 // if(!ChoosePackages(senderPsid,webhookEvent.message)){
                 //     callSendAPI(senderPsid);
                 // }
-                if (!GroupTourPackage(senderPsid, webhookEvent.message)) {
-                    callSendAPI(senderPsid);
-                }
+                // if (!GroupTourPackage(senderPsid, webhookEvent.message)) {
+                //     callSendAPI(senderPsid);
+                // }
             }
             // else {
             //         handleMessage(senderPsid, webhookEvent.message);
