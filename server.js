@@ -114,6 +114,7 @@ function Intro(senderPsid, receivedMessage) {
             ],
         };
     }
+    sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, response);
 }
 function ChoosePackages(senderPsid) {
@@ -133,6 +134,7 @@ function ChoosePackages(senderPsid) {
         },
     ],
   }
+  sendTypingOn(senderPsid, "typing_on");
   callSendAPI(senderPsid, response);
 //   return true;
 }
@@ -170,7 +172,44 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
             }
           }
        }
-    
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, response);
+}
+function KhaoyaiGroupTour(senderPsid,receivedMessage){
+    let response;
+       response = {
+        "attachment":{
+            "type":"template",
+            "payload":{
+              "template_type":"generic",
+              "elements":[
+                 {
+                  "title":"Welcome!",
+                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                  "subtitle":"We have the right hat for everyone.",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://www.originalcoastclothing.com/",
+                    "webview_height_ratio": "tall"
+                  },
+                  "buttons":[
+                    {
+                      "type":"postback",
+                      "title":"ခရီးစဥ် အသေးစိတ်",
+                      "payload":"KHAOYAI_DET"
+                    },
+                    {
+                        "type":"postback",
+                        "title":"Booking တင် မည်။",
+                        "payload":"KHAOYAI_BKG"
+                    }               
+                  ]      
+                }
+              ]
+            }
+          }
+       }
+    sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, response);
 }
 function TripDetailsForKanchanaburi(senderPsid)
@@ -178,8 +217,17 @@ function TripDetailsForKanchanaburi(senderPsid)
     let message = {
         text: "ဒီနေရာတွင် အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
     };
+    sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, message);
 }
+function TripDetailsForKhaoyai(senderPsid){
+    let message = {
+        text: "ဒီနေရာတွင် အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, message);
+}
+
 function makingBooking(senderPsid, payload) {
     if (payload === "MKB_KAN") {
         let responseOne = {
@@ -244,7 +292,17 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if (payload === "MKB_KAN") {
         makingBooking(senderPsid, payload);
-    }else{
+    }
+    else if(payload === "KHAO"){
+        KhaoyaiGroupTour(senderPsid);
+   } 
+    else if (payload === "KHAOYAI_DET"){
+        TripDetailsForKhaoyai(senderPsid);
+    }
+    else if(payload === "KHAOYAI_BKG"){
+        makingBooking(senderPsid, payload);
+    }
+    else{
         callSendAPI(senderPsid, response);
     }
 }
