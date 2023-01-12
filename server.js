@@ -138,51 +138,6 @@ function ChoosePackages(senderPsid) {
   callSendAPI(senderPsid, response);
 //   return true;
 }
-function AirportCarType(senderPsid){
-    let response;
-    response = {
-      text: "ကားအမျိုးအစား ကို ရွေးချယ်ပေးပါ",
-      quick_replies: [
-        {
-            content_type: "text",
-            title: "Salon (2 person)",
-            payload : 'TWOPERSON'
-        },
-        {
-            content_type: "text",
-            title: "Fortuner /Innova (4 person)",
-            payload : "FOURPERSON"
-        },
-        {
-            content_type: "text",
-            title: "Van (Above 4 Person)",
-            payload : "FOURABOVE"
-        },
-    ],
-  }
-  sendTypingOn(senderPsid, "typing_on");
-  callSendAPI(senderPsid, response);
-}
-function ChooseAirport(senderPsid){
-    let response;
-    response = {
-        text: "လေဆိပ် အကြို/အပို့ လုပ်ဖို့အတွက် လူကြီးမင်း သွားလိုတဲ့ လေဆိပ်ကို ‌ရွေးချယ်ပေးပါ။",
-        quick_replies: [
-            {
-                content_type: "text",
-                title: "ဒွန်မောင်း",
-                payload: 'DUN_MAUNG'
-            },
-            {
-                content_type: "text",
-                title: "သုဝဏ္ဏဘူမိ",
-                payload: 'SUWANA_BUMI'
-            }
-        ]
-    }
-    sendTypingOn(senderPsid, "typing_on");
-  callSendAPI(senderPsid, response);
-}
 function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
        response = {
@@ -315,6 +270,135 @@ function makingBooking(senderPsid, payload) {
         callSendAPI(senderPsid, responseOne);
     }
 }
+function AirportCarType(senderPsid){
+    let response;
+    response = {
+      text: "ကားအမျိုးအစား ကို ရွေးချယ်ပေးပါ",
+      quick_replies: [
+        {
+            content_type: "text",
+            title: "Salon (2 person)",
+            payload : 'TWOPERSON'
+        },
+        {
+            content_type: "text",
+            title: "Fortuner /Innova (4 person)",
+            payload : "FOURPERSON"
+        },
+        {
+            content_type: "text",
+            title: "Van (Above 4 Person)",
+            payload : "FOURABOVE"
+        },
+    ],
+  }
+  sendTypingOn(senderPsid, "typing_on");
+  callSendAPI(senderPsid, response);
+}
+function ChooseAirport(senderPsid){
+    let response;
+    response = {
+        text: "လေဆိပ် အကြို/အပို့ လုပ်ဖို့အတွက် လူကြီးမင်း သွားလိုတဲ့ လေဆိပ်ကို ‌ရွေးချယ်ပေးပါ။",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "ဒွန်မောင်း",
+                payload: 'DUN_MAUNG'
+            },
+            {
+                content_type: "text",
+                title: "သုဝဏ္ဏဘူမိ",
+                payload: 'SUWANA_BUMI'
+            }
+        ]
+    }
+    sendTypingOn(senderPsid, "typing_on");
+  callSendAPI(senderPsid, response);
+}
+function BookingForAirportTransfer(senderPsid){
+    let response;
+       response = {
+        "attachment":{
+            "type":"template",
+            "payload":{
+              "template_type":"generic",
+              "elements":[
+                 {
+                  "title":"Welcome!",
+                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                  "subtitle":"We have the right hat for everyone.",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://www.originalcoastclothing.com/",
+                    "webview_height_ratio": "tall"
+                  },
+                  "buttons":[
+                    {
+                        "type":"postback",
+                        "title":"Booking တင် မည်။",
+                        "payload":"BKK_AIRPORT"
+                    },
+                    {
+                        "type":"postback",
+                        "title":"နောက်သို့",
+                        "payload":"TOBACK"
+                    }           
+                  ]      
+                }
+              ]
+            }
+          }
+       }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, response);
+}
+function makingBookingForAirport(senderPsid){
+    let responseOne = {
+        text: "လာကြို/ လိုက်ပို့ ပေးရမည့် လူကြီးမင်း ၏ လေယာဥ်လက်မှတ် ပုံပို့ပါရန်",
+    };
+    let responseTwo = {
+        text: "လာကြို/ လိုက်ပို့ ပေးရမည့် Hotel လိပ်စာ ပို့ပေးပါရန်",
+    }
+    let responseThree = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Payment",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                        subtitle:
+                            "ငွေလွဲရန်အတွက် အောက်ပါ အကောင့်များကို နှိပ်ပြီး ကြည့်ပေးပါ။",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "KBZ Bank",
+                                payload: "ACC_KBZ",
+                            },
+                            {
+                                type: "postback",
+                                title: "Thai Bank",
+                                payload: "ACC_THAI",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    };
+        sendTypingOn(senderPsid, "typing_on");
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseOne);
+        sendTypingOn(senderPsid, "typing_on");
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseTwo);
+        sendTypingOn(senderPsid, "typing_on");
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseThree);
+}
+
 
 
 // Handles messaging_postbacks events
@@ -353,6 +437,15 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "SUWANA_BUMI"){
         AirportCarType(senderPsid);
+    }
+    else if(payload === "TWOPERSON"){
+        BookingForAirportTransfer(senderPsid);
+    }
+    else if(payload === "BKK_AIRPORT"){
+        makingBookingForAirport(senderPsid);
+    }
+    else if(payload === "TOBACK"){
+        ChooseAirport(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
