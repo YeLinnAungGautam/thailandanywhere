@@ -138,6 +138,51 @@ function ChoosePackages(senderPsid) {
   callSendAPI(senderPsid, response);
 //   return true;
 }
+function AirportCarType(senderPsid){
+    let response;
+    response = {
+      text: "ကားအမျိုးအစား ကို ရွေးချယ်ပေးပါ",
+      quick_replies: [
+        {
+            content_type: "text",
+            title: "Salon (2 person)",
+            payload : 'TWOPERSON'
+        },
+        {
+            content_type: "text",
+            title: "Fortuner /Innova (4 person)",
+            payload : "FOURPERSON"
+        },
+        {
+            content_type: "text",
+            title: "Van (Above 4 Person)",
+            payload : "FOURABOVE"
+        },
+    ],
+  }
+  sendTypingOn(senderPsid, "typing_on");
+  callSendAPI(senderPsid, response);
+}
+function ChooseAirport(senderPsid){
+    let response;
+    response = {
+        text: "လေဆိပ် အကြို/အပို့ လုပ်ဖို့အတွက် လူကြီးမင်း သွားလိုတဲ့ လေဆိပ်ကို ‌ရွေးချယ်ပေးပါ။",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "ဒွန်မောင်း",
+                payload: 'DUN_MAUNG'
+            },
+            {
+                content_type: "text",
+                title: "သုဝဏ္ဏဘူမိ",
+                payload: 'SUWANA_BUMI'
+            }
+        ]
+    }
+    sendTypingOn(senderPsid, "typing_on");
+  callSendAPI(senderPsid, response);
+}
 function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
        response = {
@@ -222,14 +267,13 @@ function TripDetailsForKanchanaburi(senderPsid)
 }
 function TripDetailsForKhaoyai(senderPsid){
     let message = {
-        text: "ဒီနေရာတွင် အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
+        text: "ကျွန်တော် သည် Khao Yai ဖြစ်ပါသည်။ အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
     };
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, message);
 }
-
 function makingBooking(senderPsid, payload) {
-    if (payload === "MKB_KAN") {
+    if (payload === "MKB_KAN" || payload === "KHAOYAI_BKG") {
         let responseOne = {
             text: "Booking တင်ရန်အတွက် အချိန် နှင့် နေရက်ကို ပို့ပေးထားပါ။ Customer Service ထံမှ မကြာခင်အချိန်အတွင်း စာပြန်ပြီး Booking Confirm ‌ေပေးပါမည်။",
         };
@@ -254,13 +298,8 @@ function makingBooking(senderPsid, payload) {
                                 },
                                 {
                                     type: "postback",
-                                    title: "AYA Bank",
-                                    payload: "ACC_AYA",
-                                },
-                                {
-                                    type: "postback",
-                                    title: "A Bank",
-                                    payload: "ACC_A",
+                                    title: "Thai Bank",
+                                    payload: "ACC_THAI",
                                 },
                             ],
                         },
@@ -269,11 +308,14 @@ function makingBooking(senderPsid, payload) {
             },
         };
         sendTypingOn(senderPsid, "typing_on");
+        sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseTwo);
+        sendTypingOn(senderPsid, "typing_on");
         sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseOne);
     }
 }
+
 
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
@@ -301,6 +343,16 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "KHAOYAI_BKG"){
         makingBooking(senderPsid, payload);
+    }
+    //AirPort Transfer
+    else if(payload === "AT"){
+        ChooseAirport(senderPsid);
+    }
+    else if(payload === "DUN_MAUNG"){
+        AirportCarType(senderPsid);
+    }
+    else if(payload === "SUWANA_BUMI"){
+        AirportCarType(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
