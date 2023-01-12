@@ -441,6 +441,12 @@ function handlePostback(senderPsid, receivedPostback) {
     else if(payload === "TWOPERSON"){
         BookingForAirportTransfer(senderPsid);
     }
+    else if(payload === "FOURPERSON"){
+        BookingForAirportTransfer(senderPsid);
+    }
+    else if(payload === "FOURABOVE"){
+        BookingForAirportTransfer(senderPsid);
+    }
     else if(payload === "BKK_AIRPORT"){
         makingBookingForAirport(senderPsid);
     }
