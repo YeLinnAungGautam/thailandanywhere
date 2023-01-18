@@ -147,7 +147,7 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
               "elements":[
                  {
                   "title":"Welcome!",
-                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=HWapIMVxk80AX_DJClR&_nc_ht=scontent-sin6-2.xx&oh=00_AfBRLoXggdl3W4foiymoZbQ1xOU5j8cKPFG0dH9GIj_7-g&oe=63CD1062",
                   "subtitle":"We have the right hat for everyone.",
                   "default_action": {
                     "type": "web_url",
@@ -184,7 +184,7 @@ function KhaoyaiGroupTour(senderPsid,receivedMessage){
               "elements":[
                  {
                   "title":"Welcome!",
-                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/295467281_5487283001336382_5037642418235754208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=CXj5wQ0qZTcAX8kWHpy&_nc_ht=scontent-sin6-2.xx&oh=00_AfAJVav7VsY2wMUgtPaM1Axy4nwm6Y5YjbMl-Lp9M3iakg&oe=63CBFF60",
                   "subtitle":"We have the right hat for everyone.",
                   "default_action": {
                     "type": "web_url",
@@ -214,7 +214,7 @@ function KhaoyaiGroupTour(senderPsid,receivedMessage){
 function TripDetailsForKanchanaburi(senderPsid)
 {
     let message = {
-        text: "ဒီနေရာတွင် အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
+        text: "ကျွန်တော်သည် Kanchanaburi ဖြစ်ပါသည်",
     };
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, message);
@@ -241,7 +241,7 @@ function makingBooking(senderPsid, payload) {
                         {
                             title: "Payment",
                             image_url:
-                                "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                                "https://www.nttdata.com/th/en/-/media/nttdataapac/ndth/services/card-and-payment-services/services_card_and_payment_services_header_2732x1536_1.jpg?h=1536&iar=0&w=2732&rev=cda4f237fa8c46248b1376544031309e",
                             subtitle:
                                 "ငွေလွဲရန်အတွက် အောက်ပါ အကောင့်များကို နှိပ်ပြီး ကြည့်ပေးပါ။",
                             buttons: [
@@ -409,7 +409,7 @@ function EntranceTicketsDetails(senderPsid)
                 template_type: "generic",
                 elements: [
                     {
-                        title: "Entry Ticket",
+                        title: "Entry Ticket One",
                         image_url:
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
                         buttons: [
@@ -431,7 +431,7 @@ function EntranceTicketsDetails(senderPsid)
                         ],
                     },
                     {
-                        title: "Entry Ticket",
+                        title: "Entry Ticket Two",
                         image_url:
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
                         buttons: [
@@ -453,7 +453,7 @@ function EntranceTicketsDetails(senderPsid)
                         ],
                     },
                     {
-                        title: "Entry Ticket",
+                        title: "Entry Ticket Three",
                         image_url:
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
                         buttons: [
@@ -475,7 +475,7 @@ function EntranceTicketsDetails(senderPsid)
                         ],
                     },
                     {
-                        title: "Entry Ticket",
+                        title: "Entry Ticket Four",
                         image_url:
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
                         buttons: [
@@ -497,7 +497,7 @@ function EntranceTicketsDetails(senderPsid)
                         ],
                     },
                     {
-                        title: "Entry Ticket",
+                        title: "Entry Ticket Five",
                         image_url:
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
                         buttons: [
@@ -526,6 +526,43 @@ function EntranceTicketsDetails(senderPsid)
     callSendAPI(senderPsid, message);
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, responseTwo);
+}
+function EntranceTicketDetails(senderPsid,payload){
+    if (payload === "ENT_DET1") {
+        let responseOne = {
+            text: "Hello I am Entrance Ticket One",
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseOne);
+    }
+    if (payload === "ENT_DET2") {
+        let responseTwo = {
+            text: "Hello I am Entrance Ticket Two",
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseTwo);
+    }
+    if (payload === "ENT_DET3") {
+        let responseThree = {
+            text: "Hello I am Entrance Ticket Three",
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseThree);
+    }
+    if (payload === "ENT_DET4") {
+        let responseFour = {
+            text: "Hello I am Entrance Ticket Four",
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseFour);
+    }
+    if (payload === "ENT_DET5") {
+        let responseFive = {
+            text: "Hello I am Entrance Ticket Five",
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        callSendAPI(senderPsid, responseFive);
+    }
 }
 
 
@@ -584,6 +621,21 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "ET"){
         EntranceTicketsDetails(senderPsid);
+    }
+    else if(payload === "ENT_DET1"){
+        EntranceTicketDetails(senderPsid,payload);
+    }
+    else if(payload === "ENT_DET2"){
+        EntranceTicketDetails(senderPsid,payload);
+    }
+    else if(payload === "ENT_DET3"){
+        EntranceTicketDetails(senderPsid,payload);
+    }
+    else if(payload === "ENT_DET4"){
+        EntranceTicketDetails(senderPsid,payload);
+    }
+    else if(payload === "ENT_DET5"){
+        EntranceTicketDetails(senderPsid,payload);
     }
     else{
         callSendAPI(senderPsid, response);
