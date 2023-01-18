@@ -397,7 +397,7 @@ function makingBookingForAirport(senderPsid){
         sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseThree);
 }
-function EntranceTicketsDetails(senderPsid)
+function EntranceTickets(senderPsid)
 {
     let message = {
         text: "ထိုင်းနိုင်ငံအတွင်းရှိ ဘန်ကောက် /ပတ္တရား/ ဟွာဟင်/ ဖူးခတ် မြို့များရှိ ကစားကွင်း ဝင်ခွင့် လက်မှတ်များ၊ ညစာ buffet လက်မှတ်များ၊ ဇိမ်ခံသင်္ဘောမှာ Dinner စားခြင်းများအတွက် လက်မှတ်များကိုThailand Anywhere မှာ Counter ဈေးထက်ဝက် သက်သာတဲ့ ဈေးနှုန်းဖြင့်ဝယ်ယူ ရရှိနိုင်ပါပြီ 🙏🙏🙏"
@@ -564,6 +564,50 @@ function EntranceTicketDetails(senderPsid,payload){
         callSendAPI(senderPsid, responseFive);
     }
 }
+function EntranceTicketBooking(senderPsid){
+    let responseOne = {
+        text: "သွားလိုသည့်ရက်ကို ပို့ပေးထားပါ",
+    };
+    let responseTwo = {
+        text: "customer servicec ဘက်မှ ပြန်ပြောပေးပါမယ် ရှင့်",
+    }
+    let responseThree = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Payment",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/305949146_5400476563372725_8902643845604913423_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=6ehqFOsCzY4AX8FC0Jl&_nc_ht=scontent-sin6-2.xx&oh=00_AfBUDX2h2jdovRz_syX-YzpofbXMBBRhMcQuT7oE-mpYcQ&oe=63BB39BE",
+                        subtitle:
+                            "ငွေလွဲရန်အတွက် အောက်ပါ အကောင့်များကို နှိပ်ပြီး ကြည့်ပေးပါ။",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "KBZ Bank",
+                                payload: "ACC_KBZ",
+                            },
+                            {
+                                type: "postback",
+                                title: "Thai Bank",
+                                payload: "ACC_THAI",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseThree);
+
+}
 
 
 
@@ -620,7 +664,7 @@ function handlePostback(senderPsid, receivedPostback) {
         ChooseAirport(senderPsid);
     }
     else if(payload === "ET"){
-        EntranceTicketsDetails(senderPsid);
+        EntranceTickets(senderPsid);
     }
     else if(payload === "ENT_DET1"){
         EntranceTicketDetails(senderPsid,payload);
@@ -636,6 +680,24 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "ENT_DET5"){
         EntranceTicketDetails(senderPsid,payload);
+    }
+    else if(payload === "ENT_BOOK1"){
+        EntranceTicketBooking(senderPsid);
+    }
+    else if(payload === "ENT_BOOK2"){
+        EntranceTicketBooking(senderPsid);
+    }
+    else if(payload === "ENT_BOOK3"){
+        EntranceTicketBooking(senderPsid);
+    }
+    else if(payload === "ENT_BOOK4"){
+        EntranceTicketBooking(senderPsid);
+    }
+    else if(payload === "ENT_BOOK5"){
+        EntranceTicketBooking(senderPsid);
+    }
+    else if(payload === "ENT_BAC1"){
+        Intro(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
