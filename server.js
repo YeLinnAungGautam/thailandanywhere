@@ -423,11 +423,6 @@ function EntranceTickets(senderPsid)
                                 title: "Booking တင်မည်",
                                 payload: "ENT_BOOK1",
                             },
-                            {
-                                type: "postback",
-                                title: "နောက်သို့",
-                                payload: "ENT_BAC1",
-                            },
                         ],
                     },
                     {
@@ -444,11 +439,6 @@ function EntranceTickets(senderPsid)
                                 type: "postback",
                                 title: "Booking တင်မည်",
                                 payload: "ENT_BOOK2",
-                            },
-                            {
-                                type: "postback",
-                                title: "နောက်သို့",
-                                payload: "ENT_BAC2",
                             },
                         ],
                     },
@@ -467,11 +457,6 @@ function EntranceTickets(senderPsid)
                                 title: "Booking တင်မည်",
                                 payload: "ENT_BOOK3",
                             },
-                            {
-                                type: "postback",
-                                title: "နောက်သို့",
-                                payload: "ENT_BAC3",
-                            },
                         ],
                     },
                     {
@@ -489,11 +474,6 @@ function EntranceTickets(senderPsid)
                                 title: "Booking တင်မည်",
                                 payload: "ENT_BOOK4",
                             },
-                            {
-                                type: "postback",
-                                title: "နောက်သို့",
-                                payload: "ENT_BAC4",
-                            },
                         ],
                     },
                     {
@@ -510,11 +490,6 @@ function EntranceTickets(senderPsid)
                                 type: "postback",
                                 title: "Booking တင်မည်",
                                 payload: "ENT_BOOK5",
-                            },
-                            {
-                                type: "postback",
-                                title: "နောက်သို့",
-                                payload: "ENT_BAC5",
                             },
                         ],
                     },
@@ -695,9 +670,6 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "ENT_BOOK5"){
         EntranceTicketBooking(senderPsid);
-    }
-    else if(payload === "ENT_BAC1"){
-        Intro(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
