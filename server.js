@@ -76,8 +76,7 @@ app.post("/webhook", (req, res) => {
 
 function Intro(senderPsid, receivedMessage) {
     let response;
-
-    if (receivedMessage.text === "hi" || receivedMessage.text =="HI" || receivedMessage.text === "Hello" || receivedMessage.text === "hello") {
+    if (receivedMessage.text === "hi" || receivedMessage.text =="HI" || receivedMessage.text === "Hello" || receivedMessage.text === "hello" || receivedMessage.text === "Hi") {
         response = {
             text: `မင်္ဂလာပါရှင့် 🙏 Thailand Anywhere မှ ကြိုဆိုပါတယ်။ထိုင်းနိုင်ငံအတွင်း ခရီးသွားဝန်ဆောင်မှုနဲ့ ပတ်သတ်ပြီး ကူညီဖို့အသင့်ပါရှင့်။ Thailand Anywhere ၏ ဝန်ဆောင်မှုများအားလုံးကို သိရှိနိုင်ရန် အောက်တွင်ရွေးချယ်ပေးပါနော်။🙇`,
             quick_replies: [
@@ -398,6 +397,136 @@ function makingBookingForAirport(senderPsid){
         sendTypingOn(senderPsid, "typing_on");
         callSendAPI(senderPsid, responseThree);
 }
+function EntranceTicketsDetails(senderPsid)
+{
+    let message = {
+        text: "ထိုင်းနိုင်ငံအတွင်းရှိ ဘန်ကောက် /ပတ္တရား/ ဟွာဟင်/ ဖူးခတ် မြို့များရှိ ကစားကွင်း ဝင်ခွင့် လက်မှတ်များ၊ ညစာ buffet လက်မှတ်များ၊ ဇိမ်ခံသင်္ဘောမှာ Dinner စားခြင်းများအတွက် လက်မှတ်များကိုThailand Anywhere မှာ Counter ဈေးထက်ဝက် သက်သာတဲ့ ဈေးနှုန်းဖြင့်ဝယ်ယူ ရရှိနိုင်ပါပြီ 🙏🙏🙏"
+    };
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Entry Ticket",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "ENT_DET1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "ENT_BOOK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "နောက်သို့",
+                                payload: "ENT_BAC1",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Entry Ticket",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "ENT_DET2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "ENT_BOOK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "နောက်သို့",
+                                payload: "ENT_BAC2",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Entry Ticket",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "ENT_DET3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "ENT_BOOK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "နောက်သို့",
+                                payload: "ENT_BAC3",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Entry Ticket",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "ENT_DET4",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "ENT_BOOK4",
+                            },
+                            {
+                                type: "postback",
+                                title: "နောက်သို့",
+                                payload: "ENT_BAC4",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Entry Ticket",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294506823_5400774406709729_1217731331616706482_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=f1NBYerpUFcAX-zmhNA&_nc_ht=scontent-sin6-2.xx&oh=00_AfCqpLsEQnPPzIlxcIsLPLMgA8-A95-5fKkDGHSpqXBq7A&oe=63CCCCCE",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "ENT_DET5",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "ENT_BOOK5",
+                            },
+                            {
+                                type: "postback",
+                                title: "နောက်သို့",
+                                payload: "ENT_BAC5",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, message);
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
 
 
 
@@ -452,6 +581,9 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "TOBACK"){
         ChooseAirport(senderPsid);
+    }
+    else if(payload === "ET"){
+        EntranceTicketsDetails(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
