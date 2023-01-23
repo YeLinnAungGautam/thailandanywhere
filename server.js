@@ -583,9 +583,62 @@ function EntranceTicketBooking(senderPsid){
     callSendAPI(senderPsid, responseThree);
 
 }
-
-
-
+function PrivateVanTour(senderPsid){
+    let response;
+    response = {
+      text: "Thailand Anywhere မှ ထိုင်းနိုင်ငံတစ်ဝှမ်းရှိ အထင်ကရ နေရာများ၊ တန်ခိုးကြီးဘုရားများကို သက်သောင့်သက်သာစွာနဲ့ စိတ်ချမ်းသာစွာ ခရီးထွက်နိုင်စေဖို့ Private Van Tour ခရီးစဥ်များကို စီစဥ်ပေးထားပါတယ်။ လူကြီးမင်း သွားလိုသော မြို့များကို ရွေးချယ်ကြည့်ရှုပေးပါ။",
+      quick_replies: [
+        {
+            content_type: "text",
+            title: "Bangkok",
+            payload : 'BKK'
+        },
+        {
+            content_type: "text",
+            title: "Pattaya",
+            payload : "PTYA"
+        },
+        {
+            content_type: "text",
+            title: "Hua Hin",
+            payload : "HH"
+        },
+        {
+            content_type: "text",
+            title: "Kanchanaburi",
+            payload : "KANP"
+        },
+        {
+            content_type: "text",
+            title: "Ayutthaya",
+            payload : "AUTY"
+        },
+        {
+            content_type: "text",
+            title: "Kaho Yai",
+            payload : "KHY"
+        },
+        {
+            content_type: "text",
+            title: "Khao Kho",
+            payload : "KHOO"
+        },
+        {
+            content_type: "text",
+            title: "Nakhon Nayok",
+            payload : "NNYK"
+        },
+        {
+            content_type: "text",
+            title: "Ratchaburi",
+            payload : "RTB"
+        },
+    ],
+      
+  }
+  sendTypingOn(senderPsid, "typing_on");
+  callSendAPI(senderPsid, response); 
+}
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
     let response;
@@ -670,6 +723,9 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "ENT_BOOK5"){
         EntranceTicketBooking(senderPsid);
+    }
+    else if(payload === "PVT"){
+        PrivateVanTour(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
