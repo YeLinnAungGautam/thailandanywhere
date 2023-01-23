@@ -956,6 +956,516 @@ function HuaHinPrivateVanTour(senderPsid){
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, responseTwo);
 }
+function AyutthayaPrivateTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Ayutthaya & Nakhon Nayok Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/292676923_5070959889669137_1727991574672035964_n.jpg?stp=dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=c48759&_nc_ohc=wSWUZLsCJw8AX--pdzW&_nc_ht=scontent-sin6-2.xx&oh=00_AfA2YP7eTgf47uSJOtRvuScvSkBCWOTe_vHNnghJuYpLfA&oe=63D39C37",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "AYUTTHAYA_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "AYUTTHAYA_B_PACK1",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Bangkok To Ayutthaya",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/292676923_5070959889669137_1727991574672035964_n.jpg?stp=dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=c48759&_nc_ohc=wSWUZLsCJw8AX--pdzW&_nc_ht=scontent-sin6-2.xx&oh=00_AfA2YP7eTgf47uSJOtRvuScvSkBCWOTe_vHNnghJuYpLfA&oe=63D39C37",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "AYUTTHAYA_PACK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "AYUTTHAYA_B_PACK2",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Ayutthaya Historical Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/292676923_5070959889669137_1727991574672035964_n.jpg?stp=dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=c48759&_nc_ohc=wSWUZLsCJw8AX--pdzW&_nc_ht=scontent-sin6-2.xx&oh=00_AfA2YP7eTgf47uSJOtRvuScvSkBCWOTe_vHNnghJuYpLfA&oe=63D39C37",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "AYUTTHAYA_PACK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "AYUTTHAYA_B_PACK3",
+                            },
+                        ],
+                    },   
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
+function PattayaPrivateTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Memorial Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/297035238_5602342406452740_5466016892138417630_n.jpg?stp=dst-jpg_s960x960&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Ub5vf9wOW44AX9oLitc&_nc_ht=scontent-sin6-1.xx&oh=00_AfCN8n396vWHRKCPH0i2akHA1aMqdKCYTNrjBwnkjFCEiQ&oe=63D28991",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK1",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Pattaya 1 N 2 D Trip",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/299461522_5354055957996449_1172438659990196500_n.jpg?stp=dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=3f4yRxcz1TIAX-kHutW&_nc_ht=scontent-sin6-3.xx&oh=00_AfCLrpeo0Sgcm2iZl5UxP2OqyVaBKZxEP1yN9zLazV4aMA&oe=63D25677",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK2",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Pattya Day Trip",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/301380479_5255610321217031_417583056895395186_n.jpg?stp=dst-jpg_p960x960&_nc_cat=103&ccb=1-7&_nc_sid=c48759&_nc_ohc=33Pu13ewnWYAX_g48q0&_nc_ht=scontent-sin6-4.xx&oh=00_AfADvBfKj2SgXRYpkUNduQkT95iYb3jBFUweMiZi8bFhfA&oe=63D3D274",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK3",
+                            },
+                        ],
+                    },  
+                    {
+                        title: "Pattaya Day Package",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/301380479_5255610321217031_417583056895395186_n.jpg?stp=dst-jpg_p960x960&_nc_cat=103&ccb=1-7&_nc_sid=c48759&_nc_ohc=33Pu13ewnWYAX_g48q0&_nc_ht=scontent-sin6-4.xx&oh=00_AfADvBfKj2SgXRYpkUNduQkT95iYb3jBFUweMiZi8bFhfA&oe=63D3D274",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK4",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK4",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Pattaya Bound with Love Package ll",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/301665014_5329229523834239_962772074423745581_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=S2XZsI2F7gIAX8sEHTR&_nc_ht=scontent-sin6-4.xx&oh=00_AfAxASq1G0Bj4EyR1W7lr-KZPnWn4Hitv3N7ifd-8-NeBA&oe=63D2629A",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK5",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK5",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Pattaya Day Trip Package 012",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/298038688_5700575739998602_3292023311352860313_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=OW3vXMc1eg8AX8Ibzxh&_nc_ht=scontent-sin6-4.xx&oh=00_AfDdaEYXQ0-9D1mm1gCellxDuudFeYLZsiq9eOtAuDKp8Q&oe=63D2CB1C",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK6",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK6",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Pattaya Bound with Love lll",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/301691346_5425567854203679_4185046591327566753_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=0Hj-CbdtZ90AX82Zknj&_nc_ht=scontent-sin6-2.xx&oh=00_AfCvu6934yUATJeP6_sijAgY6VagRkuLLHXqf7rA8N49mw&oe=63D30CEB",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK7",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK7",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Pattaya Beach Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/299461522_5354055957996449_1172438659990196500_n.jpg?stp=dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=3f4yRxcz1TIAX-kHutW&_nc_ht=scontent-sin6-3.xx&oh=00_AfCLrpeo0Sgcm2iZl5UxP2OqyVaBKZxEP1yN9zLazV4aMA&oe=63D25677",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "PATTAYA_PACK8",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "PATTAYA_B_PACK8",
+                            },
+                        ],
+                    },   
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
+function RatchburiPrivateTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Ratchburi Day Trip 1",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/300618713_5018928774885754_1276663385546190790_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=_23pNRiT9mkAX88HuCt&_nc_ht=scontent-sin6-1.xx&oh=00_AfClnHHhdGsD7t26wUSAPk4NeuWvS4n21AEDEja8Zdr35g&oe=63D2FD34",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "RATCHBURI_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "RATCHBURI_B_PACK1",
+                            },
+                        ],
+                    },    
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);  
+}
+function KhaoKhoPrivateTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Khao Kho 2N 3D Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/297257073_8916879518337528_7859721729348500616_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=YEST0yefzX4AX-14RuQ&_nc_ht=scontent-sin6-3.xx&oh=00_AfBwyiLvd7pvVlevbnrShu0ahHJIfnlJVEzDP_ExmrzCWA&oe=63D37AF4",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOKHO_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOKHO_B_PACK1",
+                            },
+                        ],
+                    },    
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo); 
+}
+function KanchanaburiPrivateTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Kanchanaburi 1N 2D Package 001",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=CMKaUN4jt5sAX-ToTMW&_nc_ht=scontent-sin6-2.xx&oh=00_AfAGGjZhT9w28o94sPHMuKZZuZJY14IlMzbPPf-Ie9kYUw&oe=63D2FF22",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KANCHANABURI_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KANCHANABURI_B_PACK1",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Kanchanaburi Day Trip Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/287931478_5082130461898785_4152374904263627900_n.jpg?stp=dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=c48759&_nc_ohc=Jy1HcmsqVWEAX_b_ZRU&_nc_ht=scontent-sin6-1.xx&oh=00_AfCAmCL33Krnr6haDuN7rDMZl779jInp7u4D9K0MQtc9Fw&oe=63D29F52",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KANCHANABURI_PACK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KANCHANABURI_B_PACK2",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Kanchanaburi Attraction Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/287104979_7846297965411947_6639328366561967521_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=0ASf9J1m0m0AX8491Ey&_nc_ht=scontent-sin6-3.xx&oh=00_AfCWFN7SNuf8A2RqnRuYUwI_vrt3R8HrRwShH_qCfGZsLQ&oe=63D40DAD",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KANCHANABURI_PACK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KANCHANABURI_B_PACK3",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Kanchanaburi Day Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/287931478_5082130461898785_4152374904263627900_n.jpg?stp=dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=c48759&_nc_ohc=Jy1HcmsqVWEAX_b_ZRU&_nc_ht=scontent-sin6-1.xx&oh=00_AfCAmCL33Krnr6haDuN7rDMZl779jInp7u4D9K0MQtc9Fw&oe=63D29F52",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KANCHANABURI_PACK4",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KANCHANABURI_B_PACK4",
+                            },
+                        ],
+                    },    
+                    {
+                        title: "Kanchanaburi Adventure Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/287365919_5680511541959591_4558793234193182430_n.jpg?stp=dst-jpg_p960x960&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=ZXdwh5KiGJ0AX8hAa9g&_nc_ht=scontent-sin6-1.xx&oh=00_AfCB_dVVXcWkSlEHaUrvQLWySr4U3ipho_C_FvT-thtIgA&oe=63D42DA8",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KANCHANABURI_PACK5",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KANCHANABURI_B_PACK5",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Kanchanaburi Unforgetten Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/280180891_5149851918445591_6034377743718372390_n.jpg?stp=dst-jpg_p960x960&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=gpRD_20sXEUAX-kzlLJ&tn=4QimqJWyv3ImGxsw&_nc_ht=scontent-sin6-1.xx&oh=00_AfDOS2Q3uqFXWw5K877lAq1yy_fb4UMgn_y8o-uzsqlmbA&oe=63D26210",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KANCHANABURI_PACK6",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KANCHANABURI_B_PACK6",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo); 
+}
+function KhaoYaiPrivateTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Khao Yai Famous Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/295467281_5487283001336382_5037642418235754208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=l7RtJlNz8xUAX_BG9kS&_nc_ht=scontent-sin6-1.xx&oh=00_AfBgectU64S_wLb73uc2Map-zmUJ86bSPb_LjKEqmJUjIA&oe=63D3E860",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOYAI_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOYAI_B_PACK1",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Khao Yai Photogenic Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/294771649_5953316451349371_763240831541577158_n.jpg?stp=dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=c48759&_nc_ohc=Pm6yoosEeLYAX8nduZu&_nc_ht=scontent-sin6-2.xx&oh=00_AfB__zXIJJ6onKAitLm0bTXfhhCIXUSF7gsEo0Q6kyh5LQ&oe=63D3C966",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOYAI_PACK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOYAI_B_PACK2",
+                            },
+                        ],
+                    },  
+                    {
+                        title: "Khao Yai Relax Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/292933922_7741838649224141_4560002176273027660_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=cg50yn_WbDkAX953ePn&tn=4QimqJWyv3ImGxsw&_nc_ht=scontent-sin6-2.xx&oh=00_AfCWC-89VxwUnlRjJ6nQe8KOznK6yyjyWpxqSn1Mii5Fog&oe=63D27433",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOYAI_PACK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOYAI_B_PACK3",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Khao Yai 1N 2D Trip",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX9ez156&_nc_ht=scontent-sin6-3.xx&oh=00_AfB45IM9tr1jmcHWD1neWgL5ws0Gn7WV7AARVBcr4sVFIQ&oe=63D40C8E",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOYAI_PACK4",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOYAI_B_PACK4",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Khao Yai Adventure Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/280527103_7751331054937538_7642226467233488041_n.jpg?stp=dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=F6ZIUhAsYpIAX86_LQT&_nc_ht=scontent-sin6-3.xx&oh=00_AfCFrt6fauPxQ7Goyns5Q_plhSPI78XeWXeQFV4SqvrukA&oe=63D32165",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOYAI_PACK5",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOYAI_B_PACK5",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Khao Yai Explore Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/288936940_5289160537861174_681109447926307327_n.jpg?stp=dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=c48759&_nc_ohc=U_b7WzAwxesAX-W4GRq&_nc_ht=scontent-sin6-1.xx&oh=00_AfAm-_EbbDD_hDmOzGhV_tG-YkUkn6m0pmxPr6diRKX04A&oe=63D3F75A",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "အသေးစိတ် ကြည့် ရန်",
+                                payload: "KHAOYAI_PACK6",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "KHAOYAI_B_PACK6",
+                            },
+                        ],
+                    },    
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
+
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
     let response;
@@ -1049,6 +1559,26 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "HH"){
         HuaHinPrivateVanTour(senderPsid);
+    }
+    else if(payload === "HH"){
+        HuaHinPrivateVanTour(senderPsid);
+    }else if(payload === "AUTY"){
+        AyutthayaPrivateTour(senderPsid);
+    }
+    else if(payload === "PTYA"){
+        PattayaPrivateTour(senderPsid);
+    }
+    else if(payload === "RTB"){
+        RatchburiPrivateTour(senderPsid);
+    }
+    else if(payload === "KHOO"){
+        KhaoKhoPrivateTour(senderPsid);
+    }
+    else if(payload === "KANP"){
+        KanchanaburiPrivateTour(senderPsid);
+    }
+    else if(payload === "KHY"){
+        KhaoYaiPrivateTour(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
