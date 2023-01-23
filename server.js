@@ -639,6 +639,323 @@ function PrivateVanTour(senderPsid){
   sendTypingOn(senderPsid, "typing_on");
   callSendAPI(senderPsid, response); 
 }
+function BangkokPrivateVanTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Memorial Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/297035238_5602342406452740_5466016892138417630_n.jpg?stp=dst-jpg_s960x960&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Ub5vf9wOW44AX9oLitc&_nc_ht=scontent-sin6-1.xx&oh=00_AfCN8n396vWHRKCPH0i2akHA1aMqdKCYTNrjBwnkjFCEiQ&oe=63D28991",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK1",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Bangkok 9 Pagodas Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/280660549_8279124868767890_6240690513813253911_n.jpg?stp=dst-jpg_s960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=fEgt39M4gjMAX_KVS4w&_nc_ht=scontent-sin6-1.xx&oh=00_AfDJbVZ0DR45rNbuDuijygltCmTxD7Oxcx11zXD9uv53Sw&oe=63D34137",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK2",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Bangkok Day Package",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/288581556_5462036767194965_1595613861640736008_n.jpg?stp=dst-jpg_p960x960&_nc_cat=103&ccb=1-7&_nc_sid=c48759&_nc_ohc=OIm7v03a2TIAX-kVmPQ&_nc_ht=scontent-sin6-4.xx&oh=00_AfCpmFf3DG1qu0wfz-NKwHAMU1R_WKx4_Da5jRfB_HCWsQ&oe=63D3713A",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK3",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Bangkok Safari World Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/290363850_4674697575967293_1899026348289111766_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=Y8vkHkc2v9IAX8Dqiho&_nc_ht=scontent-sin6-2.xx&oh=00_AfCTtt4XowBzLru4RuL3rLn7MnS9dK3fbZUB96FVFpZVBg&oe=63D3B54B",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK4",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK4",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Bangkok Flexible Package",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/294448195_8495440087140103_794612672023620208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=8g7idYFCT18AX8yLWfH&_nc_ht=scontent-sin6-4.xx&oh=00_AfAsIZBumQkyXh-neIrJ1tsxOBbJ6hPyxME5ykdK9EQLMg&oe=63D3574E",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK5",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK5",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Dream World Package",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/294448195_8495440087140103_794612672023620208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=8g7idYFCT18AX8yLWfH&_nc_ht=scontent-sin6-4.xx&oh=00_AfAsIZBumQkyXh-neIrJ1tsxOBbJ6hPyxME5ykdK9EQLMg&oe=63D3574E",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK6",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK6",
+                            },
+                        ],
+                    },  
+                    {
+                        title: "Amazing Siam Park Package",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/294448195_8495440087140103_794612672023620208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=8g7idYFCT18AX8yLWfH&_nc_ht=scontent-sin6-4.xx&oh=00_AfAsIZBumQkyXh-neIrJ1tsxOBbJ6hPyxME5ykdK9EQLMg&oe=63D3574E",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK7",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK7",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Safari & Dream World Day Trip",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/294448195_8495440087140103_794612672023620208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=8g7idYFCT18AX8yLWfH&_nc_ht=scontent-sin6-4.xx&oh=00_AfAsIZBumQkyXh-neIrJ1tsxOBbJ6hPyxME5ykdK9EQLMg&oe=63D3574E",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK8",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK8",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Samut Prakan Day Trip",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/294448195_8495440087140103_794612672023620208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=100&ccb=1-7&_nc_sid=c48759&_nc_ohc=8g7idYFCT18AX8yLWfH&_nc_ht=scontent-sin6-4.xx&oh=00_AfAsIZBumQkyXh-neIrJ1tsxOBbJ6hPyxME5ykdK9EQLMg&oe=63D3574E",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "BKK_PACK9",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "BKK_B_PACK9",
+                            },
+                        ],
+                    },   
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
+function HuaHinPrivateVanTour(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Memorial Package",
+                        image_url:
+                            "https://scontent-sin6-1.xx.fbcdn.net/v/t45.5328-4/297035238_5602342406452740_5466016892138417630_n.jpg?stp=dst-jpg_s960x960&_nc_cat=111&ccb=1-7&_nc_sid=c48759&_nc_ohc=Ub5vf9wOW44AX9oLitc&_nc_ht=scontent-sin6-1.xx&oh=00_AfCN8n396vWHRKCPH0i2akHA1aMqdKCYTNrjBwnkjFCEiQ&oe=63D28991",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK1",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK1",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Relax Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/288876272_5227994213936503_8504659665068089817_n.jpg?stp=dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=c48759&_nc_ohc=s4MiZf76XZ0AX9R4Bcp&_nc_ht=scontent-sin6-3.xx&oh=00_AfCxSpqPBAWyhrEIAyZ7j82-JVEEgLHWoOLDI5Idbx8Fbg&oe=63D2FE97",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK2",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK2",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Beach Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/283536211_5304328659653046_8440149902879532396_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=--crj2Do5JgAX9DmiYl&_nc_ht=scontent-sin6-3.xx&oh=00_AfA16O-IWxO0aYFCkGrO-q3aK03zD3uReroCSFJoZwr3UQ&oe=63D2D16F",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK3",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK3",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Photogenic Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/287707721_5314670801960181_5628258349049110724_n.jpg?stp=dst-jpg_p960x960&_nc_cat=105&ccb=1-7&_nc_sid=c48759&_nc_ohc=gLFzMQ89iW8AX9EP7aw&_nc_ht=scontent-sin6-2.xx&oh=00_AfAhVa2KAQdlEN6idHhMIE5aUUQJzNO2yuC8UwAJ9q6wRw&oe=63D34C6B",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK4",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK4",
+                            },
+                        ],
+                    },
+                    {
+                        title: "1N2D Trip 1",
+                        image_url:
+                            "https://scontent-sin6-4.xx.fbcdn.net/v/t45.5328-4/300171921_8035229843184868_3598667885098533997_n.jpg?stp=dst-jpg_p960x960&_nc_cat=103&ccb=1-7&_nc_sid=c48759&_nc_ohc=yKUbwPXm79sAX-ITzKQ&tn=4QimqJWyv3ImGxsw&_nc_ht=scontent-sin6-4.xx&oh=00_AfCBJMEkZPjv-I-FHf90UK5OlHo9_NqLr8RefiTmisRXCw&oe=63D3ADA4",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK5",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK5",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Shopping Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/287913050_5658660954166194_909850389180359755_n.jpg?stp=dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=c48759&_nc_ohc=jBW0RJKBgvMAX8ShScx&_nc_ht=scontent-sin6-3.xx&oh=00_AfCNis3rp9iZV5lIWgzQyL64m4EegG59BKAaMpgLKLfo7w&oe=63D42787",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK6",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK6",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Adventure Package",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/287913050_5658660954166194_909850389180359755_n.jpg?stp=dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=c48759&_nc_ohc=jBW0RJKBgvMAX8ShScx&_nc_ht=scontent-sin6-3.xx&oh=00_AfCNis3rp9iZV5lIWgzQyL64m4EegG59BKAaMpgLKLfo7w&oe=63D42787",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK7",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK7",
+                            },
+                        ],
+                    }, 
+                    {
+                        title: "Attraction Package",
+                        image_url:
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/292676923_5070959889669137_1727991574672035964_n.jpg?stp=dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=c48759&_nc_ohc=wSWUZLsCJw8AX--pdzW&_nc_ht=scontent-sin6-2.xx&oh=00_AfA2YP7eTgf47uSJOtRvuScvSkBCWOTe_vHNnghJuYpLfA&oe=63D39C37",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "သေးစိတ် ကြည့် ရန်",
+                                payload: "HUAHIN_PACK8",
+                            },
+                            {
+                                type: "postback",
+                                title: "Booking တင်မည်",
+                                payload: "HUAHIN_B_PACK8",
+                            },
+                        ],
+                    },   
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
 // Handles messaging_postbacks events
 function handlePostback(senderPsid, receivedPostback) {
     let response;
@@ -726,6 +1043,12 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "PVT"){
         PrivateVanTour(senderPsid);
+    }
+    else if(payload === "BKK"){
+        BangkokPrivateVanTour(senderPsid);
+    }
+    else if(payload === "HH"){
+        HuaHinPrivateVanTour(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
