@@ -141,7 +141,7 @@ function ChoosePackages(senderPsid) {
                     {
                         title: "Kanchanaburi",
                         image_url:
-                            "https://drive.google.com/file/d/111kv-oryWgM_F-xcv1ZSWJWHzgracLJO/view",
+                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=CMKaUN4jt5sAX-05uP_&_nc_ht=scontent-sin6-2.xx&oh=00_AfDZmcwPtyySgpBFnrX8i5q5q9s1DeEmVTj0fvLJs72nXw&oe=63D4F962",
                         subtitle:
                             "Every Friday at 7am",
                         buttons: [
@@ -160,7 +160,7 @@ function ChoosePackages(senderPsid) {
                     {
                         title: "Khao Yai",
                         image_url:
-                            "https://drive.google.com/file/d/186zRxJqIMjMEEJS7x1dhw6qvC0uOmmh9/view",
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
                         subtitle:
                             "Every Friday at 7am",
                         buttons: [
@@ -188,31 +188,8 @@ function ChoosePackages(senderPsid) {
 }
 function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
-    let responseOne = {
-        "attachment":{
-            "type":"template",
-            "payload":{
-              "template_type":"generic",
-              "elements":[
-                 {
-                  "image_url":"https://drive.google.com/file/d/1ctHnxTNvIpUI6pSX85tXH22QGfXSM4vN/view",    
-                }
-              ]
-            }
-          }
-    }
-    let responseTwo = {
-        "attachment":{
-            "type":"template",
-            "payload":{
-              "template_type":"generic",
-              "elements":[
-                 {
-                  "image_url":"https://drive.google.com/file/d/1ctHnxTNvIpUI6pSX85tXH22QGfXSM4vN/view",    
-                }
-              ]
-            }
-          }
+    let responseOne={
+        image_url:"https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/287104979_7846297965411947_6639328366561967521_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=y5u9w58quFQAX9kVcWy&_nc_ht=scontent-sin6-3.xx&oh=00_AfCpVjNkchkqqFgFf6baoVETrm6R95x-8ypTlUsntecxgw&oe=63D40DAD"
     }
        response = {
         "attachment":{
@@ -222,29 +199,32 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
               "elements":[
                  {
                   "title":"Welcome!",
-                  "image_url":"https://drive.google.com/file/d/1ctHnxTNvIpUI6pSX85tXH22QGfXSM4vN/view",
+                  "image_url":"",
                   "subtitle":"We have the right hat for everyone.",
                   "buttons":[
                     {
-                      "type":"postback",
-                      "title":"ခရီးစဥ် အသေးစိတ်",
-                      "payload":"KAN_DET"
+                        "type":"postback",
+                        "title":"Book Now",
+                        "payload":"MKB_KAN"
                     },
                     {
                         "type":"postback",
-                        "title":"Booking တင် မည်။",
-                        "payload":"MKB_KAN"
+                        "title":"Talk To Agent",
+                        "payload":"KAN_DET_TALK_TO AGENT"
+                    },
+                    {
+                        "type":"postback",
+                        "title":"Go Back",
+                        "payload":"GT_KAN"
                     }               
                   ]      
                 }
               ]
             }
           }
-       }
+       };
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, responseOne);
-    sendTypingOn(senderPsid, "typing_on");
-    callSendAPI(senderPsid, responseTwo);
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, response);
 
