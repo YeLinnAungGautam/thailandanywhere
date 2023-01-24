@@ -119,26 +119,101 @@ function Intro(senderPsid, receivedMessage) {
 function ChoosePackages(senderPsid) {
   let response;
     response = {
-      text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။",
-      quick_replies: [
-        {
-            content_type: "text",
-            title: "Kanchanaburi",
-            payload : 'KAN'
+      text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။", }
+    //   quick_replies: [
+    //     {
+    //         content_type: "text",
+    //         title: "Kanchanaburi",
+    //         payload : 'KAN'
+    //     },
+    //     {
+    //         content_type: "text",
+    //         title: "Khao Yai",
+    //         payload : "KHAO"
+    //     },
+    // ],
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Kanchanaburi",
+                        image_url:
+                            "https://drive.google.com/file/d/111kv-oryWgM_F-xcv1ZSWJWHzgracLJO/view",
+                        subtitle:
+                            "Every Friday at 7am",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Learn More",
+                                payload: "KAN",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GROUP_TOUR_BAC1",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Khao Yai",
+                        image_url:
+                            "https://drive.google.com/file/d/186zRxJqIMjMEEJS7x1dhw6qvC0uOmmh9/view",
+                        subtitle:
+                            "Every Friday at 7am",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Learn More",
+                                payload: "KHAO",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GROUP_TOUR_BAC2",
+                            },
+                        ],
+                    },    
+                ],
+            },
         },
-        {
-            content_type: "text",
-            title: "Khao Yai",
-            payload : "KHAO"
-        },
-    ],
-  }
+    } 
   sendTypingOn(senderPsid, "typing_on");
   callSendAPI(senderPsid, response);
+  sendTypingOn(senderPsid, "typing_on");
+  callSendAPI(senderPsid, responseTwo);
 //   return true;
 }
 function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
+    let responseOne = {
+        "attachment":{
+            "type":"template",
+            "payload":{
+              "template_type":"generic",
+              "elements":[
+                 {
+                  "image_url":"https://drive.google.com/file/d/1ctHnxTNvIpUI6pSX85tXH22QGfXSM4vN/view",    
+                }
+              ]
+            }
+          }
+    }
+    let responseTwo = {
+        "attachment":{
+            "type":"template",
+            "payload":{
+              "template_type":"generic",
+              "elements":[
+                 {
+                  "image_url":"https://drive.google.com/file/d/1ctHnxTNvIpUI6pSX85tXH22QGfXSM4vN/view",    
+                }
+              ]
+            }
+          }
+    }
        response = {
         "attachment":{
             "type":"template",
@@ -147,13 +222,8 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
               "elements":[
                  {
                   "title":"Welcome!",
-                  "image_url":"https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=HWapIMVxk80AX_DJClR&_nc_ht=scontent-sin6-2.xx&oh=00_AfBRLoXggdl3W4foiymoZbQ1xOU5j8cKPFG0dH9GIj_7-g&oe=63CD1062",
+                  "image_url":"https://drive.google.com/file/d/1ctHnxTNvIpUI6pSX85tXH22QGfXSM4vN/view",
                   "subtitle":"We have the right hat for everyone.",
-                  "default_action": {
-                    "type": "web_url",
-                    "url": "https://www.originalcoastclothing.com/",
-                    "webview_height_ratio": "tall"
-                  },
                   "buttons":[
                     {
                       "type":"postback",
@@ -172,7 +242,12 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
           }
        }
     sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, response);
+
 }
 function KhaoyaiGroupTour(senderPsid,receivedMessage){
     let response;
