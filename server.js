@@ -203,13 +203,13 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
               "template_type":"generic",
               "elements":[
                  {
-                  "title":"Welcome!",
-                  "image_url":"",
+                  "title":"Have Fun",
+                  "image_url":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Flets-go&psig=AOvVaw3FQBjvPsZC9osLJGm1Qdm9&ust=1674647629788000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNDXrNuS4PwCFQAAAAAdAAAAABAF",
                   "buttons":[
                     {
                         "type":"postback",
                         "title":"Book Now",
-                        "payload":"MKB_KAN"
+                        "payload":"CHOOSE_DAYANDTIME"
                     },
                     {
                         "type":"postback",
@@ -232,6 +232,55 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
     sendTypingOn(senderPsid, "typing_on");
     callSendAPI(senderPsid, response);
 
+}
+function ChooseDateAndTimeForKanchanaburi(senderPsid){
+    let responseOne = {
+        text: "Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay.",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "This Friday",
+                payload: 'THIS_F_KANCHANABURI'
+            },
+            {
+                content_type: "text",
+                title: "Next Friday",
+                payload: 'NEXT_F_KANCHANABURI'
+            },
+            {
+                content_type: "text",
+                title: "Future Dates",
+                payload: 'FUTURE_D_KANCHANABURI'
+            },
+            {
+                content_type: "text",
+                title: "Talk To Agent",
+                payload: 'TALK_TO_AGENT_KANCHANABURI'
+            }
+        ]
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseOne);
+}
+function ChooseDate(senderPsid){
+    let responseOne = {
+        text: "Please Give Us Your date"
+    }
+    let responseTwo ={
+        text:"Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay."
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+
+}
+function TalkToAgent(senderPsid){
+    let response; 
+    response = {
+      text: "Our travel assistant will get back to you with availability status", }
+      sendTypingOn(senderPsid, "typing_on");
+      callSendAPI(senderPsid, response);
 }
 function KhaoyaiGroupTour(senderPsid,receivedMessage){
     let response;
@@ -286,9 +335,9 @@ function TripDetailsForKhaoyai(senderPsid){
     callSendAPI(senderPsid, message);
 }
 function makingBooking(senderPsid, payload) {
-    if (payload === "MKB_KAN" || payload === "KHAOYAI_BKG") {
+    if (payload === "MKB_KAN" || payload === "KHAOYAI_BKG" || payload === "THIS_F_KANCHANABURI") {
         let responseOne = {
-            text: "Booking တင်ရန်အတွက် အချိန် နှင့် နေရက်ကို ပို့ပေးထားပါ။ Customer Service ထံမှ မကြာခင်အချိန်အတွင်း စာပြန်ပြီး Booking Confirm ‌ေပေးပါမည်။",
+            text: "Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay.",
         };
 
         let responseTwo = {
@@ -298,11 +347,11 @@ function makingBooking(senderPsid, payload) {
                     template_type: "generic",
                     elements: [
                         {
-                            title: "Payment",
+                            title: "How would you like to pay",
                             image_url:
                                 "https://www.nttdata.com/th/en/-/media/nttdataapac/ndth/services/card-and-payment-services/services_card_and_payment_services_header_2732x1536_1.jpg?h=1536&iar=0&w=2732&rev=cda4f237fa8c46248b1376544031309e",
                             subtitle:
-                                "ငွေလွဲရန်အတွက် အောက်ပါ အကောင့်များကို နှိပ်ပြီး ကြည့်ပေးပါ။",
+                                "Online",
                             buttons: [
                                 {
                                     type: "postback",
@@ -1638,6 +1687,18 @@ function handlePostback(senderPsid, receivedPostback) {
     }
     else if(payload === "KHY"){
         KhaoYaiPrivateTour(senderPsid);
+    }
+    else if(payload === "KAN_DET_TALK_TO AGENT"){
+        TalkToAgent(senderPsid);
+    }
+    else if(payload === "CHOOSE_DAYANDTIME"){
+        ChooseDateAndTimeForKanchanaburi(senderPsid);
+    } 
+    else if(payload === "FUTURE_D_KANCHANABURI"){
+        ChooseDate(senderPsid);
+    }
+    else if(payload === "THIS_F_KANCHANABURI"){
+        makingBooking(senderPsid,payload);
     }
     else{
         callSendAPI(senderPsid, response);
