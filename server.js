@@ -189,7 +189,12 @@ function ChoosePackages(senderPsid) {
 function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
     let responseOne={
-        image_url:"https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/287104979_7846297965411947_6639328366561967521_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=y5u9w58quFQAX9kVcWy&_nc_ht=scontent-sin6-3.xx&oh=00_AfCpVjNkchkqqFgFf6baoVETrm6R95x-8ypTlUsntecxgw&oe=63D40DAD"
+        'attachment':{
+            'type': 'image',
+            'payload': {
+                'url': "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/302847079_5656980621032217_1528471073628412384_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=kR1dL4PfKFAAX-l2hUc&_nc_ht=scontent-sin6-2.xx&oh=00_AfA4viWJj5kDQg9BndjpWMqbyZsrXU-pqLIMtVLxMfnrdw&oe=63D4E328"
+            }
+        }
     }
        response = {
         "attachment":{
@@ -200,7 +205,6 @@ function KanchanaburiGroupTour(senderPsid,receivedMessage){
                  {
                   "title":"Welcome!",
                   "image_url":"",
-                  "subtitle":"We have the right hat for everyone.",
                   "buttons":[
                     {
                         "type":"postback",
