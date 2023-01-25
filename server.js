@@ -153,7 +153,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Khao Yai",
                         image_url:
                             "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
-                        subtitle: "Every Friday at 7am",
+                            subtitle: "Every Friday at 7am\nPrice per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -178,6 +178,58 @@ async function ChoosePackages(senderPsid) {
     //   return true;
 }
 async function KanchanaburiImages(senderPsid) {
+    let responseOne = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+            },
+        },
+    };
+    let responseTwo = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+            },
+        },
+    };
+    let responseThree = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+            },
+        },
+    };
+    let responseFour = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+            },
+        },
+    };
+    let responseFive = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseThree);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFour);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFive);
+}
+async function KhoyaiGroupTourImages(senderPsid){
     let responseOne = {
         attachment: {
             type: "image",
@@ -300,6 +352,35 @@ async function ChooseDateAndTimeForKanchanaburi(senderPsid) {
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseOne);
 }
+async function ChooseDateAndTimeForKhoYai(senderPsid) {
+    let responseOne = {
+        text: "When would you like to book?",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "This Friday",
+                payload: "THIS_F_KHOYAI",
+            },
+            {
+                content_type: "text",
+                title: "Next Friday",
+                payload: "NEXT_F_KHOYAI",
+            },
+            {
+                content_type: "text",
+                title: "Future Dates",
+                payload: "FUTURE_D_KHOYAI",
+            },
+            {
+                content_type: "text",
+                title: "Talk To Agent",
+                payload: "TALK_TO_AGENT_KHOYAI",
+            },
+        ],
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+}
 async function ChooseDate(senderPsid) {
     let responseOne = {
         text: "Please Give Us Your date",
@@ -317,6 +398,9 @@ async function TalkToAgent(senderPsid) {
 }
 async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
     let response;
+    let responseOne = {
+        text: "Just Hello",
+    };
     response = {
         attachment: {
             type: "template",
@@ -324,25 +408,24 @@ async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
                 template_type: "generic",
                 elements: [
                     {
-                        title: "Welcome!",
+                        title: "Have Fun",
                         image_url:
-                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/295467281_5487283001336382_5037642418235754208_n.jpg?stp=dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=CXj5wQ0qZTcAX8kWHpy&_nc_ht=scontent-sin6-2.xx&oh=00_AfAJVav7VsY2wMUgtPaM1Axy4nwm6Y5YjbMl-Lp9M3iakg&oe=63CBFF60",
-                        subtitle: "We have the right hat for everyone.",
-                        default_action: {
-                            type: "web_url",
-                            url: "https://www.originalcoastclothing.com/",
-                            webview_height_ratio: "tall",
-                        },
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
                         buttons: [
                             {
                                 type: "postback",
-                                title: "ခရီးစဥ် အသေးစိတ်",
-                                payload: "KHAOYAI_DET",
+                                title: "Book Now",
+                                payload: "CHOOSE_DAYANDTIME_KHOYAI_DET",
                             },
                             {
                                 type: "postback",
-                                title: "Booking တင် မည်။",
-                                payload: "KHAOYAI_BKG",
+                                title: "Talk To Agent",
+                                payload: "KHOYAI_DET_TALK_TO AGENT",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GB_KHOYAI",
                             },
                         ],
                     },
@@ -350,6 +433,8 @@ async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
             },
         },
     };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, response);
 }
@@ -360,20 +445,16 @@ async function TripDetailsForKanchanaburi(senderPsid) {
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, message);
 }
-async function TripDetailsForKhaoyai(senderPsid) {
-    let message = {
-        text: "ကျွန်တော် သည် Khao Yai ဖြစ်ပါသည်။ အလုံးရေ 2000 နဲ့ ခရီးစဉ်ကို ရှင်းပြလို့ ရပါတယ်",
-    };
-    sendTypingOn(senderPsid, "typing_on");
-    await callSendAPI(senderPsid, message);
-}
 async function makingBooking(senderPsid, payload) {
     if (
         payload === "MKB_KAN" ||
         payload === "KHAOYAI_BKG" ||
         payload === "THIS_F_KANCHANABURI" ||
         payload === "FUTURE_D_KANCHANABURI" ||
-        payload === "NEXT_F_KANCHANABURI"
+        payload === "NEXT_F_KANCHANABURI" ||
+        payload === "THIS_F_KHOYAI" ||
+        payload === "NEXT_F_KHOYAI" ||
+        payload === "FUTURE_D_KHOYAI" 
     ) {
         let responseOne = {
             text: "Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay.",
@@ -429,14 +510,34 @@ async function handlePostback(senderPsid, receivedPostback) {
         TripDetailsForKanchanaburi(senderPsid);
     } else if (payload === "MKB_KAN") {
         makingBooking(senderPsid, payload);
-    } else if (payload === "KHAO") {
-        KhaoyaiGroupTour(senderPsid);
-    } else if (payload === "KHAOYAI_DET") {
-        TripDetailsForKhaoyai(senderPsid);
-    } else if (payload === "KHAOYAI_BKG") {
+    } 
+    //Start Kha Yai Group Tour
+    else if (payload === "KHAO") {
+        await KhoyaiGroupTourImages(senderPsid);
+        await KhaoyaiGroupTour(senderPsid);
+    } else if(payload === "KHOYAI_DET_TALK_TO AGENT"){
+        TalkToAgent(senderPsid);
+    }
+    else if(payload === "GB_KHOYAI"){
+        ChoosePackages(senderPsid);
+    }
+    else if(payload === "CHOOSE_DAYANDTIME_KHOYAI_DET"){
+        ChooseDateAndTimeForKhoYai(senderPsid);
+    }
+    else if(payload === "THIS_F_KHOYAI"){
         makingBooking(senderPsid, payload);
     }
-    //AirPort Transfer
+    else if(payload === "NEXT_D_KHOYAI"){
+        makingBooking(senderPsid, payload);
+    }
+    else if(payload === "FUTURE_D_KHOYAI"){
+        ChooseDate(senderPsid);
+        makingBooking(senderPsid, payload);
+    }
+    else if(payload === "TALK_TO_AGENT_KHOYAI"){
+        TalkToAgent(senderPsid);
+    }
+    //End KhoYai Group Tour
     else if (payload === "KAN_DET_TALK_TO AGENT") {
         TalkToAgent(senderPsid);
     } else if (payload === "CHOOSE_DAYANDTIME") {
