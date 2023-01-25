@@ -180,38 +180,8 @@ async function KanchanaburiGroupTour(senderPsid,receivedMessage){
         'attachment':{
             'type': 'image',
             'payload': {
-                'url': "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/302847079_5656980621032217_1528471073628412384_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=kR1dL4PfKFAAX-l2hUc&_nc_ht=scontent-sin6-2.xx&oh=00_AfA4viWJj5kDQg9BndjpWMqbyZsrXU-pqLIMtVLxMfnrdw&oe=63D4E328"
+                'url': "https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg"
             }
-        }
-    }
-    let responseTwo = {
-        "attachment": {
-        "type": "template",
-        "payload": {
-         "template_type": "media",
-         "elements": [
-            {
-               "media_type": "image",
-               "url": "https://www.thesprucepets.com/thmb/7TDhfkK5CAKBWEaJfez6607J48Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg"
-            },
-            {
-                "media_type": "image",
-                "url": "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-732x549.jpg"
-             },
-             {
-                "media_type": "image",
-                "url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*"
-             },
-             {
-                "media_type": "image",
-                "url": "https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445"
-             },
-             {
-                "media_type": "image",
-                "url": "https://www.pngimages.in/uploads/png-webp/Dog_PNG_Free_Transparent_Image_HQ.webp"
-             }
-         ]
-      }
         }
     }
        response = {
@@ -247,8 +217,6 @@ async function KanchanaburiGroupTour(senderPsid,receivedMessage){
        };
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseOne);
-    sendTypingOn(senderPsid, "typing_on");
-    await callSendAPI(senderPsid,responseTwo)
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, response);
 }
