@@ -182,12 +182,52 @@ async function KanchanaburiImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "https://cdn.britannica.com/60/8160-050-08CCEABC/German-shepherd.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+            },
+        },
+    };
+    let responseTwo = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+            },
+        },
+    };
+    let responseThree = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+            },
+        },
+    };
+    let responseFour = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+            },
+        },
+    };
+    let responseFive = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
             },
         },
     };
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseThree);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFour);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFive);
 }
 async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
@@ -200,7 +240,7 @@ async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
                     {
                         title: "Have Fun",
                         image_url:
-                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Flets-go&psig=AOvVaw3FQBjvPsZC9osLJGm1Qdm9&ust=1674647629788000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCNDXrNuS4PwCFQAAAAAdAAAAABAF",
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
                         buttons: [
                             {
                                 type: "postback",
@@ -215,7 +255,7 @@ async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
                             {
                                 type: "postback",
                                 title: "Go Back",
-                                payload: "GT_KAN",
+                                payload: "GB_KAN",
                             },
                         ],
                     },
@@ -363,9 +403,9 @@ async function makingBooking(senderPsid, payload) {
             },
         };
         sendTypingOn(senderPsid, "typing_on");
-        await callSendAPI(senderPsid, responseTwo);
-        sendTypingOn(senderPsid, "typing_on");
         await callSendAPI(senderPsid, responseOne);
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseTwo);
     }
 }
 
@@ -405,7 +445,10 @@ async function handlePostback(senderPsid, receivedPostback) {
         makingBooking(senderPsid, payload);
     } else if (payload === "TALK_TO_AGENT_KANCHANABURI") {
         TalkToAgent(senderPsid);
-    } else {
+    }else if (payload === "GB_KAN"){
+        ChoosePackages(senderPsid);
+    } 
+    else {
         await callSendAPI(senderPsid, response);
     }
 }
