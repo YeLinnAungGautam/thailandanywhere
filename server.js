@@ -378,8 +378,8 @@ async function handlePostback(senderPsid, receivedPostback) {
     if (payload === "GT") {
         ChoosePackages(senderPsid);
     } else if (payload === "KAN") {
-        KanchanaburiGroupTour(senderPsid);
-        KanchanaburiImages(senderPsid);
+        await KanchanaburiImages(senderPsid);
+        await KanchanaburiGroupTour(senderPsid);
     } else if (payload === "KAN_DET") {
         TripDetailsForKanchanaburi(senderPsid);
     } else if (payload === "MKB_KAN") {
