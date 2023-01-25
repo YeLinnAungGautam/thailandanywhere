@@ -120,18 +120,6 @@ function ChoosePackages(senderPsid) {
   let response;
     response = {
       text: "Thailand Anywhere မှ စီစဥ်ပေးထားသော အပတ်စဥ် စနေ ၊ တနင်္ဂ‌နွေနေ့တိုင်း ထွက်သော Group Tour ခရီးစဥ်များကို ကြည့်ရှုမည်။", }
-    //   quick_replies: [
-    //     {
-    //         content_type: "text",
-    //         title: "Kanchanaburi",
-    //         payload : 'KAN'
-    //     },
-    //     {
-    //         content_type: "text",
-    //         title: "Khao Yai",
-    //         payload : "KHAO"
-    //     },
-    // ],
     let responseTwo = {
         attachment: {
             type: "template",
@@ -144,6 +132,8 @@ function ChoosePackages(senderPsid) {
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=CMKaUN4jt5sAX-05uP_&_nc_ht=scontent-sin6-2.xx&oh=00_AfDZmcwPtyySgpBFnrX8i5q5q9s1DeEmVTj0fvLJs72nXw&oe=63D4F962",
                         subtitle:
                             "Every Friday at 7am",
+                        subtitle:
+                            "Price per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -335,7 +325,7 @@ function TripDetailsForKhaoyai(senderPsid){
     callSendAPI(senderPsid, message);
 }
 function makingBooking(senderPsid, payload) {
-    if (payload === "MKB_KAN" || payload === "KHAOYAI_BKG" || payload === "THIS_F_KANCHANABURI") {
+    if (payload === "MKB_KAN" || payload === "KHAOYAI_BKG" || payload === "THIS_F_KANCHANABURI" || payload === "FUTURE_D_KANCHANABURI" || payload === "NEXT_F_KANCHANABURI") {
         let responseOne = {
             text: "Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay.",
         };
@@ -1696,9 +1686,16 @@ function handlePostback(senderPsid, receivedPostback) {
     } 
     else if(payload === "FUTURE_D_KANCHANABURI"){
         ChooseDate(senderPsid);
+        makingBooking(senderPsid,payload);
     }
     else if(payload === "THIS_F_KANCHANABURI"){
         makingBooking(senderPsid,payload);
+    }
+    else if(payload === "NEXT_F_KANCHANABURI"){
+        makingBooking(senderPsid,payload);
+    }
+    else if(payload === "TALK_TO_AGENT_KANCHANABURI"){
+        TalkToAgent(senderPsid);
     }
     else{
         callSendAPI(senderPsid, response);
