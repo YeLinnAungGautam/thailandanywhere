@@ -184,7 +184,7 @@ function KanchanaburiImages(senderPsid){
         }
     };
     sendTypingOn(senderPsid, "typing_on");
-    callSendAPI(senderPsid, response);
+    callSendAPI(senderPsid, responseOne);
 }
 async function KanchanaburiGroupTour(senderPsid,receivedMessage){
     let response;
