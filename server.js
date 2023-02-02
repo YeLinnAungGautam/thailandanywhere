@@ -81,7 +81,7 @@ async function Intro(senderPsid, receivedMessage) {
         receivedMessage.text === "Hi"
     ) {
         response = {
-            text: `မင်္ဂလာပါရှင့် 🙏 Thailand Anywhere မှ ကြိုဆိုပါတယ်။ထိုင်းနိုင်ငံအတွင်း ခရီးသွားဝန်ဆောင်မှုနဲ့ ပတ်သတ်ပြီး ကူညီဖို့အသင့်ပါရှင့်။ Thailand Anywhere ၏ ဝန်ဆောင်မှုများအားလုံးကို သိရှိနိုင်ရန် အောက်တွင်ရွေးချယ်ပေးပါနော်။🙇`,
+            text: `Thailand Anywhere team is happy to serve you on your holiday plans. We offer car rental services, hotel booking, entry tickets, group tours and custom travel plans at great prices!🙇\n\nPlease select below to find out all about Thailand Anywhere's services and book your desired products.🙇`,
             quick_replies: [
                 {
                     content_type: "text",
@@ -211,7 +211,7 @@ async function ChoosePackages(senderPsid) {
                     {
                         title: "Pattya",
                         image_url:
-                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
+                            "http://thailandanywhere.npthosting.cyou/pattaya/caurosal-pattaya.jpg",
                         subtitle: "Every Friday at 7am\n1850฿ per Person",
                         buttons: [
                             {
@@ -375,7 +375,7 @@ async function PattyaGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/1.jpg",
             },
         },
     };
@@ -383,7 +383,7 @@ async function PattyaGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/2.jpg",
             },
         },
     };
@@ -391,7 +391,7 @@ async function PattyaGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/2a.jpg",
             },
         },
     };
@@ -399,7 +399,7 @@ async function PattyaGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/3.jpg",
             },
         },
     };
@@ -407,7 +407,31 @@ async function PattyaGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/4.jpg",
+            },
+        },
+    };
+    let responseSix = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/5.jpg",
+            },
+        },
+    };
+    let responseSeven = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/6.jpg",
+            },
+        },
+    };
+    let responseEight = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/pattaya/7.jpg",
             },
         },
     };
@@ -421,6 +445,12 @@ async function PattyaGroupTourImages(senderPsid) {
     await callSendAPI(senderPsid, responseFour);
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseSix);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseSeven);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseEight);
 }
 async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
@@ -467,7 +497,7 @@ async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
 async function PattayaGroupTour(senderPsid, receivedMessage) {
     let response;
     let responseOne = {
-        text: "hi i am pattaya",
+        text: "🌳🍀🚐🇹🇭🚐🌳The self-guided tour to Pattaya is for those who love the sand and the beach. 🏞️ Our itinerary takes travelers to 6 exciting spots in Pattaya. 📸 🤗 This self-guided group tour is thrilling and relaxing.\n\n--------------------------------------------------\n\nPrice: 1850 thb per person\n\n--------------------------------------------------\n\n🤩🤗 Package Inclusion:\n\n🎟️ Entrance fees for all activities,\n🚐 Luxury van transportation,\n🥗 Lunch at Som Tan Pa Mon Restaurant\n🕒 12 to 13 hours\n\n--------------------------------------------------\n\nTravel itinerary:\n\n📍Pick-up point: Platinum Mall at 7:00 a.m.\n📍First Stop: Chonburi Skywalk\n📍Second Stop: Great & Grand\n📍Third Stop: Som Tan Pa Mon Restaurant\n📍Fourth Stop: Pattaya View Point\n📍Fifth Stop: Laser Buddha\n📍Sixth Stop: Pattaya Beach\n📍Drop-Off: Platinum Mall\n\n--------------------------------------------------\n\nBrief Summary:\n\nPattaya is a must-visit destination when in Thailand. Visit the glass skywalk that stands 25m above ground level and is 226m long. The hike upwards is simply picturesque with flowers and nature. Next is a visit to the Great & Grand theme park where ice creams and candy statues are larger than people! This is the perfect spot to take selfies! Lunch is served at Som Tan Pa Mon Restaurant. Later, the Pattaya View Point for 360 view of the city and Laser Buddha nearby for breath-taking and calming experience. Lastly, our visit to Pattaya Beach to take away your inner beach desires before heading back to Bangkok.\n\n--------------------------------------------------\n\nTerms and Conditions:\n\nTicket sales are closed 10 hours before departure of the trip. Customers pay a 10% deposit for confirmation of the trip. Trip requires a minimum of 4 travelers to depart. Full refund will be transferred if the trip does not meet the minimum number of passengers.\n\n--------------------------------------------------\nCancellation:\n\nFor full refund of deposit, customers need to cancel 48 hours before departure of the trip.",
     };
     response = {
         attachment: {
@@ -478,7 +508,7 @@ async function PattayaGroupTour(senderPsid, receivedMessage) {
                     {
                         title: "Have Fun",
                         image_url:
-                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                            "http://thailandanywhere.npthosting.cyou/pattaya/caurosal-pattaya.jpg",
                         buttons: [
                             {
                                 type: "postback",
