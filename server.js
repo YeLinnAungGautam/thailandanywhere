@@ -281,6 +281,58 @@ async function KhoyaiGroupTourImages(senderPsid){
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
 }
+async function EntranceTicketOneCategoryOneCruiseImages(senderPsid){
+    let responseOne = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+            },
+        },
+    };
+    let responseTwo = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+            },
+        },
+    };
+    let responseThree = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+            },
+        },
+    };
+    let responseFour = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+            },
+        },
+    };
+    let responseFive = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseThree);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFour);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFive);
+}
 async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
     let responseOne = {
@@ -494,6 +546,228 @@ async function makingBooking(senderPsid, payload) {
         await callSendAPI(senderPsid, responseTwo);
     }
 }
+async function makingBookingEntranceTicket(senderPsid, payload){
+    if (
+        payload === "LM_ETONE_CRUISE_ONE" 
+    ){
+        let responseOne = {
+            text: "Please give us your date and total nunber of people.",
+        };
+        let responseThree = {
+            text: "Thank you, our customer service team will contact you shortly.",
+        };
+
+        let responseTwo = {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [
+                        {
+                            title: "How would you like to pay",
+                            image_url:
+                                "https://www.nttdata.com/th/en/-/media/nttdataapac/ndth/services/card-and-payment-services/services_card_and_payment_services_header_2732x1536_1.jpg?h=1536&iar=0&w=2732&rev=cda4f237fa8c46248b1376544031309e",
+                            subtitle: "Online",
+                            buttons: [
+                                {
+                                    type: "postback",
+                                    title: "KBZ Bank",
+                                    payload: "ACC_KBZ",
+                                },
+                                {
+                                    type: "postback",
+                                    title: "Thai Bank",
+                                    payload: "ACC_THAI",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseOne);
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseThree);
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseTwo);
+    }
+}
+async function EntranceTickets(senderPsid)
+{
+    let message = {
+        text: "ထိုင်းနိုင်ငံအတွင်းရှိ ဘန်ကောက် /ပတ္တရား/ ဟွာဟင်/ ဖူးခတ် မြို့များရှိ ကစားကွင်း ဝင်ခွင့် လက်မှတ်များ၊ ညစာ buffet လက်မှတ်များ၊ ဇိမ်ခံသင်္ဘောမှာ Dinner စားခြင်းများအတွက် လက်မှတ်များကိုThailand Anywhere မှာ Counter ဈေးထက်ဝက် သက်သာတဲ့ ဈေးနှုန်းဖြင့်ဝယ်ယူ ရရှိနိုင်ပါပြီ 🙏🙏🙏"
+    };
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Entry Ticket One",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "City Name\nTotal count of Products",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Explore",
+                                payload: "EXPLORE_ENTRANCE_TICKET_ONE",
+                            },
+                            
+                        ],
+                    },
+                    {
+                        title: "Entry Ticket Two",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "EXPLORE",
+                                payload: "EXPLORE_ENTRANCE_TICKET_ONE",
+                            }, 
+                        ],
+                    },
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, message);
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
+async function ExploreEntranceTicketOne(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Cruises",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Total Count of Products",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Explore",
+                                payload: "CRUISES_ET_ONE",
+                            },
+                            
+                        ],
+                    },
+                    {
+                        title: "Theme Park",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Total Count of Products",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "EXPLORE",
+                                payload: "THEMEPARK_ET_ONE",
+                            }, 
+                        ],
+                    },
+                    {
+                        title: "Shows",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Total Count of Products",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "EXPLORE",
+                                payload: "SHOWS_ET_ONE",
+                            }, 
+                        ],
+                    },
+                    {
+                        title: "Dinning",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Total Count of Products",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "EXPLORE",
+                                payload: "DINNING_ET_ONE",
+                            }, 
+                        ],
+                    },
+                    {
+                        title: "Others",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Total Count of Products",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "EXPLORE",
+                                payload: "OTHERS_ET_ONE",
+                            }, 
+                        ],
+                    },
+                ],
+            },
+        },
+    }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
+}
+async function CruisesProductsETONE(senderPsid){
+    let responseTwo = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Product 1",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Price per person",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Learn More",
+                                payload: "LM_ETONE_CRUISE_ONE",
+                            },
+                            {
+                                type: "postback",
+                                title: "Book Now",
+                                payload: "BOOK_ETONE_CRUISE_ONE",
+                            },
+                            
+                        ],
+                    },
+                    {
+                        title: "Product 2",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "Price per person",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Learn More",
+                                payload: "LM_ET_ONE_CRUISE_TWO",
+                            },
+                            {
+                                type: "postback",
+                                title: "Book Now",
+                                payload: "BOOK_ETONE_CRUISE_TWO",
+                            }, 
+                        ],
+                    },
+                ],
+            },
+        },
+    }
+}
 
 // Handles messaging_postbacks events
 async function handlePostback(senderPsid, receivedPostback) {
@@ -554,6 +828,20 @@ async function handlePostback(senderPsid, receivedPostback) {
     }else if (payload === "GB_KAN"){
         ChoosePackages(senderPsid);
     } 
+    //Entrance Ticket 
+    else if(payload === "'ET"){
+        EntranceTickets(senderPsid);
+    }
+    else if(payload === "EXPLORE_ENTRANCE_TICKET_ONE"){
+        ExploreEntranceTicketOne(senderPsid);
+    }
+    else if(payload === "CRUISES_ET_ONE"){
+        CruisesProductsETONE(senderPsid);
+    }
+    else if(payload === "LM_ETONE_CRUISE_ONE"){
+        EntranceTicketOneCategoryOneCruiseImages(senderPsid);
+        makingBookingEntranceTicket(senderPsid, payload);
+    }
     else {
         await callSendAPI(senderPsid, response);
     }
