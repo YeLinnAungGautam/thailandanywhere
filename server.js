@@ -93,21 +93,21 @@ async function Intro(senderPsid, receivedMessage) {
                 //     title: "ဟိုတယ်Booking",
                 //     payload: "HB",
                 // },
-                // {
-                //     content_type: "text",
-                //     title: "Group Tour",
-                //     payload: "GT",
-                // },
+                {
+                    content_type: "text",
+                    title: "Group Tour",
+                    payload: "GT",
+                }
                 // {
                 //     content_type: "text",
                 //     title: "Private Van Tour",
                 //     payload: "PVT",
                 // },
-                {
-                    content_type: "text",
-                    title: "Entrance tickets",
-                    payload: "ET",
-                }
+                // {
+                //     content_type: "text",
+                //     title: "Entrance tickets",
+                //     payload: "ET",
+                // }
                 // {
                 //     content_type: "text",
                 //     title: "Airport transfer",
