@@ -83,36 +83,36 @@ async function Intro(senderPsid, receivedMessage) {
         response = {
             text: `မင်္ဂလာပါရှင့် 🙏 Thailand Anywhere မှ ကြိုဆိုပါတယ်။ထိုင်းနိုင်ငံအတွင်း ခရီးသွားဝန်ဆောင်မှုနဲ့ ပတ်သတ်ပြီး ကူညီဖို့အသင့်ပါရှင့်။ Thailand Anywhere ၏ ဝန်ဆောင်မှုများအားလုံးကို သိရှိနိုင်ရန် အောက်တွင်ရွေးချယ်ပေးပါနော်။🙇`,
             quick_replies: [
-                // {
-                //     content_type: "text",
-                //     title: "လေယာဥ်လက်မှတ်",
-                //     payload: "AIR_TIC",
-                // },
-                // {
-                //     content_type: "text",
-                //     title: "ဟိုတယ်Booking",
-                //     payload: "HB",
-                // },
                 {
                     content_type: "text",
                     title: "Group Tour",
                     payload: "GT",
-                }
-                // {
-                //     content_type: "text",
-                //     title: "Private Van Tour",
-                //     payload: "PVT",
-                // },
-                // {
-                //     content_type: "text",
-                //     title: "Entrance tickets",
-                //     payload: "ET",
-                // }
-                // {
-                //     content_type: "text",
-                //     title: "Airport transfer",
-                //     payload: "AT",
-                // },
+                },
+                {
+                    content_type: "text",
+                    title: "လေယာဥ်လက်မှတ်",
+                    payload: "AIR_TIC",
+                },
+                {
+                    content_type: "text",
+                    title: "ဟိုတယ်Booking",
+                    payload: "HB",
+                },
+                {
+                    content_type: "text",
+                    title: "Private Van Tour",
+                    payload: "PVT",
+                },
+                {
+                    content_type: "text",
+                    title: "Entrance tickets",
+                    payload: "ET",
+                },
+                {
+                    content_type: "text",
+                    title: "Airport transfer",
+                    payload: "AT",
+                },
             ],
         };
     }
@@ -135,7 +135,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Kanchanaburi",
                         image_url:
                             "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=CMKaUN4jt5sAX-05uP_&_nc_ht=scontent-sin6-2.xx&oh=00_AfDZmcwPtyySgpBFnrX8i5q5q9s1DeEmVTj0fvLJs72nXw&oe=63D4F962",
-                        subtitle: "Every Friday at 7am\nPrice per Person",
+                        subtitle: "Every Saturday at 7am\nPrice per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -153,7 +153,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Khao Yai",
                         image_url:
                             "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
-                            subtitle: "Every Friday at 7am\nPrice per Person",
+                            subtitle: "Every Friday at 7am\n1950฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -167,6 +167,25 @@ async function ChoosePackages(senderPsid) {
                             },
                         ],
                     },
+                    {
+                        title: "Pattya",
+                        image_url:
+                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
+                            subtitle: "Every Friday at 7am\n1950฿ per Person",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Learn More",
+                                payload: "PATTYA",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GROUP_TOUR_BAC3",
+                            },
+                        ],
+                    },
+                    
                 ],
             },
         },
@@ -281,10 +300,62 @@ async function KhoyaiGroupTourImages(senderPsid){
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
 }
+async function PattyaGroupTourImages(senderPsid){
+    let responseOne = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+            },
+        },
+    };
+    let responseTwo = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+            },
+        },
+    };
+    let responseThree = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+            },
+        },
+    };
+    let responseFour = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+            },
+        },
+    };
+    let responseFive = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseThree);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFour);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFive);
+}
 async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
     let responseOne = {
-        text: "🇹🇭🚐🌳အပတ်စဉ် စနေနေ့တိုင်းထွက်ခွါမယ့် ထိုင်းနိုင်ငံရဲ့ စိတ်ဖိစီးမှုကင်းမဲ့ဇုန် ဖြစ်တဲ့ ကန်ချနာပူရီ‌ နေ့ချင်းပြန် ခရီးစဉ်လေး...🏞️ နေ့ချင်းပြန်သွားလို့ရတဲ့အပြင် ပုံမှန်ထက် ကားအသုံးပြုချိန် 2 နာရီ အပို သုံးပေးထားလို့ ကန်ချနာပူရီ မြို့ရဲ့ အထင်ကရ နေရာ‌တော်တော်များများ\nကိုလည်း သွားလည်လို့ ရမယ်။ 📸\nအမှတ်တရပေါင်းများစွာကို စိတ်လွတ် ကိုယ်လွတ် ဖန်တီးနိုင်ဖို့ ဒီခရီးစဉ်ထဲမှာ နေရာလှလှလေးတွေ ထည့်သွင်းရေးဆွဲ‌ပေးထားပါတယ်။\n-------------------------------------------------\nခရီးစဉ်ထဲာလည်ပတ်မယ့် နေရာတွေကတော့ ...🙏🙏🙏 ကန်ချနာပူရီမြို့ရဲ့ အထင်ကရနေရာတွေ ဖြစ်တဲ့ နာမည်ကျော် ဆုတောင်းပြည့် Wat Tham Suea ကျားဘုရား ၊🌉🛤️ ကန်ချနာပူရီမြို့ရဲ့ နာမည်ကျော် ကွေးမြစ်‌ဘေးက သေမင်းတမန်ရထားလမ်းပေါ်ရှိ River Kwai တံတား၊🥗🥣ကွေးမြစ်ထဲက ရေပေါ်‌စားသောက်ဆိုင်လေးဖြစ်တဲ့ Floating Raft Restaurant စားသောက်ဆိုင်၊🏞️🌊 Sai Yok Noi ရေတံခွန်၊🌸🍂☕ မာဂရက်ပန်းခင်းကြီးနဲ့ ဓာတ်ပုံရိုက်လို့ အရမ်းလှတဲ့ Chan Nature Cafe၊🌳💯 နှစ်ပေါင်းတစ်ရာကျော် သက်တမ်းရှိတဲ့ ဓာတ်ပုံရိုက်လို့အရမ်းလှတဲ့ Giant Rain Treeစတဲ့  နေရာ 6 ခုလုံးကို လည်ပတ်ဖို့အတွက် လိုက်ပါပို့‌ဆောင် ပေးမှာ ဖြစ်ပါတယ်။⏰ခရီးစဉ်အတွက် စုရပ်ကတော့ Platinum Mall အရှေ့မှာ မနက် 7 နာရီ ဆုံကြမှာ ဖြစ်ပြီး ည 9 နာရီမှာ Platinum Mall အရှေ့ကို ပြန်လည်ပို့ဆောင်ပေးမှာ ဖြစ်ပါတယ်။\n-------------------------------------------------\n🤗🚐ခရီးစဉ်အတွက် Luxury Van နဲ့စီစဉ်ပေးထားပြီး ကားထဲမှာ  📺TV ,Aircon အစုံအလင်နဲ့  လူ 4 ယောက်ပြည့်တာနဲ့ ခရီးစဉ်လေးကို ဇိမ်ရှိရှိ စထွက်နိုင်မှာဖြစ်ပါတယ်။\nစရိတ်ငြိမ်း ခရီးစဉ် ဖြစ်ပြီး အချိန် 14 နာရီကြာထိ ကား အသုံးပြုပေးထားပြီး 🔰ဝင်ကြေးများ🔰ကားခ 🔰ဆီဖိုး🔰နေ့လည်စာ အပြင် Chan Nature Cafe မှာ ကြိုက်နှစ်သက်ရာ Drink တစ်ခွက် သောက်လို့ရမှာဖြစ်ပြီး  အပိုဆောင်း ထပ်ပေးစရာမလိုပါဖူး။\n💯စျေး နှုန်းအ‌နေနဲ့ စရိတ်ငြိမ်း အပြီးအစီး ကိုမှ🔸 တစ်ဦးကို  ဘတ် 1850  ပဲ ကျသင့်မှာ ဖြစ်ပါတယ်။💯လူဦးရေ အကန့်အသတ်ရှိတာဖြစ်လို့ လူမပြည့်ခင် အမြန်ဆုံး စာရင်းကြိုပေးလိုက်တော့နော် 🤗🤗🤗လူများလေ ပိုတန်လေပဲဖြစ်လို့ မိသားစုတွေ သူငယ်ချင်းတွေနဲ့ ပိတ်ရက်မှာ လျှောက်လည်ဖို့အတွက်📲 အမြန်လူစုပြီး စာရင်းပေးဖို့ ဖိတ်ခေါ်ပါတယ်။",
+        text: "hi i am kanchanaburi",
     };
     response = {
         attachment: {
@@ -311,6 +382,48 @@ async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
                                 type: "postback",
                                 title: "Go Back",
                                 payload: "GB_KAN",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, response);
+}
+async function PattayaGroupTour(senderPsid, receivedMessage) {
+    let response;
+    let responseOne = {
+        text: "hi i am pattaya",
+    };
+    response = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Have Fun",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Book Now",
+                                payload: "CHOOSE_DAYANDTIME_PATTAYA",
+                            },
+                            {
+                                type: "postback",
+                                title: "Talk To Agent",
+                                payload: "PATTAYA_DET_TALK_TO AGENT",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GB_PATTAYA",
                             },
                         ],
                     },
@@ -359,6 +472,35 @@ async function ChooseDateAndTimeForKhoYai(senderPsid) {
             {
                 content_type: "text",
                 title: "This Friday",
+                payload: "THIS_F_PATTAYA",
+            },
+            {
+                content_type: "text",
+                title: "Next Friday",
+                payload: "NEXT_F_PATTAYA",
+            },
+            {
+                content_type: "text",
+                title: "Future Dates",
+                payload: "FUTURE_D_PATTAYA",
+            },
+            {
+                content_type: "text",
+                title: "Talk To Agent",
+                payload: "TALK_TO_AGENT_PATTAYA",
+            },
+        ],
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+}
+async function ChooseDateAndTimeForPattaya(senderPsid) {
+    let responseOne = {
+        text: "When would you like to book?",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "This Friday",
                 payload: "THIS_F_KHOYAI",
             },
             {
@@ -391,7 +533,7 @@ async function ChooseDate(senderPsid) {
 async function TalkToAgent(senderPsid) {
     let response;
     response = {
-        text: "Our travel assistant will get back to you with availability status",
+        text: "Our travel assistant will get back to you as soon as possible. Thank you for your patience.",
     };
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, response);
@@ -399,7 +541,7 @@ async function TalkToAgent(senderPsid) {
 async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
     let response;
     let responseOne = {
-        text: "🌳🍀🚐အပတ်စဥ် တနင်္ဂနွေနေ့တိုင်း ထွက်မယ့် Khao Yai group Tour နေ့ချင်းပြန် ခရီးစဉ်🤗ထိုင်းနိုင်ငံရဲ့ ဒဏ္ဌာရီထဲက Hidden Gem လို့ တင်စားထားတဲ့  သဘာဝနဲ့ အနီးကပ်ဆုံး Khao Yai မြို့လေးက အထင်ကရနေရာတွေကို တစ်ရက်ထဲနဲ့ နေ့ချင်းပြန် လျှောက်လည်ကြမယ်နော် ...🤗🚐🇹🇭Luxury ဆန်ဆန် ခရီးစဉ်လေးကိုမှ တစ်ယောက်ကို 1950 ဘတ်‌ထဲနဲ့ ဈေးတန်တန်လေး သွားရမယ့် Group Tour လေးလဲ ဖြစ်လို့ ပျော်စရာကောင်းမှာ အသေအချာပါပဲ။\n--------------------------------------------------\n📍ခရီးစဉ်လေးကတော့ မနက် 7 နာရီအတိမှာ Platinum Mall မှာ ပျော်ပျော်ပါးပါး လူစုပြီး ထွက်ခွာကြမယ် ။ခရီးစဉ်ထဲမှာ လည်ပတ်မယ့် နေရာတွေကတော့ ...🏞️🐑🚐Khao yai မြို့ ရဲ့ အနှစ်သာရကို အပြည့်အဝ ခံစားလို့ရမယ့် တောင်တန်းတွေကြားထဲက အီတလီမြို့ငယ်လေးဖြစ်တဲ့ Primo Piazza ၊⛰️🍜🍝 Khao Yai ရဲ့ နာမည်အကြီးဆုံး Restaurant တစ်ခုဖြစ်တဲ့ Timber Tales မှာ နေ့လည်စာ စားပြီး ဓာတ်ပုံရိုက် အနားယူကြမယ်။ 🏞️🍃🪴Khao Yaiရဲ့ နောက်ထပ် အထင်ကရ နေရာတစ်ခုဖြစ်တဲ့ 🪴Pete Maze က သစ်ပင်တွေနဲ့ လုပ်ထားတဲ့ ဝင်္ကပါလေးထဲ ဝင်ကြမယ်။🍀🚲🌫️🌬️နောက်ဆုံးနေရာကတော့ ဂျပန် Anime ဇာတ်ကားထဲကအတိုင်း လေရဟတ်ဖြူဖြူကြီးတွေရှိတဲ့ နာမည်ကြီး Khao Yai Thiangကို သွားလည်ကြမှာပါ။\n-------------------------------------------------\nလူ 4 ယောက်ပြည့်တာနဲ့ ခရီးစဉ်လေးကို ဇိမ်ရှိရှိ စထွက်နိုင်မှာဖြစ်ပါတယ်။🔰ဝင်ကြေးများ🔰ကားခ 🔰ဆီဖိုး🔰နေ့လည်စာ အကုန် အပြီးအစီး ပါဝင်မှာဖြစ်ပြီး အပိုဆောင်း ထပ်ပေးစရာမလိုပါဖူးနော်။ စရိတ်ငြိမ်း ခရီးစဉ် ဖြစ်ပြီး အချိန် 12 နာရီကြာထိ ကား အသုံးပြုပေးထားပါတယ် ။🤩🤗ခရီးစဥ်ထဲမှာ Activities တွေ အားလုံးအတွက် ဝင်ကြေးတွေ ၊စက်ဘီးစီးခတွေ အကုန်လုံး ပါဝင်မှာဖြစ်ပြီး luxury ဆန်ဆန်ကိုမှ ဈေးတန်တန်လေးနဲ့ သွားရမှာနော်။\n💯လူဦးရေ အကန့်အသတ်ရှိတာဖြစ်လို့ လူမပြည့်ခင် အမြန်ဆုံး စာရင်းကြိုပေးလိုက်တော့နော် 🤗🤗🤗လူများလေ ပိုတန်လေပဲဖြစ်လို့ မိသားစုတွေ သူငယ်ချင်းတွေနဲ့ ပိတ်ရက်မှာ လျှောက်လည်ဖို့အတွက်📲 အမြန်လူစုပြီး စာရင်းပေးဖို့ ဖိတ်ခေါ်ပါတယ်။",
+        text: "🌳🍀🚐The Khao Yai group tour is refreshing, relaxing and soul cleansing. This group tour leaves every Sunday.\n\nOur best selling self-guided group tour to Khao Yai is a sight to be seen when visiting Thailand! Travelers experience picturesque scenes of nature, wild-life, culture and much more.\n\n--------------------------------------------------\n\nPrice: 1850 thb per person\n\n--------------------------------------------------\n\nPackage Inclusion:\n\n🎟️ Entrance fees for all activities,\n🚐 12 hours of trip with luxury van,\n🚲 Bicycle ride and\n🥗 Lunch at Timber Tales Restaurant\n🕒 Total trip hours are 12 to 13 hours\n\n--------------------------------------------------\n\nTravel itinerary:\n\n📍Pick-up point: Platinum Mall at 7:00 a.m.\n📍First Stop: Primo Piazza, Khao Yai\n📍Second Stop: Timber Tales Restaurant\n📍Third Stop: Pete Maze\n📍Fourth Stop: Khao Yai Thing\n📍Drop-Off: Platinum Mall\n\n--------------------------------------------------\n\nBrief Summary:\n\nThis day trip tour will take you to many breath-taking spots in Khao Yai. Our first stop is Primo Piazza 🏞️🐑🚐. A small Italian town in the middle of the mountains where you can enjoy the essence of Khao Yai city. 🏞️🍃🪴Pete Maze, another landmark of Khao Yai, where travelers will enter a maze made of trees. 🍀🚲🌫️🌬️Lastly, we will visit the famous Khao Yai Thiang, which has big white windmills, almost like in the Japanese Anime movie. Here our travelers are provided a free bike trip on the edge of the mountain.\n\n--------------------------------------------------\n\nTerms and Conditions:\n\nTicket sales are closed 10 hours before departure of the trip. Customers pay a 10% deposit for confirmation of the trip. Trip requires a minimum of 4 travelers to depart. Full refund will be transferred if the trip does not meet the minimum number of passengers.\n\n--------------------------------------------------\n\nCancellation:\n\nFor full refund of deposit, customers need to cancel 48 hours before departure of the trip.",
     };
     response = {
         attachment: {
@@ -555,6 +697,46 @@ async function handlePostback(senderPsid, receivedPostback) {
     }else if (payload === "GB_KAN"){
         ChoosePackages(senderPsid);
     } 
+    //Pattaya 
+    else if(payload === "PATTYA"){
+        await PattyaGroupTourImages(senderPsid);
+        await PattayaGroupTour(senderPsid);
+    }
+    else if(payload === "PATTAYA_DET_TALK_TO AGENT"){
+        TalkToAgent(senderPsid);
+    }
+    else if(payload === "GB_PATTAYA"){
+        ChoosePackages(senderPsid);
+    }
+    else if(payload === "CHOOSE_DAYANDTIME_PATTAYA"){
+        ChooseDateAndTimeForPattaya(senderPsid);
+    }
+    else if(payload === "THIS_F_PATTAYA"){
+        makingBooking(senderPsid, payload);
+    }
+    else if(payload === "NEXT_F_PATTAYA"){
+        makingBooking(senderPsid, payload);
+    }
+    else if(payload === "FUTURE_D_PATTAYA"){
+        ChooseDate(senderPsid);
+        makingBooking(senderPsid, payload);
+    }
+    else if (payload === "TALK_TO_AGENT_PATTAYA") {
+        TalkToAgent(senderPsid);
+    }
+    // End Pattaya
+    else if(payload === "AIR_TIC"){
+        TalkToAgent(senderPsid)
+    }
+    else if(payload === "AIR_TIC"){
+        TalkToAgent(senderPsid)
+    }
+    else if(payload === "AIR_TIC"){
+        TalkToAgent(senderPsid)
+    }
+    else if(payload === "AIR_TIC"){
+        TalkToAgent(senderPsid)
+    }
     else {
         await callSendAPI(senderPsid, response);
     }
