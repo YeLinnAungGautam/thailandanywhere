@@ -175,8 +175,8 @@ async function ChoosePackages(senderPsid) {
                     {
                         title: "Kanchanaburi",
                         image_url:
-                            "https://scontent-sin6-2.xx.fbcdn.net/v/t45.5328-4/306167946_5176274215818133_7958764666120436857_n.jpg?stp=dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=CMKaUN4jt5sAX-05uP_&_nc_ht=scontent-sin6-2.xx&oh=00_AfDZmcwPtyySgpBFnrX8i5q5q9s1DeEmVTj0fvLJs72nXw&oe=63D4F962",
-                        subtitle: "Every Saturday at 7am\nPrice per Person",
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi/Caurosal-kanchanaburi.jpg",
+                        subtitle: "Every Saturday at 7am\n1850฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -193,7 +193,7 @@ async function ChoosePackages(senderPsid) {
                     {
                         title: "Khao Yai",
                         image_url:
-                            "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
+                            "http://thailandanywhere.npthosting.cyou/khaoyai/Caurosal-khao%20yai.jpg",
                         subtitle: "Every Friday at 7am\n1950฿ per Person",
                         buttons: [
                             {
@@ -212,7 +212,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Pattya",
                         image_url:
                             "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
-                        subtitle: "Every Friday at 7am\n1950฿ per Person",
+                        subtitle: "Every Friday at 7am\n1850฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -241,7 +241,7 @@ async function KanchanaburiImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/1.jpg",
             },
         },
     };
@@ -249,7 +249,7 @@ async function KanchanaburiImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/2.jpg",
             },
         },
     };
@@ -257,7 +257,7 @@ async function KanchanaburiImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/3.jpg",
             },
         },
     };
@@ -265,7 +265,7 @@ async function KanchanaburiImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/4.jpg",
             },
         },
     };
@@ -273,7 +273,23 @@ async function KanchanaburiImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/5.jpg",
+            },
+        },
+    };
+    let responseSix = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/6.jpg",
+            },
+        },
+    };
+    let responseSeven = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi/7.jpg",
             },
         },
     };
@@ -287,13 +303,17 @@ async function KanchanaburiImages(senderPsid) {
     await callSendAPI(senderPsid, responseFour);
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseSix);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseSeven);
 }
 async function KhoyaiGroupTourImages(senderPsid) {
     let responseOne = {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_1.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/khaoyai/1.jpg",
             },
         },
     };
@@ -301,7 +321,7 @@ async function KhoyaiGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/khaoyai/2.jpg",
             },
         },
     };
@@ -309,7 +329,7 @@ async function KhoyaiGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_3.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/khaoyai/2-b.jpg",
             },
         },
     };
@@ -317,7 +337,7 @@ async function KhoyaiGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_4.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/khaoyai/3.jpg",
             },
         },
     };
@@ -325,7 +345,15 @@ async function KhoyaiGroupTourImages(senderPsid) {
         attachment: {
             type: "image",
             payload: {
-                url: "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_5.jpg",
+                url: "http://thailandanywhere.npthosting.cyou/khaoyai/4.jpg",
+            },
+        },
+    };
+    let responseSix = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/khaoyai/5.jpg",
             },
         },
     };
@@ -339,6 +367,8 @@ async function KhoyaiGroupTourImages(senderPsid) {
     await callSendAPI(senderPsid, responseFour);
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseSix);
 }
 async function PattyaGroupTourImages(senderPsid) {
     let responseOne = {
