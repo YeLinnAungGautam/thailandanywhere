@@ -829,7 +829,7 @@ async function handlePostback(senderPsid, receivedPostback) {
         ChoosePackages(senderPsid);
     } 
     //Entrance Ticket 
-    else if(payload === "'ET"){
+    else if(payload === "ET"){
         EntranceTickets(senderPsid);
     }
     else if(payload === "EXPLORE_ENTRANCE_TICKET_ONE"){
