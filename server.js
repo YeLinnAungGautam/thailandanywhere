@@ -1143,6 +1143,9 @@ async function handlePostback(senderPsid, receivedPostback) {
     else if (payload === "BANK_PHATTAYA") {
         Payment(senderPsid);
     }
+    else if (payload === "BANK_AYUTTHAYA") {
+        Payment(senderPsid);
+    }
     else if (payload === "CASH_KHAOYAI") {
         TalkToAgent(senderPsid);
     }
@@ -1150,6 +1153,9 @@ async function handlePostback(senderPsid, receivedPostback) {
         TalkToAgent(senderPsid);
     }
     else if (payload === "CASH_PHATTAYA") {
+        TalkToAgent(senderPsid);
+    }
+    else if (payload === "CASH_AYUTTHAYA") {
         TalkToAgent(senderPsid);
     }
     //End Payment Group Tour
