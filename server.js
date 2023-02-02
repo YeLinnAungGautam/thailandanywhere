@@ -120,6 +120,47 @@ async function Intro(senderPsid, receivedMessage) {
     await callSendAPI(senderPsid, response);
 }
 
+// send intro
+async function sendIntro(senderPsid) {
+    response = {
+        text: `မင်္ဂလာပါရှင့် 🙏 Thailand Anywhere မှ ကြိုဆိုပါတယ်။ထိုင်းနိုင်ငံအတွင်း ခရီးသွားဝန်ဆောင်မှုနဲ့ ပတ်သတ်ပြီး ကူညီဖို့အသင့်ပါရှင့်။ Thailand Anywhere ၏ ဝန်ဆောင်မှုများအားလုံးကို သိရှိနိုင်ရန် အောက်တွင်ရွေးချယ်ပေးပါနော်။🙇`,
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "Group Tour",
+                payload: "GT",
+            },
+            {
+                content_type: "text",
+                title: "လေယာဥ်လက်မှတ်",
+                payload: "AIR_TIC",
+            },
+            {
+                content_type: "text",
+                title: "ဟိုတယ်Booking",
+                payload: "HB",
+            },
+            {
+                content_type: "text",
+                title: "Private Van Tour",
+                payload: "PVT",
+            },
+            {
+                content_type: "text",
+                title: "Entrance tickets",
+                payload: "ET",
+            },
+            {
+                content_type: "text",
+                title: "Airport transfer",
+                payload: "AT",
+            },
+        ],
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, response);
+}
+
 async function ChoosePackages(senderPsid) {
     let response;
     // response = {
@@ -153,7 +194,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Khao Yai",
                         image_url:
                             "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
-                            subtitle: "Every Friday at 7am\n1950฿ per Person",
+                        subtitle: "Every Friday at 7am\n1950฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -171,7 +212,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Pattya",
                         image_url:
                             "https://scontent-sin6-3.xx.fbcdn.net/v/t45.5328-4/286706997_5404239662998297_8288395513428964828_n.jpg?stp=dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=q7B5wAtkS_UAX_4x0aX&_nc_ht=scontent-sin6-3.xx&oh=00_AfD0HjaWOPXOId0R9NK0R3ii3cFwdDVpxYuMQmPGb5U-rg&oe=63D40C8E",
-                            subtitle: "Every Friday at 7am\n1950฿ per Person",
+                        subtitle: "Every Friday at 7am\n1950฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -185,7 +226,6 @@ async function ChoosePackages(senderPsid) {
                             },
                         ],
                     },
-                    
                 ],
             },
         },
@@ -248,7 +288,7 @@ async function KanchanaburiImages(senderPsid) {
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
 }
-async function KhoyaiGroupTourImages(senderPsid){
+async function KhoyaiGroupTourImages(senderPsid) {
     let responseOne = {
         attachment: {
             type: "image",
@@ -300,7 +340,7 @@ async function KhoyaiGroupTourImages(senderPsid){
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseFive);
 }
-async function PattyaGroupTourImages(senderPsid){
+async function PattyaGroupTourImages(senderPsid) {
     let responseOne = {
         attachment: {
             type: "image",
@@ -596,7 +636,7 @@ async function makingBooking(senderPsid, payload) {
         payload === "NEXT_F_KANCHANABURI" ||
         payload === "THIS_F_KHOYAI" ||
         payload === "NEXT_F_KHOYAI" ||
-        payload === "FUTURE_D_KHOYAI" 
+        payload === "FUTURE_D_KHOYAI"
     ) {
         let responseOne = {
             text: "Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay.",
@@ -637,7 +677,6 @@ async function makingBooking(senderPsid, payload) {
     }
 }
 
-
 // Handles messaging_postbacks events
 async function handlePostback(senderPsid, receivedPostback) {
     let response;
@@ -653,31 +692,25 @@ async function handlePostback(senderPsid, receivedPostback) {
         TripDetailsForKanchanaburi(senderPsid);
     } else if (payload === "MKB_KAN") {
         makingBooking(senderPsid, payload);
-    } 
+    }
     //Start Kha Yai Group Tour
     else if (payload === "KHAO") {
         await KhoyaiGroupTourImages(senderPsid);
         await KhaoyaiGroupTour(senderPsid);
-    } else if(payload === "KHOYAI_DET_TALK_TO AGENT"){
+    } else if (payload === "KHOYAI_DET_TALK_TO AGENT") {
         TalkToAgent(senderPsid);
-    }
-    else if(payload === "GB_KHOYAI"){
+    } else if (payload === "GB_KHOYAI") {
         ChoosePackages(senderPsid);
-    }
-    else if(payload === "CHOOSE_DAYANDTIME_KHOYAI_DET"){
+    } else if (payload === "CHOOSE_DAYANDTIME_KHOYAI_DET") {
         ChooseDateAndTimeForKhoYai(senderPsid);
-    }
-    else if(payload === "THIS_F_KHOYAI"){
+    } else if (payload === "THIS_F_KHOYAI") {
         makingBooking(senderPsid, payload);
-    }
-    else if(payload === "NEXT_F_KHOYAI"){
+    } else if (payload === "NEXT_F_KHOYAI") {
         makingBooking(senderPsid, payload);
-    }
-    else if(payload === "FUTURE_D_KHOYAI"){
+    } else if (payload === "FUTURE_D_KHOYAI") {
         ChooseDate(senderPsid);
         makingBooking(senderPsid, payload);
-    }
-    else if(payload === "TALK_TO_AGENT_KHOYAI"){
+    } else if (payload === "TALK_TO_AGENT_KHOYAI") {
         TalkToAgent(senderPsid);
     }
     //End KhoYai Group Tour
@@ -694,50 +727,45 @@ async function handlePostback(senderPsid, receivedPostback) {
         makingBooking(senderPsid, payload);
     } else if (payload === "TALK_TO_AGENT_KANCHANABURI") {
         TalkToAgent(senderPsid);
-    }else if (payload === "GB_KAN"){
+    } else if (payload === "GB_KAN") {
         ChoosePackages(senderPsid);
-    } 
-    //Pattaya 
-    else if(payload === "PATTYA"){
+    }
+    //Pattaya
+    else if (payload === "PATTYA") {
         await PattyaGroupTourImages(senderPsid);
         await PattayaGroupTour(senderPsid);
-    }
-    else if(payload === "PATTAYA_DET_TALK_TO AGENT"){
+    } else if (payload === "PATTAYA_DET_TALK_TO AGENT") {
         TalkToAgent(senderPsid);
-    }
-    else if(payload === "GB_PATTAYA"){
+    } else if (payload === "GB_PATTAYA") {
         ChoosePackages(senderPsid);
-    }
-    else if(payload === "CHOOSE_DAYANDTIME_PATTAYA"){
+    } else if (payload === "CHOOSE_DAYANDTIME_PATTAYA") {
         ChooseDateAndTimeForPattaya(senderPsid);
-    }
-    else if(payload === "THIS_F_PATTAYA"){
+    } else if (payload === "THIS_F_PATTAYA") {
         makingBooking(senderPsid, payload);
-    }
-    else if(payload === "NEXT_F_PATTAYA"){
+    } else if (payload === "NEXT_F_PATTAYA") {
         makingBooking(senderPsid, payload);
-    }
-    else if(payload === "FUTURE_D_PATTAYA"){
+    } else if (payload === "FUTURE_D_PATTAYA") {
         ChooseDate(senderPsid);
         makingBooking(senderPsid, payload);
-    }
-    else if (payload === "TALK_TO_AGENT_PATTAYA") {
+    } else if (payload === "TALK_TO_AGENT_PATTAYA") {
         TalkToAgent(senderPsid);
     }
     // End Pattaya
-    else if(payload === "AIR_TIC"){
-        TalkToAgent(senderPsid)
+    else if (payload === "AIR_TIC") {
+        TalkToAgent(senderPsid);
+    } else if (payload === "AIR_TIC") {
+        TalkToAgent(senderPsid);
+    } else if (payload === "AIR_TIC") {
+        TalkToAgent(senderPsid);
+    } else if (payload === "AIR_TIC") {
+        TalkToAgent(senderPsid);
     }
-    else if(payload === "AIR_TIC"){
-        TalkToAgent(senderPsid)
-    }
-    else if(payload === "AIR_TIC"){
-        TalkToAgent(senderPsid)
-    }
-    else if(payload === "AIR_TIC"){
-        TalkToAgent(senderPsid)
-    }
-    else {
+    // general
+    else if (payload === "GET_STARTED") {
+        await sendIntro(senderPsid);
+    } else if (payload === "CARE_HELP") {
+        await TalkToAgent(senderPsid);
+    } else {
         await callSendAPI(senderPsid, response);
     }
 }
