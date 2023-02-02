@@ -194,7 +194,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Khao Yai",
                         image_url:
                             "http://thailandanywhere.npthosting.cyou/khaoyai/Caurosal-khao%20yai.jpg",
-                        subtitle: "Every Friday at 7am\n1950฿ per Person",
+                        subtitle: "Every Saturday at 7am\n1950฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -212,7 +212,7 @@ async function ChoosePackages(senderPsid) {
                         title: "Pattya",
                         image_url:
                             "http://thailandanywhere.npthosting.cyou/pattaya/caurosal-pattaya.jpg",
-                        subtitle: "Every Friday at 7am\n1850฿ per Person",
+                        subtitle: "Every Saturday at 7am\n1850฿ per Person",
                         buttons: [
                             {
                                 type: "postback",
@@ -223,6 +223,24 @@ async function ChoosePackages(senderPsid) {
                                 type: "postback",
                                 title: "Go Back",
                                 payload: "GROUP_TOUR_BAC3",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Ayutthaya",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/ayutthaya/caurosal-ayutthaya.jpg",
+                        subtitle: "Every Saturday at 7am\n1850฿ per Person",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Learn More",
+                                payload: "AYUTTHAYA",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GROUP_TOUR_BAC4",
                             },
                         ],
                     },
@@ -452,6 +470,68 @@ async function PattyaGroupTourImages(senderPsid) {
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseEight);
 }
+async function AyutthayaGroupTourImages(senderPsid) {
+    let responseOne = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/ayutthaya/1.jpg",
+            },
+        },
+    };
+    let responseTwo = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/ayutthaya/2.jpg",
+            },
+        },
+    };
+    let responseThree = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/ayutthaya/3.jpgg",
+            },
+        },
+    };
+    let responseFour = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/ayutthaya/4.jpg",
+            },
+        },
+    };
+    let responseFive = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/ayutthaya/5.jpg",
+            },
+        },
+    };
+    let responseSix = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: "http://thailandanywhere.npthosting.cyou/ayutthaya/6.jpg",
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseTwo);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseThree);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFour);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseFive);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseSix);
+}
 async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
     let responseOne = {
@@ -524,6 +604,90 @@ async function PattayaGroupTour(senderPsid, receivedMessage) {
                                 type: "postback",
                                 title: "Go Back",
                                 payload: "GB_PATTAYA",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, response);
+}
+async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
+    let response;
+    let responseOne = {
+        text: "🌳🍀🚐The Khao Yai group tour is refreshing, relaxing and soul cleansing. This group tour leaves every Sunday.\n\nOur best selling self-guided group tour to Khao Yai is a sight to be seen when visiting Thailand! Travelers experience picturesque scenes of nature, wild-life, culture and much more.\n\n--------------------------------------------------\n\nPrice: 1850 thb per person\n\n--------------------------------------------------\n\nPackage Inclusion:\n\n🎟️ Entrance fees for all activities,\n🚐 12 hours of trip with luxury van,\n🚲 Bicycle ride and\n🥗 Lunch at Timber Tales Restaurant\n🕒 Total trip hours are 12 to 13 hours\n\n--------------------------------------------------\n\nTravel itinerary:\n\n📍Pick-up point: Platinum Mall at 7:00 a.m.\n📍First Stop: Primo Piazza, Khao Yai\n📍Second Stop: Timber Tales Restaurant\n📍Third Stop: Pete Maze\n📍Fourth Stop: Khao Yai Thing\n📍Drop-Off: Platinum Mall\n\n--------------------------------------------------\n\nBrief Summary:\n\nThis day trip tour will take you to many breath-taking spots in Khao Yai. Our first stop is Primo Piazza 🏞️🐑🚐. A small Italian town in the middle of the mountains where you can enjoy the essence of Khao Yai city. 🏞️🍃🪴Pete Maze, another landmark of Khao Yai, where travelers will enter a maze made of trees. 🍀🚲🌫️🌬️Lastly, we will visit the famous Khao Yai Thiang, which has big white windmills, almost like in the Japanese Anime movie. Here our travelers are provided a free bike trip on the edge of the mountain.\n\n--------------------------------------------------\n\nTerms and Conditions:\n\nTicket sales are closed 10 hours before departure of the trip. Customers pay a 10% deposit for confirmation of the trip. Trip requires a minimum of 4 travelers to depart. Full refund will be transferred if the trip does not meet the minimum number of passengers.\n\n--------------------------------------------------\n\nCancellation:\n\nFor full refund of deposit, customers need to cancel 48 hours before departure of the trip.",
+    };
+    response = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Have Fun",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/khaoyai/Caurosal-khao%20yai.jpg",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Book Now",
+                                payload: "CHOOSE_DAYANDTIME_KHOYAI_DET",
+                            },
+                            {
+                                type: "postback",
+                                title: "Talk To Agent",
+                                payload: "KHOYAI_DET_TALK_TO AGENT",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GB_KHOYAI",
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, response);
+}
+async function AyutthayaGroupTour(senderPsid, receivedMessage) {
+    let response;
+    let responseOne = {
+        text: "🌳🍀🚐🇹🇭🚐🌳The self-guided tour to Ayutthaya is a step into history, heritage and marvelous architecture. 🏞️ Our itinerary takes travelers to 5 exciting spots in Ayutthaya and Nakhon Nayok. 📸 🤗 This self-guided group tour is historical and memorable.\n\n------------------------\n\nPrice: 1850 thb per person\n\n------------------------\n\n🤩🤗 Package Inclusion:\n\n🎟️ Entrance fees for all activities,\n🚐 Luxury van transportation,\n🥗 Lunch at Malakor Restaurant\n🕒 12 to 13 hours\n\n------------------------\n\nTravel itinerary:\n\n📍Pick-up point: Platinum Mall at 7:00 a.m.\n📍First Stop: Bang Pa-In Palace\n📍Second Stop: Wat Yai Chai Mongkhon\n📍Third Stop: Lunch at Malakor Restaurant\n📍Fourth Stop: Wat Phra Mahathat\n📍Fifth Stop: Wat Maniwong\n📍Drop-Off: Platinum Mall\n\n------------------------\n\nBrief Summary:\n\nHistory of Thailand is remarkably well preserved and in this tour, you will see it first-hand. Travelers visit Bang Pa-In Palace where the story of love, war and passion of ancient Thai kings are well documented. The palace is well-renowned globally and graceful. Then travelers stop at Wat Yai Chai Mongkhon pagoda that dates back to the 1900s. Structures here still remain intact today. An average of 4.3 stars (600+ reviews) makes Malakor Restaurant the perfect place to have lunch. Afterwards to a Temple that is believed to be one of Ayutthaya oldest; dating back to late 1300s. Last destination is perhaps one of the most iconic pagodas in Thailand, Wat Maniwong. It is full of dragon statues and treasures; a perfect place to take breath-taking photos.\n\n------------------------\n\nTerms and Conditions:\n\nTicket sales are closed 10 hours before departure of the trip. Customers pay a 10% deposit for confirmation of the trip. Trip requires a minimum of 4 travelers to depart. Full refund will be transferred if the trip does not meet the minimum number of passengers.\n\n------------------------\n\nCancellation:\n\nFor full refund of deposit, customers need to cancel 48 hours before departure of the trip.",
+    };
+    response = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [
+                    {
+                        title: "Have Fun",
+                        image_url:
+                            "http://thailandanywhere.npthosting.cyou/ayutthaya/caurosal-ayutthaya.jpg",
+                        buttons: [
+                            {
+                                type: "postback",
+                                title: "Book Now",
+                                payload: "CHOOSE_DAYANDTIME_AYUTTHAYA_DET",
+                            },
+                            {
+                                type: "postback",
+                                title: "Talk To Agent",
+                                payload: "AYUTTHAYA_DET_TALK_TO AGENT",
+                            },
+                            {
+                                type: "postback",
+                                title: "Go Back",
+                                payload: "GB_AYUTTHAYA",
                             },
                         ],
                     },
@@ -623,6 +787,35 @@ async function ChooseDateAndTimeForPattaya(senderPsid) {
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, responseOne);
 }
+async function ChooseDateAndTimeForAyutthaya(senderPsid) {
+    let responseOne = {
+        text: "When would you like to book?",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "This Friday",
+                payload: "THIS_F_AYUTTHAYA",
+            },
+            {
+                content_type: "text",
+                title: "Next Friday",
+                payload: "NEXT_F_AYUTTHAYA",
+            },
+            {
+                content_type: "text",
+                title: "Future Dates",
+                payload: "FUTURE_D_AYUTTHAYA",
+            },
+            {
+                content_type: "text",
+                title: "Talk To Agent",
+                payload: "TALK_TO_AGENT_AYUTTHAYA",
+            },
+        ],
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+}
 async function ChooseDate(senderPsid) {
     let responseOne = {
         text: "Please Give Us Your date",
@@ -638,48 +831,7 @@ async function TalkToAgent(senderPsid) {
     sendTypingOn(senderPsid, "typing_on");
     await callSendAPI(senderPsid, response);
 }
-async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
-    let response;
-    let responseOne = {
-        text: "🌳🍀🚐The Khao Yai group tour is refreshing, relaxing and soul cleansing. This group tour leaves every Sunday.\n\nOur best selling self-guided group tour to Khao Yai is a sight to be seen when visiting Thailand! Travelers experience picturesque scenes of nature, wild-life, culture and much more.\n\n--------------------------------------------------\n\nPrice: 1850 thb per person\n\n--------------------------------------------------\n\nPackage Inclusion:\n\n🎟️ Entrance fees for all activities,\n🚐 12 hours of trip with luxury van,\n🚲 Bicycle ride and\n🥗 Lunch at Timber Tales Restaurant\n🕒 Total trip hours are 12 to 13 hours\n\n--------------------------------------------------\n\nTravel itinerary:\n\n📍Pick-up point: Platinum Mall at 7:00 a.m.\n📍First Stop: Primo Piazza, Khao Yai\n📍Second Stop: Timber Tales Restaurant\n📍Third Stop: Pete Maze\n📍Fourth Stop: Khao Yai Thing\n📍Drop-Off: Platinum Mall\n\n--------------------------------------------------\n\nBrief Summary:\n\nThis day trip tour will take you to many breath-taking spots in Khao Yai. Our first stop is Primo Piazza 🏞️🐑🚐. A small Italian town in the middle of the mountains where you can enjoy the essence of Khao Yai city. 🏞️🍃🪴Pete Maze, another landmark of Khao Yai, where travelers will enter a maze made of trees. 🍀🚲🌫️🌬️Lastly, we will visit the famous Khao Yai Thiang, which has big white windmills, almost like in the Japanese Anime movie. Here our travelers are provided a free bike trip on the edge of the mountain.\n\n--------------------------------------------------\n\nTerms and Conditions:\n\nTicket sales are closed 10 hours before departure of the trip. Customers pay a 10% deposit for confirmation of the trip. Trip requires a minimum of 4 travelers to depart. Full refund will be transferred if the trip does not meet the minimum number of passengers.\n\n--------------------------------------------------\n\nCancellation:\n\nFor full refund of deposit, customers need to cancel 48 hours before departure of the trip.",
-    };
-    response = {
-        attachment: {
-            type: "template",
-            payload: {
-                template_type: "generic",
-                elements: [
-                    {
-                        title: "Have Fun",
-                        image_url:
-                            "http://thailandanywhere.npthosting.cyou/khaoyai/Caurosal-khao%20yai.jpg",
-                        buttons: [
-                            {
-                                type: "postback",
-                                title: "Book Now",
-                                payload: "CHOOSE_DAYANDTIME_KHOYAI_DET",
-                            },
-                            {
-                                type: "postback",
-                                title: "Talk To Agent",
-                                payload: "KHOYAI_DET_TALK_TO AGENT",
-                            },
-                            {
-                                type: "postback",
-                                title: "Go Back",
-                                payload: "GB_KHOYAI",
-                            },
-                        ],
-                    },
-                ],
-            },
-        },
-    };
-    sendTypingOn(senderPsid, "typing_on");
-    await callSendAPI(senderPsid, responseOne);
-    sendTypingOn(senderPsid, "typing_on");
-    await callSendAPI(senderPsid, response);
-}
+
 async function TripDetailsForKanchanaburi(senderPsid) {
     let message = {
         text: "ကျွန်တော်သည် Kanchanaburi ဖြစ်ပါသည်",
@@ -817,6 +969,49 @@ async function makingBookingPhattaya(senderPsid, payload) {
         await callSendAPI(senderPsid, responseTwo);
     }
 }
+async function makingBookingAyutthaya(senderPsid, payload) {
+    if (
+        payload === "THIS_F_AYUTTHAYA" ||
+        payload === "NEXT_F_AYUTTHAYA" ||
+        payload === "FUTURE_D_AYUTTHAYA"
+    ) {
+        let responseOne = {
+            text: "Please confirm your booking by paying 10% deposit. How would you like to Pay.",
+        };
+        let responseTwo = {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [
+                        {
+                            title: "How would you like to pay",
+                            image_url:
+                                "https://external.xx.fbcdn.net/emg1/v/t13/6971723891701891183?stp=dst-src&url=https%3A%2F%2Fwww.nttdata.com%2Fth%2Fen%2F-%2Fmedia%2Fnttdataapac%2Fndth%2Fservices%2Fcard-and-payment-services%2Fservices_card_and_payment_services_header_2732x1536_1.jpg%3Fh%3D1536%26iar%3D0%26w%3D2732%26rev%3Dcda4f237fa8c46248b1376544031309e&utld=nttdata.com&ccb=13-1&oh=06_AbGzI2TbbMy3TlKGdaLz-XQErRjw2x5Y3sXaJfut6rioYA&oe=63DD593E&_nc_sid=73babb",
+                            subtitle: "Choose Your Payment Method",
+                            buttons: [
+                                {
+                                    type: "postback",
+                                    title: "Thai Bank",
+                                    payload: "BANK_AYUTTHAYA",
+                                },
+                                {
+                                    type: "postback",
+                                    title: "Cash",
+                                    payload: "CASH_AYUTTHAYA",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseOne);
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseTwo);
+    }
+}
 async function Payment(senderPsid) {
     let responseOne = {
         text: "Bank Name - KASIKORNBANK\n\nA/C NO. - 128-8-91451-2\n\nA/C Name - MR.THIHA@KUMAR BHUSAL",
@@ -904,6 +1099,31 @@ async function handlePostback(senderPsid, receivedPostback) {
         TalkToAgent(senderPsid);
     }
     // End Pattaya
+    //Start Ayuttaya
+    else if (payload === "AYUTTHAYA") {
+        await AyutthayaGroupTourImages(senderPsid);
+        await AyutthayaGroupTour(senderPsid);
+    }
+    else if (payload === "AYUTTHAYA_DET_TALK_TO AGENT") {
+        TalkToAgent(senderPsid);
+    } 
+    else if (payload === "GB_AYUTTHAYA") {
+        ChoosePackages(senderPsid);
+    } 
+    else if (payload === "CHOOSE_DAYANDTIME_AYUTTHAYA_DET") {
+        ChooseDateAndTimeForAyutthaya(senderPsid);
+    } 
+    else if (payload === "THIS_F_AYUTTHAYA") {
+        makingBookingAyutthaya(senderPsid, payload);
+    } else if (payload === "NEXT_F_AYUTTHAYA") {
+        makingBookingAyutthaya(senderPsid, payload);
+    } else if (payload === "FUTURE_D_AYUTTHAYA") {
+        ChooseDate(senderPsid);
+        makingBookingAyutthaya(senderPsid, payload);
+    } else if (payload === "TALK_TO_AGENT_AYUTTHAYA") {
+        TalkToAgent(senderPsid);
+    }
+    // End Ayuttaya
     else if (payload === "AIR_TIC") {
         TalkToAgent(senderPsid);
     } else if (payload === "AIR_TIC") {
