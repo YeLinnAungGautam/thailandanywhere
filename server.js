@@ -425,7 +425,7 @@ async function PattyaGroupTourImages(senderPsid) {
 async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
     let response;
     let responseOne = {
-        text: "hi i am kanchanaburi",
+        text: "🌳🍀🚐🇹🇭🚐🌳The self-guided tour to Kanchanaburi is full of great sight-seeing activities and relaxing nature retreats. 🏞️ Our itinerary takes travelers to 6 of the best spots in Kanchanaburi. 📸 🤗 The self-guided group tour is a must buy for travelers looking to explore Kanchanaburi.\n\n--------------------------------------------------\n\nPrice: 1850 thb per person\n\n--------------------------------------------------\n\n🤩🤗 Package Inclusion:\n\n🎟️ Entrance fees for all activities,\n🚐 Luxury van transportation,\n🚲 Coffee at Chan Nature’s Cafe\n🥗 Lunch at Floating Ratch Restaurant\n🕒 12 to 13 hours    \n\n--------------------------------------------------\n\nTravel itinerary:\n\n📍Pick-up point: Platinum Mall at 7:00 a.m.\n📍First Stop: Wat Tham Suea\n📍Second Stop: Floating Ratch Restaurant\n📍Third Stop: River Kwai Bridge\n📍Fourth Stop: Saiyok Waterfall\n📍Fifth Stop: Chan Nature’s Cafe\n📍Sixth Stop: Giant Tree\n📍Drop-Off: Platinum Mall\n\n--------------------------------------------------\n\nBrief Summary:\n\nWat Tham Suea is an iconic pagoda with statues of Buddha hidden within a cave-like structure. 🏞️🍃Lunch at Floating Ratch Restaurant with a breath-taking view of River Kwai.🪴River Kwai Bridge was built during the World War II that took the lives of over 100,000 prisoners. Soak in the pleasant Saiyok Waterfall and travel to a picturesque margaret farm at Chan Nature’s Cafe. Last stop at Giant Tree, the largest tree you will probably see in your life time before heading back to Bangkok.\n\n--------------------------------------------------\n\nTerms and Conditions:\n\nTicket sales are closed 10 hours before departure of the trip. Customers pay a 10% deposit for confirmation of the trip. Trip requires a minimum of 4 travelers to depart. Full refund will be transferred if the trip does not meet the minimum number of passengers.\n\n--------------------------------------------------\n\nCancellation:\n\nFor full refund of deposit, customers need to cancel 48 hours before departure of the trip.",
     };
     response = {
         attachment: {
@@ -436,7 +436,7 @@ async function KanchanaburiGroupTour(senderPsid, receivedMessage) {
                     {
                         title: "Have Fun",
                         image_url:
-                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                            "http://thailandanywhere.npthosting.cyou/kanchanaburi/Caurosal-kanchanaburi.jpg",
                         buttons: [
                             {
                                 type: "postback",
@@ -542,35 +542,6 @@ async function ChooseDateAndTimeForKhoYai(senderPsid) {
             {
                 content_type: "text",
                 title: "This Friday",
-                payload: "THIS_F_PATTAYA",
-            },
-            {
-                content_type: "text",
-                title: "Next Friday",
-                payload: "NEXT_F_PATTAYA",
-            },
-            {
-                content_type: "text",
-                title: "Future Dates",
-                payload: "FUTURE_D_PATTAYA",
-            },
-            {
-                content_type: "text",
-                title: "Talk To Agent",
-                payload: "TALK_TO_AGENT_PATTAYA",
-            },
-        ],
-    };
-    sendTypingOn(senderPsid, "typing_on");
-    await callSendAPI(senderPsid, responseOne);
-}
-async function ChooseDateAndTimeForPattaya(senderPsid) {
-    let responseOne = {
-        text: "When would you like to book?",
-        quick_replies: [
-            {
-                content_type: "text",
-                title: "This Friday",
                 payload: "THIS_F_KHOYAI",
             },
             {
@@ -587,6 +558,35 @@ async function ChooseDateAndTimeForPattaya(senderPsid) {
                 content_type: "text",
                 title: "Talk To Agent",
                 payload: "TALK_TO_AGENT_KHOYAI",
+            },
+        ],
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+}
+async function ChooseDateAndTimeForPattaya(senderPsid) {
+    let responseOne = {
+        text: "When would you like to book?",
+        quick_replies: [
+            {
+                content_type: "text",
+                title: "This Friday",
+                payload: "THIS_F_PATTAYA",
+            },
+            {
+                content_type: "text",
+                title: "Next Friday",
+                payload: "NEXT_F_PATTAYA",
+            },
+            {
+                content_type: "text",
+                title: "Future Dates",
+                payload: "FUTURE_D_PATTAYA",
+            },
+            {
+                content_type: "text",
+                title: "Talk To Agent",
+                payload: "TALK_TO_AGENT_PATTAYA",
             },
         ],
     };
@@ -622,7 +622,7 @@ async function KhaoyaiGroupTour(senderPsid, receivedMessage) {
                     {
                         title: "Have Fun",
                         image_url:
-                            "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                            "http://thailandanywhere.npthosting.cyou/khaoyai/Caurosal-khao%20yai.jpg",
                         buttons: [
                             {
                                 type: "postback",
@@ -660,18 +660,13 @@ async function TripDetailsForKanchanaburi(senderPsid) {
 async function makingBooking(senderPsid, payload) {
     if (
         payload === "MKB_KAN" ||
-        payload === "KHAOYAI_BKG" ||
         payload === "THIS_F_KANCHANABURI" ||
         payload === "FUTURE_D_KANCHANABURI" ||
-        payload === "NEXT_F_KANCHANABURI" ||
-        payload === "THIS_F_KHOYAI" ||
-        payload === "NEXT_F_KHOYAI" ||
-        payload === "FUTURE_D_KHOYAI"
+        payload === "NEXT_F_KANCHANABURI"
     ) {
         let responseOne = {
-            text: "Please confirm your booking for this Friday by paying 10% deposit. How would you like to Pay.",
+            text: "Please confirm your booking by paying 10% deposit. How would you like to Pay.",
         };
-
         let responseTwo = {
             attachment: {
                 type: "template",
@@ -681,18 +676,18 @@ async function makingBooking(senderPsid, payload) {
                         {
                             title: "How would you like to pay",
                             image_url:
-                                "https://www.nttdata.com/th/en/-/media/nttdataapac/ndth/services/card-and-payment-services/services_card_and_payment_services_header_2732x1536_1.jpg?h=1536&iar=0&w=2732&rev=cda4f237fa8c46248b1376544031309e",
+                                "https://external.xx.fbcdn.net/emg1/v/t13/6971723891701891183?stp=dst-src&url=https%3A%2F%2Fwww.nttdata.com%2Fth%2Fen%2F-%2Fmedia%2Fnttdataapac%2Fndth%2Fservices%2Fcard-and-payment-services%2Fservices_card_and_payment_services_header_2732x1536_1.jpg%3Fh%3D1536%26iar%3D0%26w%3D2732%26rev%3Dcda4f237fa8c46248b1376544031309e&utld=nttdata.com&ccb=13-1&oh=06_AbGzI2TbbMy3TlKGdaLz-XQErRjw2x5Y3sXaJfut6rioYA&oe=63DD593E&_nc_sid=73babb",
                             subtitle: "Online",
                             buttons: [
                                 {
                                     type: "postback",
-                                    title: "KBZ Bank",
-                                    payload: "ACC_KBZ",
+                                    title: "Thai Bank",
+                                    payload: "BANK_KANCHANABURI",
                                 },
                                 {
                                     type: "postback",
-                                    title: "Thai Bank",
-                                    payload: "ACC_THAI",
+                                    title: "Cash",
+                                    payload: "CASH_KANCHANABURI",
                                 },
                             ],
                         },
@@ -705,6 +700,104 @@ async function makingBooking(senderPsid, payload) {
         sendTypingOn(senderPsid, "typing_on");
         await callSendAPI(senderPsid, responseTwo);
     }
+}
+async function makingBookingKhaoYai(senderPsid, payload) {
+    if (
+        payload === "THIS_F_KHOYAI" ||
+        payload === "NEXT_F_KHOYAI" ||
+        payload === "FUTURE_D_KHOYAI"
+    ) {
+        let responseOne = {
+            text: "Please confirm your booking by paying 10% deposit. How would you like to Pay.",
+        };
+        let responseTwo = {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [
+                        {
+                            title: "How would you like to pay",
+                            image_url:
+                                "https://external.xx.fbcdn.net/emg1/v/t13/6971723891701891183?stp=dst-src&url=https%3A%2F%2Fwww.nttdata.com%2Fth%2Fen%2F-%2Fmedia%2Fnttdataapac%2Fndth%2Fservices%2Fcard-and-payment-services%2Fservices_card_and_payment_services_header_2732x1536_1.jpg%3Fh%3D1536%26iar%3D0%26w%3D2732%26rev%3Dcda4f237fa8c46248b1376544031309e&utld=nttdata.com&ccb=13-1&oh=06_AbGzI2TbbMy3TlKGdaLz-XQErRjw2x5Y3sXaJfut6rioYA&oe=63DD593E&_nc_sid=73babb",
+                            subtitle: "Choose Your Payment Method",
+                            buttons: [
+                                {
+                                    type: "postback",
+                                    title: "Thai Bank",
+                                    payload: "BANK_KHAOYAI",
+                                },
+                                {
+                                    type: "postback",
+                                    title: "Cash",
+                                    payload: "CASH_KHAOYAI",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseOne);
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseTwo);
+    }
+}
+async function makingBookingPhattaya(senderPsid, payload) {
+    if (
+        payload === "THIS_F_PATTAYA" ||
+        payload === "NEXT_F_PATTAYA" ||
+        payload === "FUTURE_D_PATTAYA"
+    ) {
+        let responseOne = {
+            text: "Please confirm your booking by paying 10% deposit. How would you like to Pay.",
+        };
+        let responseTwo = {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [
+                        {
+                            title: "How would you like to pay",
+                            image_url:
+                                "https://external.xx.fbcdn.net/emg1/v/t13/6971723891701891183?stp=dst-src&url=https%3A%2F%2Fwww.nttdata.com%2Fth%2Fen%2F-%2Fmedia%2Fnttdataapac%2Fndth%2Fservices%2Fcard-and-payment-services%2Fservices_card_and_payment_services_header_2732x1536_1.jpg%3Fh%3D1536%26iar%3D0%26w%3D2732%26rev%3Dcda4f237fa8c46248b1376544031309e&utld=nttdata.com&ccb=13-1&oh=06_AbGzI2TbbMy3TlKGdaLz-XQErRjw2x5Y3sXaJfut6rioYA&oe=63DD593E&_nc_sid=73babb",
+                            subtitle: "Choose Your Payment Method",
+                            buttons: [
+                                {
+                                    type: "postback",
+                                    title: "Thai Bank",
+                                    payload: "BANK_PHATTAYA",
+                                },
+                                {
+                                    type: "postback",
+                                    title: "Cash",
+                                    payload: "CASH_PHATTAYA",
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+        };
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseOne);
+        sendTypingOn(senderPsid, "typing_on");
+        await callSendAPI(senderPsid, responseTwo);
+    }
+}
+async function Payment(senderPsid) {
+    let responseOne = {
+        text: "Bank Name - KASIKORNBANK\n\nA/C NO. - 128-8-91451-2\n\nA/C Name - MR.THIHA@KUMAR BHUSAL",
+    };
+    let responseTwo = {
+        text: "Please sent us the screenshots of payment receipt.Thank You!",
+    };
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseOne);
+    sendTypingOn(senderPsid, "typing_on");
+    await callSendAPI(senderPsid, responseTwo);
 }
 
 // Handles messaging_postbacks events
@@ -723,7 +816,7 @@ async function handlePostback(senderPsid, receivedPostback) {
     } else if (payload === "MKB_KAN") {
         makingBooking(senderPsid, payload);
     }
-    //Start Kha Yai Group Tour
+    //Start Kha Yao Group Tour
     else if (payload === "KHAO") {
         await KhoyaiGroupTourImages(senderPsid);
         await KhaoyaiGroupTour(senderPsid);
@@ -734,12 +827,12 @@ async function handlePostback(senderPsid, receivedPostback) {
     } else if (payload === "CHOOSE_DAYANDTIME_KHOYAI_DET") {
         ChooseDateAndTimeForKhoYai(senderPsid);
     } else if (payload === "THIS_F_KHOYAI") {
-        makingBooking(senderPsid, payload);
+        makingBookingKhaoYai(senderPsid, payload);
     } else if (payload === "NEXT_F_KHOYAI") {
-        makingBooking(senderPsid, payload);
+        makingBookingKhaoYai(senderPsid, payload);
     } else if (payload === "FUTURE_D_KHOYAI") {
         ChooseDate(senderPsid);
-        makingBooking(senderPsid, payload);
+        makingBookingKhaoYai(senderPsid, payload);
     } else if (payload === "TALK_TO_AGENT_KHOYAI") {
         TalkToAgent(senderPsid);
     }
@@ -771,12 +864,12 @@ async function handlePostback(senderPsid, receivedPostback) {
     } else if (payload === "CHOOSE_DAYANDTIME_PATTAYA") {
         ChooseDateAndTimeForPattaya(senderPsid);
     } else if (payload === "THIS_F_PATTAYA") {
-        makingBooking(senderPsid, payload);
+        makingBookingPhattaya(senderPsid, payload);
     } else if (payload === "NEXT_F_PATTAYA") {
-        makingBooking(senderPsid, payload);
+        makingBookingPhattaya(senderPsid, payload);
     } else if (payload === "FUTURE_D_PATTAYA") {
         ChooseDate(senderPsid);
-        makingBooking(senderPsid, payload);
+        makingBookingPhattaya(senderPsid, payload);
     } else if (payload === "TALK_TO_AGENT_PATTAYA") {
         TalkToAgent(senderPsid);
     }
@@ -790,6 +883,26 @@ async function handlePostback(senderPsid, receivedPostback) {
     } else if (payload === "AIR_TIC") {
         TalkToAgent(senderPsid);
     }
+    //Payment Group Tour
+    else if (payload === "BANK_KHAOYAI") {
+        Payment(senderPsid);
+    }
+    else if (payload === "BANK_KANCHANABURI") {
+        Payment(senderPsid);
+    }
+    else if (payload === "BANK_PHATTAYA") {
+        Payment(senderPsid);
+    }
+    else if (payload === "CASH_KHAOYAI") {
+        TalkToAgent(senderPsid);
+    }
+    else if (payload === "CASH_KANCHANABURI") {
+        TalkToAgent(senderPsid);
+    }
+    else if (payload === "CASH_PHATTAYA") {
+        TalkToAgent(senderPsid);
+    }
+    //End Payment Group Tour
     // general
     else if (payload === "GET_STARTED") {
         await sendIntro(senderPsid);
