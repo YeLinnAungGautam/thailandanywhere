@@ -622,11 +622,12 @@ async function EntranceTickets(senderPsid)
                         title: "Entry Ticket Two",
                         image_url:
                             "http://thailandanywhere.npthosting.cyou/kanchanaburi_grouptour_2.jpg",
+                        subtitle: "City Name\nTotal count of Products",
                         buttons: [
                             {
                                 type: "postback",
                                 title: "EXPLORE",
-                                payload: "EXPLORE_ENTRANCE_TICKET_ONE",
+                                payload: "EXPLORE_ENTRANCE_TICKET_TWO",
                             }, 
                         ],
                     },
@@ -767,6 +768,8 @@ async function CruisesProductsETONE(senderPsid){
             },
         },
     }
+    sendTypingOn(senderPsid, "typing_on");
+    callSendAPI(senderPsid, responseTwo);
 }
 
 // Handles messaging_postbacks events
