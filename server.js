@@ -90,12 +90,12 @@ async function Intro(senderPsid, receivedMessage) {
                 },
                 {
                     content_type: "text",
-                    title: "လေယာဥ်လက်မှတ်",
+                    title: "AirTickets",
                     payload: "AIR_TIC",
                 },
                 {
                     content_type: "text",
-                    title: "ဟိုတယ်Booking",
+                    title: "Hotel Booking",
                     payload: "HB",
                 },
                 {
@@ -123,7 +123,7 @@ async function Intro(senderPsid, receivedMessage) {
 // send intro
 async function sendIntro(senderPsid) {
     let response = {
-        text: `မင်္ဂလာပါရှင့် 🙏 Thailand Anywhere မှ ကြိုဆိုပါတယ်။ထိုင်းနိုင်ငံအတွင်း ခရီးသွားဝန်ဆောင်မှုနဲ့ ပတ်သတ်ပြီး ကူညီဖို့အသင့်ပါရှင့်။ Thailand Anywhere ၏ ဝန်ဆောင်မှုများအားလုံးကို သိရှိနိုင်ရန် အောက်တွင်ရွေးချယ်ပေးပါနော်။🙇`,
+        text: `Thailand Anywhere team is happy to serve you on your holiday plans. We offer car rental services, hotel booking, entry tickets, group tours and custom travel plans at great prices!🙇\n\nPlease select below to find out all about Thailand Anywhere's services and book your desired products.🙇`,
         quick_replies: [
             {
                 content_type: "text",
@@ -132,12 +132,12 @@ async function sendIntro(senderPsid) {
             },
             {
                 content_type: "text",
-                title: "လေယာဥ်လက်မှတ်",
+                title: "AirTickets",
                 payload: "AIR_TIC",
             },
             {
                 content_type: "text",
-                title: "ဟိုတယ်Booking",
+                title: "Hotel Booking",
                 payload: "HB",
             },
             {
@@ -1159,6 +1159,19 @@ async function handlePostback(senderPsid, receivedPostback) {
         TalkToAgent(senderPsid);
     }
     //End Payment Group Tour
+    // GroupTour Go Back
+    else if (payload === "GROUP_TOUR_BAC1") {
+        await sendIntro(senderPsid);
+    }
+    else if (payload === "GROUP_TOUR_BAC2") {
+        await sendIntro(senderPsid);
+    }
+    else if (payload === "GROUP_TOUR_BAC3") {
+        await sendIntro(senderPsid);
+    }
+    else if (payload === "GROUP_TOUR_BAC4") {
+        await sendIntro(senderPsid);
+    }
     // general
     else if (payload === "GET_STARTED") {
         await sendIntro(senderPsid);
